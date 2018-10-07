@@ -29,10 +29,9 @@ class User < ApplicationRecord
     SecureRandom.urlsafe_base64(16)
   end
 
-  def self.find_by_credentials(login, password)
-    user = User.find_by_email(email)
-        || User.find_by_mobile_number( sanitize_mobile(login) )
-    return user && user.is_password?(password)
+  def self.find_by_credentials(email, mobile_number, password)
+    user = User.find_by_email(email) || User.find_by_mobile_number(mobile_number)
+    return user if user && user.is_password?(password)
   end
 
   def password=(password)
