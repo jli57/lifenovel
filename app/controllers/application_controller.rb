@@ -1,6 +1,7 @@
 class ApplicationController < ActionController::Base
 
   helper_method :current_user, :logged_in?
+  skip_before_action :verify_authenticity_token
 
   def login!(user)
     session[:session_token] = user.reset_session_token!
