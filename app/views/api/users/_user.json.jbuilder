@@ -4,7 +4,7 @@ json.set! user.id do
     :first_name,
     :last_name,
     :email,
-    :phone_number,
+    :mobile_number,
     :birth_date,
     :gender
 end
