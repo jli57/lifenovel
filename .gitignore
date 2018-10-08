@@ -28,4 +28,7 @@
 
 node_modules/
 bundle.js
-bundle.js.map 
+bundle.js.map
+.DS_STORE
+.byebug_history
+npm-debug.log
