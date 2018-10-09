@@ -25,5 +25,15 @@ export const YEARS = () => {
 }
 
 export const validDate = (year, month, day) => {
-  const today = new Date()
+
+  const days = [31, ( isLeapYear(year) ? 29 : 28 ), 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
+  if ( days[month-1] >= day ) return true;
+  return false;
 }
+
+const isLeapYear = (year) => {
+  if ( year % 400 === 0 ) return true;
+  if ( year % 100 === 0 ) return false;
+  if ( year % 4 === 0 ) return true;
+  return false;
+};

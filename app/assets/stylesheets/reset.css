@@ -36,6 +36,10 @@ button {
   -moz-appearance: none;
 }
 
+:focus {
+  background: #fff;
+}
+
 button,
 input[type="submit"] {
   cursor: pointer;

@@ -65,4 +65,7 @@ class User < ApplicationRecord
     mobile_number.delete('^0-9')
   end
 
+  def validate_birthdate( year, month, day )
+
+  end
 end

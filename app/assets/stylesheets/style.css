@@ -1,3 +1,117 @@
 body {
-  font-family: 'Lato', sans-serif;
+  font-family: Helvetica, sans-serif;
+  font-size: 12px;
+}
+
+main {
+  background-color: #ECF0F5;
+  overflow: auto;
+}
+
+a {
+  color: #365899;
+  cursor: pointer;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+select {
+  outline: none !important;
+  -webkit-appearance: menulist;
+  -webkit-rtl-ordering: logical;
+}
+
+.main-content {
+  width: 980px;
+  margin: auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.nav-bar-container {
+  height: 82px;
+  background-color: #3B5998;
+  background-image: linear-gradient(#4e69a2, #3b5998 50%);
+  border-bottom: 1px solid #133783;
+  color: white;
+}
+
+.nav-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  width: 980px;
+  padding-top: 11px;
+  margin: auto;
+}
+
+.logo {
+  color: white;
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 700;
+  font-size: 38px;
+  padding-bottom: 8px;
+}
+.logo:hover {
+  text-decoration: none;
+}
+
+.login-form td {
+  padding-left: 12px;
+}
+
+.login-form input {
+  border: 1px solid #1d2a5b;
+  background: white;
+  height: 18px;
+  width: 142px;
+  color: black;
+  font-size: 12px;
+  padding: 3px;
+}
+
+.login-form input[type="password"] {
+  font-size: 16px;
+}
+
+.login-form input[type="submit"] {
+  border: 1px solid #29487d;
+  background: #4267b2;
+  font-size: 12px;
+  color: white;
+  text-align: center;
+  width: 50px;
+}
+
+.login-form input[type="submit"]:hover {
+  background:  #3B5998;
+}
+
+.forgot-account {
+  color: #9cb4d8;
+}
+
+.h1 {
+  font-family: 'Freight Sans Medium';
+  text-rendering: optimizeLegibility;
+  font-size: 32px;
+  font-weight: bold;
+  letter-spacing: .7px;
+  margin-bottom: 5px;
+}
+
+.bold {
+  font-weight: bold;
+
+}
+
+.f12 {
+  font-size: 12px;
+}
+
+.invalid {
+  border-color: red; 
 }
