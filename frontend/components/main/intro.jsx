@@ -6,7 +6,7 @@ import login_timeline from '../../../app/assets/images/login_timeline.png';
 
 const Intro = () => (
   <div id="intro">
-    <h1 className="h1">Connect with friends and the world around you on Litenovel.</h1>
+    <h1 className="h1">Connect with friends and the world around you on Lifenovel.</h1>
     <div>
       <img src={login_photo} />
       <p>
@@ -25,7 +25,7 @@ const Intro = () => (
       <img src={login_find} />
       <p>
         <span className="bold">Find more </span>
-        <span>more of what you are looking for with Litenovel Search.</span>
+        <span>more of what you are looking for with Lifenovel Search.</span>
       </p>
     </div>
   </div>

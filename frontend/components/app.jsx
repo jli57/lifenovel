@@ -9,7 +9,7 @@ const App = () => (
     <div className="nav-bar-container">
       <nav className="nav-bar">
         <Link to="/" className="logo">
-          <h1>litenovel</h1>
+          <h1>lifenovel</h1>
         </Link>
         <Switch>
           <Route to="/login" component={LoginFormContainer} />
