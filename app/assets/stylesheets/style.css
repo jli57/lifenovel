@@ -4,6 +4,7 @@ body {
 }
 
 main {
+  min-width: 980px;
   padding: 20px 0;
   background: #ECF0F5;
 }
@@ -29,6 +30,7 @@ ul {
 }
 
 .main-content {
+
   width: 980px;
   margin: auto;
 }
@@ -51,6 +53,7 @@ ul {
 }
 
 .nav-bar-container, .user-nav-bar-container  {
+  min-width: 980px; 
   background-color: #3B5998;
   border-bottom: 1px solid #133783;
   color: white;
