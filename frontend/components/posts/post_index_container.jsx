@@ -1,8 +1,8 @@
 import { connect } from 'react-redux';
 import PostIndex from './post_index';
 
-const mapStateToProps = ( state ) => ({
-  posts: {}
+const mapStateToProps = ({ entities: { posts }}) => ({
+  posts: Object.values(posts)
 });
 
 const mapDispatchToProps = dispatch => ({
