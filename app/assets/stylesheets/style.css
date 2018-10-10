@@ -39,6 +39,11 @@ ul {
   align-items: center;
 }
 
+.flex-vert {
+  display: flex;
+  flex-direction: column;
+}
+
 #homepage {
   display: flex;
   justify-content: space-between;
