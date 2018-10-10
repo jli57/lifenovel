@@ -10,7 +10,7 @@ include Faker
 
 User.destroy_all
 Post.destroy_all
-Comment.detsroy_all
+Comment.destroy_all
 
 User.create({
   first_name: "Demo",
@@ -29,5 +29,38 @@ User.create({
     email: Faker::Internet.email,
     gender: Faker::Gender.binary_type[0],
     password: "test123"
+  )
+end
+
+user_ids = User.ids
+
+10.times do
+  Post.create(
+    author_id: user_ids.sample,
+    body: Faker::FamousLastWords.last_words,
+    page_id: user_ids.sample
+  )
+end
+
+post_ids = Post.ids
+
+10.times do
+  Comment.create(
+    author_id: user_ids.sample,
+    body: Faker::FamousLastWords.last_words,
+    commentable_id: post_ids.sample,
+    commentable_type: "Post"
+  )
+end
+
+parent_comment_ids = Comment.ids
+
+10.times do
+  Comment.create(
+    author_id: user_ids.sample,
+    body: Faker::FamousLastWords.last_words,
+    commentable_id: post_ids.sample,
+    commentable_type: "Post",
+    parent_id: parent_comment_ids.sample
   )
 end
