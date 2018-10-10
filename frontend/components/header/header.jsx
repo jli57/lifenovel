@@ -35,7 +35,7 @@ const Header = ({ currentUser, logout }) => {
             <div>
               <Link className="nav-link" to="/">Home</Link>
             </div>
-            <div>
+           <div>
               <Link className="nav-link" to="#">Create</Link>
             </div>
 
