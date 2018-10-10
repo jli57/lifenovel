@@ -25,5 +25,5 @@ class Comment < ApplicationRecord
     class_name: :Comment,
     optional: true
 
-  belongs_to :commentable, polyrmophic: true
+  belongs_to :commentable, polymorphic: true
 end

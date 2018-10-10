@@ -18,9 +18,9 @@ class Post < ApplicationRecord
     foreign_key: :author_id,
     class_name: :User
 
-  belongs_to :page
+  belongs_to :page,
     foreign_key: :page_id,
     class_name: :User
 
-  has_many :comments, as :commentable
+  has_many :comments, as: :commentable
 end
