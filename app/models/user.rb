@@ -32,7 +32,7 @@ class User < ApplicationRecord
     foreign_key: :author_id,
     class_name: :Post
 
-  has_many :wall_posts,
+  has_many :page_posts,
     foreign_key: :page_id,
     class_name: :Post
 
