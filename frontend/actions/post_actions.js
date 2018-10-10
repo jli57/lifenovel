@@ -5,6 +5,11 @@ export const RECEIVE_POST = "RECEIVE_POST";
 export const REMOVE_POST = "REMOVE_POST";
 export const RECEIVE_POST_ERRORS = "RECEIVE_POST_ERRORS";
 
+const receivePosts = (posts) => ({
+  type: RECEIVE_POSTS,
+  posts
+});
+
 const receivePost = (post) => ({
   type: RECEIVE_POST,
   post
@@ -20,26 +25,34 @@ const receivePostErrors = (errors) => ({
   errors
 });
 
+export const fetchPosts = () => dispatch => (
+  APIUtil.fetchPosts()
+    .then(
+      (posts) => dispatch(receivePosts(posts)),
+      (errors) => dispatch(receivePostErrors(errors))
+    )
+);
+
 export const createPost = (post) => dispatch => (
   APIUtil.createPost(post)
     .then(
-      (post) => receivePost(post),
-      (errors) => receivePostErrors(errors)
+      (post) => dispatch(receivePost(post)),
+      (errors) => dispatch(receivePostErrors(errors))
   )
 );
 
 export const updatePost = (post) => dispatch => (
   APIUtil.updatePost(post)
     .then(
-      (post) => receivePost(post),
-      (errors) => receivePostErrors(errors)
+      (post) => dispatch(receivePost(post)),
+      (errors) => dispatch(receivePostErrors(errors))
   )
 );
 
 export const deletePost = (postId) => dispatch => (
   APIUtil.deletePost(postId)
     .then(
-      () => removePost(postId),
-      (errors) => receivePostErrors(errors)
+      () => dispatch(removePost(postId)),
+      (errors) => dispatch(receivePostErrors(errors))
     )
 );
