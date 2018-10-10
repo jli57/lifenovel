@@ -36,6 +36,10 @@ button {
   -moz-appearance: none;
 }
 
+textarea {
+  resize: none; 
+}
+
 :focus {
   background: none;
 }
