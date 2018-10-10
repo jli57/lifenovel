@@ -1,11 +1,9 @@
 body {
   font-family: Helvetica, sans-serif;
   font-size: 12px;
-  background: white;
 }
 
 main {
-  overflow: auto;
   padding: 20px 0;
   background: #ECF0F5;
 }
@@ -18,7 +16,6 @@ a {
 a:hover {
   text-decoration: underline;
 }
-
 
 select {
   outline: none !important;

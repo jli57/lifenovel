@@ -26,33 +26,34 @@ const Header = ({ currentUser, logout }) => {
           <SearchBarContainer />
         </div>
         <div className="right-nav-bar flex">
-          <div>
-            { currentUser.first_name }
-          </div>
-          <div>
-            Home
-          </div>
-          <div>
-            Create
-          </div>
-          <div>
-            <i className="fas fa-user-friends nav-icon"></i>
-          </div>
-          <div>
-            <i className="fab fa-facebook-messenger nav-icon"></i>
-          </div>
-          <div>
-            <i className="fas fa-bell nav-icon"></i>
-          </div>
-          <div>
-            <i className="fas fa-question-circle nav-icon"></i>
-          </div>
-          <div>
-            <i className="fas fa-caret-down nav-icon"></i>
-          </div>
-          <div>
+
+          <div className="nav-links flex">
+
+            <div>
+              <Link className="nav-link" to="#">{ currentUser.first_name }</Link>
+            </div>
+            <div>
+              <Link className="nav-link" to="/">Home</Link>
+            </div>
+            <div>
+              <Link className="nav-link" to="#">Create</Link>
+            </div>
+
+            <div className="nav-icons flex">
+                <i className="fas fa-user-friends nav-icon"></i>
+                <i className="fab fa-facebook-messenger nav-icon"></i>
+                <i className="fas fa-bell nav-icon"></i>
+            </div>
+
+            <div className="nav-icons flex">
+                <i className="fas fa-question-circle nav-icon"></i>
+                <i className="fas fa-caret-down nav-icon"></i>
+            </div>
+
             <button className="header-btn" onClick={ logout }>Logout</button>
+
           </div>
+
         </div>
       </nav>
     </header>
