@@ -20,6 +20,7 @@ export const updatePost = (post) => (
     data: { post }
   })
 )
+
 export const deletePost = () => (
   $.ajax({
     method: "DELETE",
