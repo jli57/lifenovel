@@ -2,29 +2,26 @@ import React from 'react';
 import { Route, Link, Switch } from 'react-router-dom';
 import LoginFormContainer from './session/login_form_container';
 import SignupFormContainer from './session/signup_form_container';
-import Intro from './main/intro';
+import Footer from './footer/footer';
+import HomePageContainer from './main/home_page_container';
+import HeaderContainer from './header/header_container';
+import PostIndexContainer from './posts/post_index_container';
+import { AuthRoute, ProtectedRoute } from '../util/route_util';
 
 const App = () => (
   <div>
-    <div className="nav-bar-container">
-      <nav className="nav-bar">
-        <Link to="/" className="logo">
-          <h1>lifenovel</h1>
-        </Link>
-        <Switch>
-          <Route to="/login" component={LoginFormContainer} />
-        </Switch>
-      </nav>
-    </div>
+    <Route exact path="/" component={ HeaderContainer } />
     <main>
-      <Switch>
-
-      </Switch>
       <div className="main-content">
-        <Route to="/" component={Intro} />
-        <Route to="/signup" component={SignupFormContainer} />
+        <Switch>
+          <Route exact path="/signup" component={SignupFormContainer} />
+          <Route exact path="/login" component={LoginFormContainer} />
+          <Route exact path="/feed" component={PostIndexContainer} />
+          <Route exact path="/" component={HomePageContainer} />
+        </Switch>
       </div>
     </main>
+    <Route exact path="/" component={Footer} />
   </div>
 )
 
