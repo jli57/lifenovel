@@ -13,6 +13,7 @@
   width: 100%;
 }
 
+
 .left-nav-bar input {
   border: 1px solid #3b5998;
   border-radius: 3px;
@@ -31,9 +32,9 @@
   padding: 0 15px;
   position: relative;
   right: 42px;
-  top: 1px;
   border-radius: 3px;
 }
+
 #search-btn:hover {
   /* background:#4080ff; */
   background:#ebedf0;
@@ -42,4 +43,20 @@
 #search-btn i {
   color: #4b4f56;
 
+}
+
+.nav-icon {
+  color: #0E1524;
+  transform: scale(1.75);
+}
+
+
+.fa-caret-down {
+  transform: scale(1.5);
+}
+
+
+.right-nav-bar > div {
+  padding-left: 20px;
+  font-size: 12px;
 }

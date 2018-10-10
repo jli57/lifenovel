@@ -2,11 +2,11 @@ import { connect } from 'react-redux';
 import PostIndex from './post_index';
 
 const mapStateToProps = ( state ) => ({
-
+  posts: {}
 });
 
 const mapDispatchToProps = dispatch => ({
 
 });
 
-export default connect( mapDispatchToProps, mapStateToProps )(PostIndex);
+export default connect( mapDispatchToProps, null )(PostIndex);

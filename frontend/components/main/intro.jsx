@@ -8,18 +8,12 @@ const Intro = () => (
   <div id="intro">
     <ul>
       <li>
-        <a
-          href="https://www.linkedin.com/in/jingnali/"
-          target="_blank"
-        >
-          <i className="fab fa-linkedin fa-3x">
-        </i></a>
+        <a href="https://www.linkedin.com/in/jingnali/" target="_blank">
+          <i className="fab fa-linkedin fa-3x"></i>
+        </a>
       </li>
       <li>
-        <a
-          href="https://github.com/jli57"
-          target="_blank"
-        >
+        <a href="https://github.com/jli57" target="_blank">
           <i className="fab fa-github-square fa-3x"></i>
         </a>
       </li>

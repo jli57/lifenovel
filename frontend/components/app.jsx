@@ -10,7 +10,7 @@ import { AuthRoute, ProtectedRoute } from '../util/route_util';
 
 const App = () => (
   <div>
-    <Route exact path="/" component={ HeaderContainer } />
+    <Route path="/" component={ HeaderContainer } />
     <main>
       <div className="main-content">
         <Switch>
@@ -21,7 +21,7 @@ const App = () => (
         </Switch>
       </div>
     </main>
-    <Route exact path="/" component={Footer} />
+    <Route path="/" component={Footer} />
   </div>
 )
 

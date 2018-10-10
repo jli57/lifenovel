@@ -32,7 +32,7 @@ class SearchBar extends React.Component {
             onChange={ this.update( "searchText" )}
             placeholder="Search"
             value={ this.state.searchText } />
-          <button id="search-btn" type="submit"> <i class="fas fa-search"></i></button>
+          <button id="search-btn" type="submit"> <i className="fas fa-search"></i></button>
         </form>
       </div>
     );
