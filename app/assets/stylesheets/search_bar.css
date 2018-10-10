@@ -71,7 +71,7 @@
   cursor: pointer;
 }
 
-.nav-icon:focus {
+[tabIndex="1"]:focus {
   color: white;
 }
 

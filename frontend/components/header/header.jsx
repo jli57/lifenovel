@@ -40,14 +40,14 @@ const Header = ({ currentUser, logout }) => {
             </div>
 
             <div className="nav-icons flex">
-                <i className="fas fa-user-friends nav-icon"></i>
-                <i className="fab fa-facebook-messenger nav-icon"></i>
-                <i className="fas fa-bell nav-icon"></i>
+                <i tabindex="1" className="fas fa-user-friends nav-icon"></i>
+                <i tabindex="1" className="fab fa-facebook-messenger nav-icon"></i>
+                <i tabindex="1" className="fas fa-bell nav-icon"></i>
             </div>
 
             <div className="nav-icons flex">
-                <i className="fas fa-question-circle nav-icon"></i>
-                <i className="fas fa-caret-down nav-icon"></i>
+                <i tabindex="1" className="fas fa-question-circle nav-icon"></i>
+                <i tabindex="1" className="fas fa-caret-down nav-icon"></i>
             </div>
 
             <button className="header-btn" onClick={ logout }>Logout</button>
