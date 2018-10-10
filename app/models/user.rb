@@ -15,22 +15,27 @@
 #  updated_at      :datetime         not null
 #
 
+require 'date'
+
 class User < ApplicationRecord
   validates :first_name, uniqueness: {scope: [:last_name]}
   validates :first_name, :last_name, presence: true
-  validates :birth_date, :gender, presence: true
+  validates :email, :mobile_number, uniqueness: true, allow_nil: true
+  validate :valid_birthdate
+  validates :gender, presence: true
   validates :password_digest, :session_token, presence: true
   validates :password, length: { minimum: 6, allow_nil: true }
   validate :email_or_mobile_number
   after_initialize :ensure_session_token
   attr_reader :password
+  attr_accessor :year, :month, :day
 
   def self.generate_session_token
     SecureRandom.urlsafe_base64(16)
   end
 
-  def self.find_by_credentials(email, mobile_number, password)
-    user = User.find_by_email(email) || User.find_by_mobile_number(mobile_number)
+  def self.find_by_credentials(email, password)
+    user = User.find_by_email(email)
     return user if user && user.is_password?(password)
   end
 
@@ -65,7 +70,16 @@ class User < ApplicationRecord
     mobile_number.delete('^0-9')
   end
 
-  def validate_birthdate( year, month, day )
-
+  def valid_birthdate
+    unless self.birth_date
+      begin
+        birth_date = "#{@year}-#{@month}-#{@day}"
+        Date.parse(birth_date)
+        self.birth_date = birth_date
+      rescue ArgumentError
+        errors[:birth_date] << "is invalid"
+      end
+    end
   end
+
 end
