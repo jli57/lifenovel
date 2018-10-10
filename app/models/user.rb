@@ -5,7 +5,7 @@
 #  id              :bigint(8)        not null, primary key
 #  first_name      :string           not null
 #  last_name       :string           not null
-#  email           :string           not null
+#  email           :string
 #  mobile_number   :string
 #  birth_date      :date             not null
 #  gender          :string           not null
@@ -27,6 +27,19 @@ class User < ApplicationRecord
   validates :password, length: { minimum: 6, allow_nil: true }
   validate :email_or_mobile_number
   after_initialize :ensure_session_token
+
+  has_many :authored_posts,
+    foreign_key: :author_id,
+    class_name: :Post
+
+  has_many :wall_posts,
+    foreign_key: :page_id,
+    class_name: :Post 
+
+  has_many :authored_comments,
+    foreign_key: :author_id,
+    class_name: :Comment
+
   attr_reader :password
   attr_accessor :year, :month, :day
 
