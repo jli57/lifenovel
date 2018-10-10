@@ -1,12 +1,13 @@
 body {
   font-family: Helvetica, sans-serif;
   font-size: 12px;
-  background: #ECF0F5;
+  background: white;
 }
 
 main {
   overflow: auto;
   padding: 20px 0;
+  background: #ECF0F5;
 }
 
 a {
@@ -38,10 +39,8 @@ ul {
 .flex {
   display: flex;
   justify-content: space-between;
-  align-items: center; 
+  align-items: center;
 }
-
-
 
 #homepage {
   display: flex;
@@ -100,7 +99,7 @@ ul {
 .login-form input:not([type="submit"]) {
   border: 1px solid #1d2a5b;
   background: white;
-  height: 18px;
+  height: 16px;
   width: 142px;
   color: black;
   font-size: 12px;
@@ -152,14 +151,11 @@ ul {
   border-color: red;
 }
 
-footer {
-  background: white;
-}
 
 #footer-content {
   width: 980px;
   margin: auto;
-  margin-top: 30px;
+  margin-top: 50px;
   height: 150px;
   color: #365899;
 }
