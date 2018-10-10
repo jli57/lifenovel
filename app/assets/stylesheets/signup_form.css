@@ -1,10 +1,7 @@
-main {
-  padding: 20px 0;
-}
+
 
 .signup-form-container {
   width: 400px;
-  float: right;
 }
 
 .signup-form-container h1,h2 {
@@ -103,10 +100,11 @@ main {
   padding-left: 5px;
 }
 
-.signup-form button {
+
+.signup-btn {
   -webkit-appearance: button;
   box-sizing: border-box;
-  min-width: 194px;
+  min-width: 190px;
   padding: 7px 20px;
   text-align: center;
   font-weight: bold;
@@ -124,7 +122,7 @@ main {
   margin-bottom: 10px;
 }
 
-.signup-form button:hover {
+.signup-btn:hover {
   background: linear-gradient(#76B861, #578843);
 }
 
