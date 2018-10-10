@@ -1,6 +1,7 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, withRouter } from 'react-router-dom';
 import * as DateUtil from '../../util/date_util';
+import BirthDate from './birth_date';
 
 class SignupForm extends React.Component {
 
@@ -12,35 +13,43 @@ class SignupForm extends React.Component {
       email: "",
       password: "",
       gender: "",
-      mobile_number: "",
       year: "",
       month: "",
       day: "",
     }
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.setBirthDate = this.setBirthDate.bind(this);
+    this.update = this.update.bind(this);
   }
 
   handleSubmit(e) {
     e.preventDefault();
-    user = {};
-    this.props.signup();
+    this.props.signup(this.state)
+      .then( () => this.props.history.push("/"));
   }
 
   changeProperty(prop) {
     return (e) => {
       this.setState({ [prop]: e.target.value });
-      if ( e.target.value  === "" ) {
-        e.target.addClass("invalid")
-      }
     }
+  }
+
+  update(prop, val) {
+    this.setState({ [prop]: val});
+  }
+
+  setBirthDate({year, month, day}) {
+    console.log(`${year}-${month}-${day}`);
+    this.setState({birth_date: `${year}-${month}-${day}` });
   }
 
   render() {
     return (
-      <div className="signup-form-container">
-        <h1>Sign Up</h1>
-        <h2>It’s free and always will be.</h2>
-        <form className="signup-form" onSubmit={ this.handleSubmit }>
+      <div className="center">
+        <div className="signup-form-container">
+          <h1>Sign Up</h1>
+          <h2>It’s free and always will be.</h2>
+          <form className="signup-form" onSubmit={ this.handleSubmit }>
             <div id="full-name">
               <input
                 type="text"
@@ -48,14 +57,14 @@ class SignupForm extends React.Component {
                 onChange={ this.changeProperty("first_name")}
                 value={this.state.first_name}
                 placeholder="First name"
-              />
+                />
               <input
                 type="text"
                 id="last-name"
                 onChange={ this.changeProperty("last_name")}
                 value={this.state.last_name}
                 placeholder="Last name"
-              />
+                />
             </div>
             <div>
               <input
@@ -73,53 +82,7 @@ class SignupForm extends React.Component {
                 placeholder="New password"
                 />
             </div>
-            <div id="birthday">
-              <div id="birthday-header">Birthday</div>
-              <div>
-                <select id="month">
-                  <option value="" defaultValue>Month</option>
-                  { Object.keys(DateUtil.MONTHS).map( month => (
-                    <option
-                      key={month}
-                      onChange={ this.changeProperty("month")}
-                      value={month}
-                      >
-                      { DateUtil.MONTHS[month] }
-                    </option>
-                  ))}
-                </select>
-                <select id="day">
-                  <option value="" defaultValue>Day</option>
-                  { DateUtil.DAYS().map( day => (
-                    <option
-                      key={day}
-                      onChange={ this.changeProperty("day")}
-                      value={day}
-                      >
-                      { day }
-                    </option>
-                  ))}
-                </select>
-                <select id="year">
-                  <option value="" defaultValue>Year</option>
-                  { DateUtil.YEARS().map( year => (
-                    <option
-                      key={year}
-                      onChange={ this.changeProperty("year")}
-                      value={year}
-                      >
-                      { year }
-                    </option>
-                  ))}
-                </select>
-                <div id="birthday-help">
-                  <a className="f12"
-                    href="#"
-                    title="Click for more information"
-                  >Why do I need to provide my birthday?</a>
-                </div>
-              </div>
-            </div>
+            <BirthDate birthDate={this.state.birth_date} update={this.update}/>
             <div id="gender">
               <span>
                 <input
@@ -141,14 +104,16 @@ class SignupForm extends React.Component {
             <p>
               By clicking Sign Up, you agree to our Terms, Data Policy and Cookies Policy. You may receive SMS Notifications from us and can opt out any time.
             </p>
-            <div>
-              <button type="submit">Sign Up</button>
+            <div className="flex">
+              <button  className="signup-btn" type="submit">Sign Up</button>
+              <button  className="signup-btn" onClick={ this.demoLogin }>Demo User</button>
             </div>
-        </form>
+          </form>
+        </div>
       </div>
     )
   }
 
 }
 
-export default SignupForm;
+export default withRouter(SignupForm);

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, withRouter } from 'react-router-dom';
 
 class LoginForm extends React.Component {
 
@@ -15,7 +15,8 @@ class LoginForm extends React.Component {
   handleSubmit(e) {
     e.preventDefault();
     const user = Object.assign({}, this.state);
-    this.props.login(user);
+    this.props.login(user)
+      .then( () => this.props.history.push("/"));
   }
 
   changeProperty(prop) {
@@ -56,6 +57,7 @@ class LoginForm extends React.Component {
               </td>
               <td>
                 <input
+                  className="header-btn"
                   type="submit"
                   value="Log In"
                   />
