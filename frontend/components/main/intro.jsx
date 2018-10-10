@@ -6,6 +6,26 @@ import login_timeline from '../../../app/assets/images/login_timeline.png';
 
 const Intro = () => (
   <div id="intro">
+    <ul>
+      <li>
+        <a
+          href="https://www.linkedin.com/in/jingnali/"
+          target="_blank"
+        >
+          <i className="fab fa-linkedin fa-3x">
+        </i></a>
+      </li>
+      <li>
+        <a
+          href="https://github.com/jli57"
+          target="_blank"
+        >
+          <i className="fab fa-github-square fa-3x"></i>
+        </a>
+      </li>
+      <li>
+      </li>
+    </ul>
     <h1 className="h1">Connect with friends and the world around you on Lifenovel.</h1>
     <div>
       <img src={login_photo} />
