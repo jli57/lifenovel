@@ -45,7 +45,7 @@ class SignupForm extends React.Component {
   }
 
   setBirthDate({year, month, day}) {
-    console.log(`${year}-${month}-${day}`);
+    // console.log(`${year}-${month}-${day}`);
     this.setState({birth_date: `${year}-${month}-${day}` });
   }
 
