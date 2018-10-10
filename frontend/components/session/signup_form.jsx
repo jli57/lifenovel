@@ -29,7 +29,8 @@ class SignupForm extends React.Component {
   }
 
   demoLogin(e) {
-    this.props.login({email: "demo-user@gmail.com", password: "password"}); 
+    this.props.login({email: "demo-user@gmail.com", password: "password"})
+      .then( this.props.history.push("/"));
   }
 
   changeProperty(prop) {
@@ -110,7 +111,7 @@ class SignupForm extends React.Component {
             </p>
             <div className="flex">
               <button className="signup-btn" type="submit">Sign Up</button>
-              <button className="signup-btn" onClick={ this.demoLogin }>Demo User</button>
+              <button className="signup-btn" type="button" onClick={ this.demoLogin }>Demo User</button>
             </div>
           </form>
         </div>
