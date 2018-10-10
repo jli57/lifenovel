@@ -34,7 +34,7 @@ class User < ApplicationRecord
 
   has_many :wall_posts,
     foreign_key: :page_id,
-    class_name: :Post 
+    class_name: :Post
 
   has_many :authored_comments,
     foreign_key: :author_id,
