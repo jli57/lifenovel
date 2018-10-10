@@ -1,5 +1,4 @@
-json.set! user.id do
-  json.extract! user,
+json.extract! user,
     :id,
     :first_name,
     :last_name,
@@ -7,4 +6,3 @@ json.set! user.id do
     :mobile_number,
     :birth_date,
     :gender
-end
