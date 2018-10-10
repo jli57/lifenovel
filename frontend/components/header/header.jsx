@@ -30,7 +30,7 @@ const Header = ({ currentUser, logout }) => {
           <div className="nav-links flex">
 
             <div>
-              <Link className="nav-link" to="#">{ currentUser.first_name }</Link>
+              <Link className="nav-link" to={`/${currentUser.id}`}>{ currentUser.first_name }</Link>
             </div>
             <div>
               <Link className="nav-link" to="/">Home</Link>

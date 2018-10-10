@@ -3,8 +3,11 @@ import React from 'react';
 import Intro from './intro';
 import SignupFormContainer from '../session/signup_form_container';
 import PostIndexContainer from '../posts/post_index_container';
+import ProfileContainer from '../profile/profile_container';
 
-import { AuthRoute, Protected } from '../../util/route_util';
+import { Switch } from 'react-router-dom';
+
+import { AuthRoute, ProtectedRoute } from '../../util/route_util';
 
 
 const HomePage = ({ currentUser }) => {
@@ -17,6 +20,7 @@ const HomePage = ({ currentUser }) => {
 
   const loggedIn = () => (
     <div id="homepage">
+      <ProtectedRoute exact path="/:userId" component={ProfileContainer} />
       <PostIndexContainer />
     </div>
   )

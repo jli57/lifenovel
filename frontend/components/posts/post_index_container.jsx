@@ -9,4 +9,4 @@ const mapDispatchToProps = dispatch => ({
 
 });
 
-export default connect( mapDispatchToProps, null )(PostIndex);
+export default connect( mapStateToProps, null )(PostIndex);
