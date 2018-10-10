@@ -18,14 +18,18 @@ class SignupForm extends React.Component {
       day: "",
     }
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.demoLogin = this.demoLogin.bind(this);
     this.setBirthDate = this.setBirthDate.bind(this);
     this.update = this.update.bind(this);
   }
 
   handleSubmit(e) {
     e.preventDefault();
-    this.props.signup(this.state)
-      .then( () => this.props.history.push("/"));
+    this.props.signup(this.state);
+  }
+
+  demoLogin(e) {
+    this.props.login({email: "demo-user@gmail.com", password: "password"}); 
   }
 
   changeProperty(prop) {
@@ -105,8 +109,8 @@ class SignupForm extends React.Component {
               By clicking Sign Up, you agree to our Terms, Data Policy and Cookies Policy. You may receive SMS Notifications from us and can opt out any time.
             </p>
             <div className="flex">
-              <button  className="signup-btn" type="submit">Sign Up</button>
-              <button  className="signup-btn" onClick={ this.demoLogin }>Demo User</button>
+              <button className="signup-btn" type="submit">Sign Up</button>
+              <button className="signup-btn" onClick={ this.demoLogin }>Demo User</button>
             </div>
           </form>
         </div>
