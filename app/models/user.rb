@@ -30,15 +30,18 @@ class User < ApplicationRecord
 
   has_many :authored_posts,
     foreign_key: :author_id,
-    class_name: :Post
+    class_name: :Post,
+    dependent: :delete_all
 
-  has_many :posts,
+  has_many :page_posts,
     foreign_key: :page_id,
-    class_name: :Post
+    class_name: :Post,
+    dependent: :delete_all
 
   has_many :authored_comments,
     foreign_key: :author_id,
-    class_name: :Comment
+    class_name: :Comment,
+    dependent: :delete_all
 
   attr_reader :password
   attr_accessor :year, :month, :day

@@ -27,7 +27,8 @@ class Comment < ApplicationRecord
 
   has_many :child_comments,
     foreign_key: :parent_id,
-    class_name: :Comment
+    class_name: :Comment,
+    dependent: :delete_all
 
   belongs_to :commentable, polymorphic: true
 end

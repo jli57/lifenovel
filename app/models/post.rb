@@ -22,5 +22,8 @@ class Post < ApplicationRecord
     foreign_key: :page_id,
     class_name: :User
 
-  has_many :comments, as: :commentable
+  has_many :comments,
+    as: :commentable,
+    dependent: :delete_all
+    
 end
