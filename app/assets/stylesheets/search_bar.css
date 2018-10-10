@@ -79,11 +79,11 @@
   transform: scale(1.5);
 }
 
-.nav-icons {
+header .nav-icons {
   margin: 0px 5px;
 }
 
-.nav-icons i {
+header .nav-icons i {
   padding-left: 10px;
   padding-right: 10px;
 }

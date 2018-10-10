@@ -1,12 +1,40 @@
 .post {
   margin: 5px 0px;
-  padding: 10px;
+  padding: 10px 10px 5px 10px;
   box-sizing: border-box;
   background: white;
   width: 500px;
   text-align: left;
 }
 
-.post div:not(:first-of-type) {
-  margin: 5px 0;
+.post-body {
+  margin-top: 10px;
+  margin-bottom: 10px;
+  font-size: 16px;
+}
+
+
+.post-nav-icons {
+  justify-content: space-around;
+  border-top: 1px solid #ccc;
+  padding-top: 5px;
+  color: #626871;
+  font-size: 13px;
+}
+
+.post-nav-icons > div {
+  padding: 10px 0;
+  width: 33.33%;
+  text-align: center;
+  vertical-align: middle;
+  margin: auto;
+}
+
+.post-nav-icons > div:hover {
+  background: #F8F8F8;
+}
+
+.post i[class*="fa-"]{
+  color: #626871;
+  transform: scale(1.2);
 }
