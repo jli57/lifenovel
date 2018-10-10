@@ -40,6 +40,8 @@ ul {
   justify-content: space-between;
 }
 
+
+
 #homepage {
   display: flex;
   justify-content: space-between;
@@ -89,9 +91,6 @@ ul {
   text-decoration: none;
 }
 
-.logo:focus {
-  background: none;
-}
 
 .login-form td {
   padding-left: 12px;
@@ -119,7 +118,7 @@ ul {
   text-align: center;
   width: 50px;
   padding: 0 3px;
-  height: 23px; 
+  height: 23px;
 }
 
 .header-btn:hover {

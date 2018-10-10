@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link, Route } from 'react-router-dom';
 import LoginFormContainer from '../session/login_form_container';
+import SearchBarContainer from '../search/search_bar_container';
 import { AuthRoute, ProtectedRoute } from '../../util/route_util';
 import logo from '../../../app/assets/images/logo_white.png';
 
@@ -18,10 +19,12 @@ const Header = ({ currentUser, logout }) => {
   const loggedIn = () => (
     <header className="user-nav-bar-container">
       <nav className="user-nav-bar">
-        <Link to="/" className="logo">
-          <img id="home" src={ logo } />
-        </Link>
-
+        <div className="left-nav-bar">
+          <Link to="/" >
+            <img id="home" src={ logo } />
+          </Link>
+          <SearchBarContainer />
+        </div>
         <button className="header-btn" onClick={ logout }>Logout</button>
       </nav>
     </header>
