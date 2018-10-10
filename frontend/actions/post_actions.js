@@ -29,7 +29,7 @@ export const fetchPosts = () => dispatch => (
   APIUtil.fetchPosts()
     .then(
       (posts) => dispatch(receivePosts(posts)),
-      (errors) => dispatch(receivePostErrors(errors))
+      (errors) => dispatch(receivePostErrors(errors.responseJSON))
     )
 );
 
@@ -37,7 +37,7 @@ export const createPost = (post) => dispatch => (
   APIUtil.createPost(post)
     .then(
       (post) => dispatch(receivePost(post)),
-      (errors) => dispatch(receivePostErrors(errors))
+      (errors) => dispatch(receivePostErrors(errors.responseJSON))
   )
 );
 
@@ -45,7 +45,7 @@ export const updatePost = (post) => dispatch => (
   APIUtil.updatePost(post)
     .then(
       (post) => dispatch(receivePost(post)),
-      (errors) => dispatch(receivePostErrors(errors))
+      (errors) => dispatch(receivePostErrors(errors.responseJSON))
   )
 );
 
@@ -53,6 +53,6 @@ export const deletePost = (postId) => dispatch => (
   APIUtil.deletePost(postId)
     .then(
       () => dispatch(removePost(postId)),
-      (errors) => dispatch(receivePostErrors(errors))
+      (errors) => dispatch(receivePostErrors(errors.responseJSON))
     )
 );
