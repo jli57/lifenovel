@@ -3,7 +3,7 @@ import PostIndexItem from './post_index_item';
 
 const PostIndex = ({ currentUser, posts, updatePost, deletePost }) => (
   <div>
-    Should contain posts
+    <h1>Posts</h1>
     <ul className="flex-vert">
       { posts.map( post => (
           <PostIndexItem

@@ -10,11 +10,23 @@ class PostIndexItem extends React.Component {
     const post = this.props.post;
     return (
       <li className="post">
-        <div>
-          { this.props.currentUser.first_name } wrote:
+        <div className="flex">
+          <div>{ post.author_id } wrote:</div>
+          <i className="fas fa-ellipsis-h"></i>
         </div>
-        <div>
+        <div className="post-body">
           { post.body }
+        </div>
+        <div className="post-nav-icons flex">
+          <div>
+            <i className="far fa-thumbs-up"></i><span>  Like</span>
+          </div>
+          <div>
+            <i className="far fa-comment-alt"></i><span>  Comment</span>
+          </div>
+          <div>
+            <i className="far fa-share-square"></i><span>  Share</span>
+          </div>
         </div>
       </li>
     )
