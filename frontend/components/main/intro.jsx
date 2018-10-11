@@ -5,7 +5,7 @@ import login_photo from '../../../app/assets/images/login_photo.png';
 import login_timeline from '../../../app/assets/images/login_timeline.png';
 
 const Intro = () => (
-  <div class="intro">
+  <div className="intro">
 
     <ul>
       <li>
