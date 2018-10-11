@@ -43,6 +43,8 @@ class User < ApplicationRecord
     class_name: :Comment,
     dependent: :delete_all
 
+  has_one_attached :profile_photo
+
   attr_reader :password
   attr_accessor :year, :month, :day
 
