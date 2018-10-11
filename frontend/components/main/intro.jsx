@@ -5,8 +5,8 @@ import login_photo from '../../../app/assets/images/login_photo.png';
 import login_timeline from '../../../app/assets/images/login_timeline.png';
 
 const Intro = () => (
-  <div id="intro">
-    
+  <div class="intro">
+
     <ul>
       <li>
         <a href="https://www.linkedin.com/in/jingnali/" target="_blank">
@@ -27,21 +27,21 @@ const Intro = () => (
     <div>
       <img src={login_photo} />
       <p>
-        <span className="bold">See photos and updates </span>
+        <span>See photos and updates </span>
         <span>from friends in News Feed.</span>
       </p>
     </div>
     <div>
       <img src={login_timeline} />
       <p>
-        <span className="bold">Share what's new </span>
+        <span>Share what's new </span>
         <span>in your life on your Timeline.</span>
       </p>
     </div>
     <div>
       <img src={login_find} />
       <p>
-        <span className="bold">Find more </span>
+        <span>Find more </span>
         <span>more of what you are looking for with Lifenovel Search.</span>
       </p>
     </div>
