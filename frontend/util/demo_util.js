@@ -1,2 +1,16 @@
-export const DEMO_EMAIL = "demo-user@gmail.com";
-export const DEMO_PASSWORD = "password";
+export const EMAIL = "demo-user@gmail.com";
+export const PASSWORD = "password";
+
+export const fillProperty = function( field, prop, interval, callback ) {
+  let i = 0;
+  const intervalId = setInterval( () => {
+    if ( i < field.length ) {
+      const value = this.state[prop] + field[i];
+      this.setState({ [prop]: value });
+      i++;
+    } else {
+      clearInterval(intervalId);
+      callback(); 
+    }
+  }, interval );
+};
