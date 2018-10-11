@@ -1,0 +1,99 @@
+
+.login-form {
+  font-family: -apple-system, BlinkMacSystemFont,
+    'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans',
+    'Droid Sans', 'Helvetica Neue', sans-serif;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 600px;
+  box-sizing: border-box;
+  margin: 50px auto;
+  padding: 30px 20px;
+  background: white;
+  border: 1px solid #dddfe2;
+
+  h1 {
+    font-size: 18px;
+    margin-bottom: 20px;
+  }
+
+  p {
+    font-size: 12px;
+    border-bottom: 1px solid #dddfe2;
+    width: 50%;
+    text-align: center;
+    line-height: 0.1em;
+    margin: 20px 0;
+
+    span {
+      background: white;
+      padding: 0 15px;
+    }
+  }
+
+  > * {
+    margin: 5px 0;
+  }
+
+  input {
+    box-sizing: content-box;
+    border-radius: 2px;
+    height: 25px;
+    padding: 5px;
+    width: 50%;
+
+    &:not([type="submit"]) {
+      border: 1px solid  #dddfe2;
+      background: white;
+      font-size: 14px;
+      color: black;
+    }
+
+    &[type="submit"] {
+      font-weight: 500;
+      font-size: 14px;
+      padding: 7px 5px;
+    }
+
+
+    &[type="password"] {
+      font-size: 16px;
+
+      &::placeholder {
+        font-size: 14px;
+      }
+    }
+  }
+
+
+  a:not(:last-of-type), button {
+    border-radius: 2px;
+    text-align: center;
+    vertical-align: middle;
+    box-sizing: content-box;
+    padding: 10px;
+    width: 30%;
+    font-weight: 500;
+    font-size: 14px;
+
+    border-color: #42b72a;
+    background-color: #42b72a;
+    color: white;
+
+    &:hover {
+      background-color: #35A420;
+    }
+
+  }
+
+  .small-link {
+    color: #365899;
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+
+}
