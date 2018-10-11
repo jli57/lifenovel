@@ -1,0 +1,91 @@
+.post {
+  margin: 5px 0px;
+  padding: 10px 10px 5px 10px;
+  box-sizing: border-box;
+}
+
+.post, .create-post-container {
+  background: white;
+  width: 500px;
+  text-align: left;
+}
+
+.create-post-container {
+  margin-bottom: 10px;
+  padding-bottom: 10px;
+}
+
+.create-post-nav {
+  height: 30px;
+  background-color: #F5F6F7;
+  display: flex;
+  justify-content: flex-start;
+  flex-direction: row;
+}
+
+.create-post-nav li {
+  padding: 5px 10px;
+  width: 100px;
+}
+
+.submit-btn {
+  padding: 5px;
+  text-align: center;
+  color: white;
+  font-size: 14px;
+  background-color: #4267b2;
+  border-color: #4267b2;
+  border-radius: 3px;
+  width: 50%;
+  align-self: flex-end;
+}
+
+.submit-btn:hover {
+  background-color: #365899;
+  border-color: #365899;
+}
+
+.create-post-form {
+  margin-top: 10px;
+  display: flex;
+  flex-direction: column;
+  padding: 0 10px;
+}
+
+.create-post-form textarea {
+  height: 50px;
+  font-size: 16px;
+  padding: 5px;
+}
+
+.post-body {
+  margin-top: 10px;
+  margin-bottom: 10px;
+  font-size: 16px;
+}
+
+
+.post-nav-icons {
+  justify-content: space-around;
+  border-top: 1px solid #ccc;
+  padding-top: 5px;
+  color: #626871;
+  font-size: 13px;
+}
+
+.post-nav-icons > div {
+  padding: 10px 0;
+  width: 33.33%;
+  text-align: center;
+  vertical-align: middle;
+  margin: auto;
+}
+
+.post-nav-icons > div:hover {
+  background: #F8F8F8;
+}
+
+.post i[class*="fa-"]{
+  color: #626871;
+  transform: scale(1.2);
+}

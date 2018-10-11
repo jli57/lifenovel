@@ -1,0 +1,57 @@
+.logo {
+  color: white;
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 700;
+  font-size: 38px;
+  padding-bottom: 8px;
+
+}
+
+.logo:hover {
+  text-decoration: none;
+}
+
+.header-btn {
+  background: #4267b2;
+  border: 1px solid #29487d;
+  font-size: 12px;
+  color: white;
+  text-align: center;
+  width: 50px;
+  padding: 0 3px;
+  height: 23px;
+}
+
+.header-btn:hover {
+  background:  #3B5998;
+}
+
+.login-form {
+
+  td {
+    padding-left: 12px;
+  }
+
+  input:not([type="submit"]) {
+    border: 1px solid #1d2a5b;
+    background: white;
+    height: 16px;
+    width: 142px;
+    color: black;
+    font-size: 12px;
+    padding: 3px;
+  }
+
+  input[type="password"] {
+    font-size: 16px;
+  }
+
+  a:last-of-type {
+    color: #9cb4d8;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+
+}

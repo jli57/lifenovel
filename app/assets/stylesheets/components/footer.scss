@@ -1,0 +1,32 @@
+#footer-content {
+  width: 980px;
+  margin: auto;
+  margin-top: 50px;
+  height: 150px;
+  color: #365899;
+
+  &:last-child {
+    padding-top: 5px;
+    color: gray;
+  }
+}
+
+footer {
+  ul {
+    display: flex;
+    padding: 10px 0px 30px 0px;
+  }
+
+  ul:first-of-type {
+    border-bottom: 1px solid lightgray;
+    padding-bottom: 10px;
+  }
+
+  li {
+    padding-right: 15px;
+  }
+
+  a:hover {
+    text-decoration: underline;
+  }
+}
