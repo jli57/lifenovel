@@ -17,7 +17,7 @@ class PostIndexItem extends React.Component {
         <div className="post-body">
           { post.body }
         </div>
-        <div className="post-nav-icons flex">
+        <nav className="flex">
           <div>
             <i className="far fa-thumbs-up"></i><span>  Like</span>
           </div>
@@ -27,7 +27,7 @@ class PostIndexItem extends React.Component {
           <div>
             <i className="far fa-share-square"></i><span>  Share</span>
           </div>
-        </div>
+        </nav>
       </li>
     )
   }

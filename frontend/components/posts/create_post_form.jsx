@@ -23,22 +23,23 @@ class CreatePostForm extends React.Component {
 
   render() {
     return (
-      <div className="create-post-container">
-        <ul className="create-post-nav">
-          <li>
-            <i className="fas fa-pencil-alt"></i><span> Make Post</span>
-          </li>
-          <li>
-            <i className="far fa-images"></i><span> Photos </span>
-          </li>
-        </ul>
-
-        <form className="create-post-form" onSubmit={ this.handleSubmit }>
+      <div className="create-post">
+        <nav>
+          <ul>
+            <li>
+              <i className="fas fa-pencil-alt"></i><span> Make Post</span>
+            </li>
+            <li>
+              <i className="far fa-images"></i><span> Photos </span>
+            </li>
+          </ul>
+        </nav>
+        <form onSubmit={ this.handleSubmit }>
           <textarea
             onChange={ this.update("body")}
             value={this.state.body}
             placeholder={`What's on your mind, ${this.props.currentUser.first_name}?`}></textarea>
-          <input className="submit-btn" type="submit" value="Save"/>
+          <input type="submit" value="Save"/>
         </form>
       </div>
     )
