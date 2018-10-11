@@ -11,7 +11,7 @@ class PostIndexItem extends React.Component {
     return (
       <li className="post">
         <div className="flex">
-          <div>{ post.author_id } wrote: { post.created_at }</div>
+          <div>{ post.author_id } wrote: { new Date(post.created_at).toLocaleDateString("en-US") }</div>
           <i className="fas fa-ellipsis-h"></i>
         </div>
         <div className="post-body">

@@ -19,9 +19,7 @@ class LoginForm extends React.Component {
       args[0].preventDefault();
     }
     const user = Object.assign({}, this.state);
-    this.props.login(user)
-      .then( this.props.fetchPosts() )
-      .then( this.props.history.push("/"));
+    this.props.login(user);
   }
 
   changeProperty(prop) {
@@ -29,11 +27,11 @@ class LoginForm extends React.Component {
       this.setState({[prop]: e.target.value });
     }
   }
-  
+
   demoLogin(e) {
     e.preventDefault();
-    DemoUtil.fillProperty.call( this, DemoUtil.EMAIL, "email", 50, () => {
-      DemoUtil.fillProperty.call( this, DemoUtil.PASSWORD, "password", 50, () => {
+    DemoUtil.fillProperty.call( this, DemoUtil.EMAIL, "email", 100, () => {
+      DemoUtil.fillProperty.call( this, DemoUtil.PASSWORD, "password", 100, () => {
         this.handleSubmit();
       });
     });
