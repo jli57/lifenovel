@@ -11,7 +11,7 @@ class CreatePostForm extends React.Component {
   handleSubmit(e) {
     e.preventDefault();
     this.props.createPost(this.state)
-      .then( () => this.state = this.props.post )
+      .then( () => this.setState(this.props.post) )
       .then( () => this.props.fetchPosts() );
   }
 

@@ -1,6 +1,8 @@
+
 export const filterPagePosts = ( session, posts ) => (
   Object.values(posts)
     .filter( post => post.page_id === session.id )
+    .sort( (a, b) => Date.parse(b.created_at) - Date.parse(a.created_at) )
 )
 
 export const filterFeedPosts = ( friends, posts ) => (
