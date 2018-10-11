@@ -10,7 +10,6 @@ import { Switch } from 'react-router-dom';
 
 import { AuthRoute, ProtectedRoute } from '../../util/route_util';
 
-
 const HomePage = ({ currentUser }) => {
   const loggedOut = () => (
     <div id="homepage">

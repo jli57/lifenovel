@@ -12,7 +12,7 @@ const Header = ({ currentUser, logout }) => {
         <Link to="/" className="logo">
           <h1>lifenovel</h1>
         </Link>
-        <Route to="/login" component={LoginFormContainer} />
+        <Route exact path="/" render={ () => <LoginFormContainer header={true} /> } />
       </nav>
     </header>
   )

@@ -15,7 +15,7 @@ const App = () => (
       <div className="main-content">
         <Switch>
           <Route exact path="/signup" component={SignupFormContainer} />
-          <Route exact path="/login" component={LoginFormContainer} />
+          <Route exact path="/login" render={() => <LoginFormContainer header={false} />} />
           <Route exact path="/feed" component={PostIndexContainer} />
           <Route path="/" component={HomePageContainer} />
         </Switch>
