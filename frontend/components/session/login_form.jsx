@@ -66,7 +66,7 @@ class LoginForm extends React.Component {
             <tr>
               <td></td>
               <td>
-                <Link className="forgot-account" to="/" >Forgot account?</Link>
+                <Link to="/">Forgot account?</Link>
               </td>
             </tr>
           </tbody>

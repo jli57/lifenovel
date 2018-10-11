@@ -2,8 +2,8 @@ import { connect } from 'react-redux';
 
 import SearchBar from './search_bar';
 
-const mapStateToProps = (state) => ({
-  posts: {}
+const mapStateToProps = ({ entities: { posts }}) => ({
+  posts: Object.values(posts)
 });
 
 // const mapDispatchToProps = dispatch => ({

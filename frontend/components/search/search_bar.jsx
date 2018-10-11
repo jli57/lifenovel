@@ -25,14 +25,13 @@ class SearchBar extends React.Component {
   render () {
     return (
       <div className="search-bar">
-        <form className="flex" onSubmit={ this.handleSubmit }>
+        <form onSubmit={ this.handleSubmit }>
           <input
-            id="search-box"
             type="text"
             onChange={ this.update( "searchText" )}
             placeholder="Search"
             value={ this.state.searchText } />
-          <button id="search-btn" type="submit"> <i className="fas fa-search"></i></button>
+          <button type="submit"> <i className="fas fa-search"></i></button>
         </form>
       </div>
     );

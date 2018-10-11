@@ -27,8 +27,8 @@ class BirthDate extends React.Component {
 
   render() {
     return (
-      <div id="birthday">
-        <div id="birthday-header">Birthday</div>
+      <div className="birthday">
+        <h1>Birthday</h1>
         <div>
           <select id="month" onChange={ this.changeProperty("month")}>
             <option value="" defaultValue>Month</option>
@@ -54,12 +54,9 @@ class BirthDate extends React.Component {
               </option>
             ))}
           </select>
-          <div id="birthday-help">
-            <a className="f12"
-              href="#"
-              title="Click for more information"
-            >Why do I need to provide my birthday?</a>
-          </div>
+          <a href="#" title="Click for more information">
+            Why do I need to provide my birthday
+          </a>
         </div>
       </div>
     )

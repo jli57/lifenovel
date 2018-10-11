@@ -56,17 +56,17 @@ class SignupForm extends React.Component {
           <h1>Sign Up</h1>
           <h2>It’s free and always will be.</h2>
           <form className="signup-form" onSubmit={ this.handleSubmit }>
-            <div id="full-name">
+            <div className="full-name">
               <input
                 type="text"
-                id="first-name"
+                className="first-name"
                 onChange={ this.changeProperty("first_name")}
                 value={this.state.first_name}
                 placeholder="First name"
                 />
               <input
                 type="text"
-                id="last-name"
+                className="last-name"
                 onChange={ this.changeProperty("last_name")}
                 value={this.state.last_name}
                 placeholder="Last name"
@@ -89,7 +89,7 @@ class SignupForm extends React.Component {
                 />
             </div>
             <BirthDate birthDate={this.state.birth_date} update={this.update}/>
-            <div id="gender">
+            <div className="gender" id="gender">
               <span>
                 <input
                   type="radio"
