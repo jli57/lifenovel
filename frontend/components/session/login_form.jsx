@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link, withRouter } from 'react-router-dom';
+import * as DemoUtil from '../../util/demo_util';
 
 class LoginForm extends React.Component {
 
@@ -10,19 +11,33 @@ class LoginForm extends React.Component {
       password: ""
     }
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.demoLogin = this.demoLogin.bind(this);
   }
 
-  handleSubmit(e) {
-    e.preventDefault();
+  handleSubmit(...args) {
+    if ( args.length > 0 ) {
+      args[0].preventDefault();
+    }
     const user = Object.assign({}, this.state);
     this.props.login(user)
-      .then( this.props.fetchPosts() );
+      .then( this.props.fetchPosts() )
+      .then( this.props.history.push("/"));
   }
 
   changeProperty(prop) {
     return (e) => {
       this.setState({[prop]: e.target.value });
     }
+  }
+  
+  demoLogin(e) {
+    e.preventDefault();
+    DemoUtil.fillProperty.call( this, DemoUtil.EMAIL, "email", 50, () => {
+      DemoUtil.fillProperty.call( this, DemoUtil.PASSWORD, "password", 50, () => {
+        this.handleSubmit();
+      });
+    });
+
   }
 
   render() {
@@ -64,7 +79,9 @@ class LoginForm extends React.Component {
               </td>
             </tr>
             <tr>
-              <td></td>
+              <td>
+                <button onClick={ this.demoLogin }>Demo Login</button>
+              </td>
               <td>
                 <Link to="/">Forgot account?</Link>
               </td>

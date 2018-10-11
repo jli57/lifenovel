@@ -30,8 +30,7 @@ class SignupForm extends React.Component {
 
   demoLogin(e) {
     this.props.login({email: "demo-user@gmail.com", password: "password"})
-      .then( this.props.fetchPosts() )
-      .then( this.props.history.push("/"));
+      .then( this.props.fetchPosts() );
   }
 
   changeProperty(prop) {
