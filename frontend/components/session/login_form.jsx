@@ -39,55 +39,79 @@ class LoginForm extends React.Component {
   }
 
   render() {
-    return (
-      <form className="login-form" onSubmit={ this.handleSubmit }>
+
+    const email_input = (
+      <input
+        type="text"
+        onChange={ this.changeProperty("email")}
+        value={this.state.email}
+        placeholder={ this.props.header ? "" : "Email or Phone Number"}
+      />
+    );
+
+    const password_input = (
+      <input
+        type="password"
+        onChange={ this.changeProperty("password") }
+        value={this.state.password}
+        placeholder={ this.props.header ? "" : "Password"}
+      />
+    );
+
+    const submit_input = (
+      <input
+        className="header-btn"
+        type="submit"
+        value="Log In"
+      />
+    );
+
+    const demo_login = (
+      <button onClick={ this.demoLogin }>Demo Login</button>
+    );
+
+    const forgot_account = (
+      <Link className="small-link" to="/">Forgot account?</Link>
+    );
+
+    const header_form = (
+      <form className="header-login-form" onSubmit={ this.handleSubmit }>
         <table>
           <tbody>
             <tr>
-              <td>
-                <label htmlFor="email">Email or Phone</label>
-              </td>
-              <td>
-                <label htmlFor="password">Password</label>
-              </td>
+              <td><label>Email or Phone</label></td>
+              <td><label>Password</label></td>
             </tr>
             <tr>
-              <td>
-                <input
-                  id="email"
-                  type="text"
-                  onChange={ this.changeProperty("email")}
-                  value={this.state.email}
-                  />
-              </td>
-              <td>
-                <input
-                  id="password"
-                  type="password"
-                  onChange={ this.changeProperty("password") }
-                  value={this.state.password}
-                  />
-              </td>
-              <td>
-                <input
-                  className="header-btn"
-                  type="submit"
-                  value="Log In"
-                  />
-              </td>
+              <td>{ email_input }</td>
+              <td>{ password_input }</td>
+              <td>{ submit_input }</td>
             </tr>
             <tr>
-              <td>
-                <button onClick={ this.demoLogin }>Demo Login</button>
-              </td>
-              <td>
-                <Link to="/">Forgot account?</Link>
-              </td>
+              <td>{ demo_login }</td>
+              <td>{ forgot_account }</td>
             </tr>
           </tbody>
         </table>
       </form>
+    );
+
+    const login_page = (
+      <form className="login-form">
+        <h1> Log into Livenovel </h1>
+        { email_input }
+        { password_input }
+        { submit_input }
+        <p><span>or</span></p>
+        <Link to="/singup">Create New Account</Link>
+        { demo_login }
+        { forgot_account }
+
+      </form>
     )
+
+    return this.props.header ? header_form : login_page;
+
   }
 
 }
