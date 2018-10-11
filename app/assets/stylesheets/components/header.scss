@@ -3,8 +3,13 @@
   font-family: 'Open Sans', sans-serif;
   font-weight: 700;
   font-size: 38px;
-  padding-bottom: 8px;
+  height: 60px;
 
+  h1 {
+    position: relative;
+    top: 10px;
+    vertical-align: bottom;
+  }
 }
 
 .logo:hover {
