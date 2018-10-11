@@ -5,7 +5,6 @@ import { fetchPosts } from '../../actions/post_actions';
 import LoginForm from './login_form';
 
 const mapStateToProps = ( state, ownProps) => {
-  console.log(ownProps); 
   return {user: { email: "", password: ""},
   header: ownProps.header};
 };

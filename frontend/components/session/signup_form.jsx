@@ -30,7 +30,7 @@ class SignupForm extends React.Component {
 
   demoLogin(e) {
     this.props.login({email: "demo-user@gmail.com", password: "password"})
-      .then( this.props.fetchPosts() ); 
+      .then( this.props.fetchPosts() );
   }
 
   changeProperty(prop) {
@@ -52,7 +52,7 @@ class SignupForm extends React.Component {
     return (
       <div className="center">
         <div className="signup-form-container">
-          <h1>Sign Up</h1>
+          <h1>{ this.props.location.pathname === "/signup" ? "Create a New Account" : "Sign Up"} </h1>
           <h2>It’s free and always will be.</h2>
           <form className="signup-form" onSubmit={ this.handleSubmit }>
             <div className="full-name">

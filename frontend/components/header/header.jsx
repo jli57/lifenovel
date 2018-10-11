@@ -6,6 +6,13 @@ import { AuthRoute, ProtectedRoute } from '../../util/route_util';
 import logo from '../../../app/assets/images/logo_white.png';
 
 const Header = ({ currentUser, logout }) => {
+
+  const handleLogout = (e) => {
+    e.preventDefault();
+    logout()
+      .then( this.props.history.push("/") )
+  }
+
   const loggedOut = () => (
     <header className="nav-bar-container">
       <nav className="nav-bar">
@@ -50,7 +57,7 @@ const Header = ({ currentUser, logout }) => {
                 <i tabIndex="1" className="fas fa-caret-down nav-icon"></i>
             </div>
 
-            <button className="header-btn" onClick={ logout }>Logout</button>
+            <button className="header-btn" onClick={ handleLogout }>Logout</button>
 
           </div>
 
