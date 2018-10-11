@@ -52,6 +52,11 @@ ul {
   align-items: center;
 }
 
+#home {
+  height: 25px;
+  width: 25px;
+}
+
 .nav-bar-container, .user-nav-bar-container  {
   min-width: 980px;
   background-color: #3B5998;
@@ -95,9 +100,4 @@ ul {
 .center {
   display: flex;
   justify-content: center;
-}
-
-#home {
-  height: 25px;
-  width: 25px;
 }
