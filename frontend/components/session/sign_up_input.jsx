@@ -25,7 +25,6 @@ class SignUpInput extends React.Component {
         )
       }
     }
-
   }
 
   render() {

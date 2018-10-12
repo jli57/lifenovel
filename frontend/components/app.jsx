@@ -21,7 +21,7 @@ const App = () => (
         </Switch>
       </div>
     </main>
-    <Route path="/" component={FooterContainer} />
+    <Route path="/" component={ FooterContainer } />
   </div>
 )
 
