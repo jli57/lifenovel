@@ -12,8 +12,10 @@
 }
 
 footer {
+
   ul {
     display: flex;
+    flex-wrap: wrap;
     padding: 10px 0px 30px 0px;
   }
 
@@ -23,7 +25,8 @@ footer {
   }
 
   li {
-    padding-right: 15px;
+    padding-bottom: 5px;
+    padding-right: 22px;
   }
 
   a:hover {
