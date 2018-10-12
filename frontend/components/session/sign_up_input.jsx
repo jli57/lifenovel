@@ -5,7 +5,7 @@ class SignUpInput extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      [this.props.fieldName]: this.props.fieldValue,
+      fieldValue: this.props.fieldValue,
       error: false,
       help: false,
       modified: false
@@ -20,9 +20,12 @@ class SignUpInput extends React.Component {
       } else if ( e.type === "focus" && e.target.value === "" && this.state.modified ) {
         this.setState({ help: true , error: false });
       } else {
-        this.setState({ error: false, help: false, first_name: e.target.value, modified: true },
-          () => this.props.changeProperty(this.props.fieldName)
-        )
+        this.setState(
+          { error: false, help: false, fieldValue: e.target.value, modified: true },
+          () => {
+            this.props.update(this.props.fieldName, this.state.fieldValue)
+          }
+        );
       }
     }
   }

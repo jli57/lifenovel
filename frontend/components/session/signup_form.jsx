@@ -56,20 +56,20 @@ class SignupForm extends React.Component {
           <h2>It’s free and always will be.</h2>
           <form className="signup-form" onSubmit={ this.handleSubmit }>
             <div className="full-name">
-              <SignUpInput changeProperty={this.changeProperty}
+              <SignUpInput update={this.update}
                 fieldName="first_name"
                 fieldValue={ this.state.first_name}
                 fieldType="text"
                 fieldHelpText="What's your name?"
                 fieldPlaceHolder="First name"/>
-              <SignUpInput changeProperty={this.changeProperty}
+              <SignUpInput update={this.update}
                 fieldName="last_name"
                 fieldValue={ this.state.last_name }
                 fieldHelpText="What's your name?"
                 fieldPlaceHolder="Last name"/>
             </div>
             <div>
-              <SignUpInput changeProperty={this.changeProperty}
+              <SignUpInput update={this.update}
                 fieldName="email"
                 fieldValue={ this.state.email }
                 fieldType="text"
@@ -77,7 +77,7 @@ class SignupForm extends React.Component {
                 fieldPlaceHolder="Email or mobile number"/>
             </div>
             <div>
-              <SignUpInput changeProperty={this.changeProperty}
+              <SignUpInput update={this.update}
                 fieldName="password"
                 fieldType="password"
                 fieldValue={ this.state.password }

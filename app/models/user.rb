@@ -25,6 +25,7 @@ class User < ApplicationRecord
   validates :gender, presence: true
   validates :password_digest, :session_token, presence: true
   validates :password, length: { minimum: 6, allow_nil: true }
+  validate :ensure_profile_photo
   validate :email_or_mobile_number
   after_initialize :ensure_session_token
 
@@ -97,6 +98,12 @@ class User < ApplicationRecord
       rescue ArgumentError
         errors[:birth_date] << "is invalid"
       end
+    end
+  end
+
+  def ensure_profile_photo
+    unless self.profile_photo.attached?
+      errors[:profile_photo] << "Photo must be attached"
     end
   end
 
