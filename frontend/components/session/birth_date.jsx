@@ -55,7 +55,7 @@ class BirthDate extends React.Component {
             ))}
           </select>
           <a href="#" title="Click for more information">
-            Why do I need to provide my birthday
+            Why do I need to provide my birthday?
           </a>
         </div>
       </div>
