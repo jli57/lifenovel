@@ -1,7 +1,7 @@
 .post-index {
   h1 {
     font-size: 16px;
-    color:  #626871;
+    color: #626871;
   }
 }
 
@@ -9,6 +9,7 @@
   background: white;
   width: 500px;
   text-align: left;
+  border: 1px solid #dddfe2;
 }
 
 .post {
@@ -17,9 +18,10 @@
   box-sizing: border-box;
   border-radius: 3px;
 
-  i[class*="fa-"]{
+  i {
     color: #626871;
     transform: scale(1.2);
+    cursor: pointer;
   }
 
   nav {
@@ -104,7 +106,51 @@
 
 .post-menu {
 
-  ul {
+  position: relative;
+  background-color: white;
+  z-index: 1;
+
+  font-size: 13px;
+
+  .hidden {
+    display: none;
 
   }
+
+  ul {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+
+    width: 150px;
+    position: absolute;
+    top: 20px;
+    left: -133px;
+
+    background: white;
+    color: #626871;
+
+    border: 1px solid #bbbbbb;
+    box-shadow: 0 0 5px #b2b2b2;
+    padding: 10px 0px;
+
+
+    li {
+
+      width: 100%;
+      padding: 5px 0px;
+
+      &:hover {
+        background-color: #4267B2;
+        color: white;
+      }
+
+      a, button {
+        padding: 0 10px;
+        color: inherit;
+      }
+
+    }
+  }
+
 }

@@ -1,5 +1,7 @@
+@import 'base/fonts.scss';
+
 body {
-  font-family: Helvetica, sans-serif;
+  font-family: $sans-serif;
   font-size: 12px;
 }
 

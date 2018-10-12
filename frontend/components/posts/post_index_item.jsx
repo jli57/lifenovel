@@ -1,4 +1,6 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
+
 
 class PostIndexItem extends React.Component {
 
@@ -10,10 +12,8 @@ class PostIndexItem extends React.Component {
     this.handleMenuClick = this.handleMenuClick.bind(this);
   }
 
-  handleMenuClick() {
-    return (e) => {
-      this.setState({ showMenu: !this.state.showMenu });
-    }
+  handleMenuClick(e) {
+    this.setState({ showMenu: !this.state.showMenu });
   }
 
 
@@ -23,11 +23,17 @@ class PostIndexItem extends React.Component {
       <li className="post">
         <div className="flex">
           <div>{ post.author_id } wrote: { new Date(post.created_at).toLocaleDateString("en-US") }</div>
-          <div className={ "post-menu" }  onClick={ this.handleMenuClick } >
-            <i className="fas fa-ellipsis-h"></i>
+          <div className={ "post-menu" }
+              onClick={ this.handleMenuClick }>
+            <i className="fas fa-ellipsis-h">
+            </i>
             <ul className={ this.state.showMenu ? "" : "hidden" }>
-              <li>Edit Post</li>
-              <li>Delete Post</li>
+              <li>
+                <Link to="/edit">Edit Post</Link>
+              </li>
+              <li>
+                <button>Delete</button>
+              </li>
             </ul>
           </div>
         </div>
