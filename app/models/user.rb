@@ -80,8 +80,8 @@ class User < ApplicationRecord
   private
 
   def email_or_mobile_number
-    if email.nil? && mobile_number.nil?
-      errors[:base] << "Email or Mobile Number Required"
+    if (email.nil? || email.empty?) && (mobile_number.nil? || mobile_number.empty?)
+      errors[:email] << "Email or Mobile Number Required"
     end
   end
 

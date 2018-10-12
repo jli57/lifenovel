@@ -4,7 +4,7 @@ import { signup, login } from '../../actions/session_actions';
 import { fetchPosts } from '../../actions/post_actions';
 import SignupForm from './signup_form';
 
-const mapStateToProps = state => ({
+const mapStateToProps = ({ errors: { session }}) => ({
   user: {
     first_name: "",
     last_name: "",
@@ -13,7 +13,8 @@ const mapStateToProps = state => ({
     birth_date: "",
     gender: "",
     mobile_number: ""
-  }
+  },
+  sessionErrors: session
 });
 
 const mapDispatchToProps = dispatch => ({

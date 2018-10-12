@@ -30,8 +30,7 @@ class SignupForm extends React.Component {
   }
 
   demoLogin(e) {
-    this.props.login({email: "demo-user@gmail.com", password: "password"})
-      .then( this.props.fetchPosts() );
+    this.props.login({email: "demo-user@gmail.com", password: "password"});
   }
 
   changeProperty(prop) {
@@ -49,6 +48,9 @@ class SignupForm extends React.Component {
   }
 
   render() {
+    const genderIconClass = this.props.sessionErrors.includes("gender") ? "" : " hidden";
+    const genderInputClass = this.props.sessionErrors.includes("gender") ? "invalid" : "";
+
     return (
       <div className="center">
         <div className="signup-form-container">
@@ -61,12 +63,14 @@ class SignupForm extends React.Component {
                 fieldValue={ this.state.first_name}
                 fieldType="text"
                 fieldHelpText="What's your name?"
-                fieldPlaceHolder="First name"/>
+                fieldPlaceHolder="First name"
+                sessionErrors={ this.props.sessionErrors }/>
               <SignUpInput update={this.update}
                 fieldName="last_name"
                 fieldValue={ this.state.last_name }
                 fieldHelpText="What's your name?"
-                fieldPlaceHolder="Last name"/>
+                fieldPlaceHolder="Last name"
+                sessionErrors={ this.props.sessionErrors }/>
             </div>
             <div>
               <SignUpInput update={this.update}
@@ -74,7 +78,8 @@ class SignupForm extends React.Component {
                 fieldValue={ this.state.email }
                 fieldType="text"
                 fieldHelpText="You'll use this when you log in and if you ever need to reset your password"
-                fieldPlaceHolder="Email or mobile number"/>
+                fieldPlaceHolder="Email or mobile number"
+                sessionErrors={ this.props.sessionErrors }/>
             </div>
             <div>
               <SignUpInput update={this.update}
@@ -82,29 +87,39 @@ class SignupForm extends React.Component {
                 fieldType="password"
                 fieldValue={ this.state.password }
                 fieldHelpText="Enter a combination of at least six numbers, letters, and punctuation marks (like ! and \&)."
-                fieldPlaceHolder="New Password"/>
+                fieldPlaceHolder="New Password"
+                sessionErrors={ this.props.sessionErrors }/>
             </div>
-            <BirthDate birthDate={this.state.birth_date} update={this.update}/>
-            <div className="gender" id="gender">
-              <span>
+            <div className="birthday">
+              <h1 className="birthday-header">Birthday</h1>
+              <BirthDate
+                birthDate={this.state.birth_date}
+                update={this.update}
+                sessionErrors={ this.props.sessionErrors }/>
+            </div>
+            <div className="gender field-set">
+              <div className={ genderInputClass }>
                 <input
                   type="radio"
                   name="gender"
                   onChange={ this.changeProperty("gender")}
                   value="F"/>
                 <label htmlFor="gender">Female</label>
-              </span>
-              <span>
+              </div>
+              <div className={ genderInputClass }>
                 <input
                   type="radio"
                   name="gender"
                   onChange={ this.changeProperty("gender")}
                   value="M"/>
                 <label htmlFor="gender">Male</label>
-              </span>
+              </div>
+              <i className={ "fas fa-exclamation-circle" + genderIconClass }></i>
             </div>
             <p>
-              By clicking Sign Up, you agree to our <Link to="/update">Terms</Link>, <Link to="/update">Data Policy</Link> and <Link to="/update">Cookies Policy</Link>. You may receive SMS Notifications from us and can opt out any time.
+              By clicking Sign Up, you agree to our <Link to="/update">Terms, </Link>
+            <Link to="/update">Data Policy, </Link> and <Link to="/update">Cookies Policy. </Link>
+                You may receive SMS Notifications from us and can opt out any time.
             </p>
             <div className="flex">
               <button className="signup-btn" type="submit">Sign Up</button>

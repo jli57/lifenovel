@@ -25,37 +25,10 @@
 
 }
 
-.birthday {
-
-  div {
-    display: flex;
-    flex-direction: row;
-  }
-
-  select {
-    border: 1px solid #bdc7d8;
-  }
-
-  a {
-    margin-left: 10px;
-    font-size: 12px;
-    &:hover {
-      text-decoration: underline;
-    }
-  }
-
-  h1 {
-    font-size: 18px;
-    color: #444;
-    margin-top: 10px;
-    margin-bottom: 5px;
-  }
-}
 
 .signup-form {
   font-size: 18px;
   display: flex;
-  flex-wrap: wrap;
   justify-content: center;
   flex-direction: column;
   line-height: 1.34;
@@ -84,8 +57,6 @@
   }
 
   .field-set {
-    display: flex;
-    vertical-align: middle;
     position: relative;
   }
 
@@ -129,7 +100,7 @@
     }
   }
 
-  .email, .password {
+  .email, .password, .birthday {
     .help-message{
        left: -325px;
        width: 315px;
@@ -137,6 +108,7 @@
        box-sizing: border-box;
     }
   }
+
 
   .invalid {
     border-color: red;
@@ -152,6 +124,10 @@
     top: 10px;
     transform: scale(1.3);
     color: #BD4B49;
+  }
+
+  .birthday i {
+    top: 5px;
   }
 
   label {
@@ -180,40 +156,83 @@
 
 
   .gender {
-    margin-top: 10px;
+    margin-top: 5px;
+    display: flex;
 
     input {
       width: 20px;
-      height: 30px;
-      margin-left: 5px;
     }
 
     label {
-      padding-right: 10px;
+      padding-right: 5px;
     }
+
+    div {
+      padding: 0 5px;
+      margin: 0 5px 0 0;
+      height: 35px;
+      display: flex;
+      align-items: center;
+    }
+
+    .invalid {
+      border: 1px solid red;
+      border-radius: 3px;
+    }
+  }
+
+}
+
+.birthday {
+
+  div {
+    display: flex;
+    flex-direction: row;
+  }
+
+  select {
+    border: 1px solid #bdc7d8;
+  }
+
+  a {
+    margin-left: 10px;
+    font-size: 12px;
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+
+  .birthday-header {
+    font-size: 18px;
+    color: #444;
+    margin-top: 10px;
+    margin-bottom: 5px;
   }
 
 }
 
 .signup-btn {
   -webkit-appearance: button;
-  box-sizing: border-box;
+
   min-width: 190px;
   padding: 7px 20px;
+
   text-align: center;
   font-weight: bold;
+  color: white;
+  letter-spacing: 1px;
+  text-shadow: 0 1px 2px rgba(0,0,0,.5);
+  line-height: 126%;
+
   background: linear-gradient(#67ae55, #578843);
-  background-color: #69a74e;
+
+  box-sizing: border-box;
   box-shadow: inset 0 1px 1px #a4e388;
   border: 1px solid;
   border-color: #3b6e22 #3b6e22 #2c5115;
   border-radius: 5px;
-  color: #fff;
-  letter-spacing: 1px;
-  text-shadow: 0 1px 2px rgba(0,0,0,.5);
-  line-height: 126%;
-  margin-top: 10px;
-  margin-bottom: 10px;
+
+  margin: 10px 0;
 
   &:hover {
     background: linear-gradient(#76B861, #578843);
