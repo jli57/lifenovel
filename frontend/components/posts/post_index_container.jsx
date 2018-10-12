@@ -15,6 +15,7 @@ class PostIndexContainer extends React.Component {
         posts={ this.props.posts }
         updatePost={ this.props.updatePost }
         deletePost={ this.props.deletePost }
+        currentUser={ this.props.currentUser }
       />
     )
   }
@@ -22,6 +23,7 @@ class PostIndexContainer extends React.Component {
 
 const mapStateToProps = ({ entities: { users, posts }, session }) => ({
   posts: filterPagePosts(session, posts),
+  currentUser: session.id
 });
 
 const mapDispatchToProps = dispatch => ({
