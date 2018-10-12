@@ -5,12 +5,12 @@ import SearchBarContainer from '../search/search_bar_container';
 import { AuthRoute, ProtectedRoute } from '../../util/route_util';
 import logo from '../../../app/assets/images/logo_white.png';
 
-const Header = ({ currentUser, logout }) => {
+const Header = ({ currentUser, logout, history }) => {
 
   const handleLogout = (e) => {
     e.preventDefault();
     logout()
-      .then( this.props.history.push("/") )
+      .then( history.push("/") );
   }
 
   const loggedOut = () => (
