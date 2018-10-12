@@ -5,10 +5,11 @@ import { login } from '../../actions/session_actions';
 import { fetchPosts } from '../../actions/post_actions';
 import LoginForm from './login_form';
 
-const mapStateToProps = ({ errors: { session } }, ownProps) => ({
+const mapStateToProps = ({ errors, session }, ownProps) => ({
   user: { email: "", password: ""},
   header: ownProps.header,
-  sessionErrors: session
+  sessionErrors: errors.session,
+  currentUser: session.id
 });
 
 const mapDispatchToProps = dispatch => ({

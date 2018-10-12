@@ -15,9 +15,9 @@ class LoginForm extends React.Component {
   }
 
   componentWillReceiveProps(nextProps) {
-    if ( nextProps.sessionErrors.length > 0 ) {
-      this.props.history.push("/login");
-    }
+    if ( nextProps.currentUser ) {
+      this.props.history.push("/");
+    } 
   }
 
   handleSubmit(...args) {
@@ -25,7 +25,9 @@ class LoginForm extends React.Component {
       args[0].preventDefault();
     }
     const user = Object.assign({}, this.state);
-    this.props.login(user);
+    this.props.login(user)
+      .then( null,
+       () => this.props.history.push("/login"));
   }
 
   changeProperty(prop) {

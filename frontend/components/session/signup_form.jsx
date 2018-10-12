@@ -24,6 +24,12 @@ class SignupForm extends React.Component {
     this.update = this.update.bind(this);
   }
 
+  componentWillReceiveProps(nextProps) {
+      if ( nextProps.currentUser ) {
+        this.props.history.push("/");
+      }
+    }
+
   handleSubmit(e) {
     e.preventDefault();
     this.props.signup(this.state);

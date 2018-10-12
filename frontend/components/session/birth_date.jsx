@@ -11,8 +11,7 @@ class BirthDate extends React.Component {
       month: today.getMonth() + 1,
       day: today.getDate(),
       error: false,
-      help: false,
-      modified: false,
+      help: false
     }
     this.validate = this.validate.bind(this);
   }
@@ -31,13 +30,14 @@ class BirthDate extends React.Component {
       if ( e.type === "blur" ) {
         if ( invalid ) {
           this.setState({ error: true, help: false });
+        } else {
+          this.setState({error: false, help: false});
         }
-        this.setState({modified: true});
-      } else if ( e.type === "focus" &&  invalid ) {
+      } else if ( e.type === "focus" &&  this.state.error ) {
         this.setState({ error: false, help: true });
       } else {
         this.setState(
-          { error: false, help: false, [fieldName]: fieldValue, modified: true },
+          { error: false, help: false, [fieldName]: fieldValue },
           () => {
             this.props.update( fieldName, this.state.fieldValue);
           }

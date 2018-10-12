@@ -7,8 +7,7 @@ class SignUpInput extends React.Component {
     this.state = {
       fieldValue: this.props.fieldValue,
       error: false,
-      help: false,
-      modified: false
+      help: false
     }
     this.validate = this.validate.bind(this);
   }
@@ -23,7 +22,7 @@ class SignUpInput extends React.Component {
     return (e) => {
       if ( e.type === "blur" && e.target.value.trim() === "" ) {
         this.setState({ error: true, help: false, fieldValue: e.target.value.trim(), modified: true })
-      } else if ( e.type === "focus" && e.target.value === "" && this.state.modified ) {
+      } else if ( e.type === "focus" && this.state.error ) {
         this.setState({ help: true , error: false });
       } else {
         this.setState(
