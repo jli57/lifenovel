@@ -114,10 +114,6 @@
     border-color: red;
   }
 
-  .hidden {
-    display: none;
-  }
-
   i {
     position: absolute;
     right: 10px;
@@ -188,6 +184,10 @@
   div {
     display: flex;
     flex-direction: row;
+  }
+
+  .hidden {
+    display: none;
   }
 
   select {

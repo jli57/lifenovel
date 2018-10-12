@@ -15,7 +15,7 @@
   margin: 5px 0px;
   padding: 10px 10px 5px 10px;
   box-sizing: border-box;
-  border-radius: 3px; 
+  border-radius: 3px;
 
   i[class*="fa-"]{
     color: #626871;
@@ -50,10 +50,6 @@
   margin-bottom: 10px;
   font-size: 16px;
 }
-
-
-
-
 
 .create-post {
   margin-bottom: 10px;
@@ -103,5 +99,12 @@
     }
 
   }
+}
 
+
+.post-menu {
+
+  ul {
+
+  }
 }
