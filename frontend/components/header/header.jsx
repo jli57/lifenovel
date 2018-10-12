@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link, Route } from 'react-router-dom';
+import { Link, Route, Switch } from 'react-router-dom';
 import LoginFormContainer from '../session/login_form_container';
 import SearchBarContainer from '../search/search_bar_container';
 import { AuthRoute, ProtectedRoute } from '../../util/route_util';
@@ -19,7 +19,11 @@ const Header = ({ currentUser, logout, history }) => {
         <Link to="/" className="logo">
           <h1>lifenovel</h1>
         </Link>
-        <Route exact path="/" render={ () => <LoginFormContainer header={true} /> } />
+        <Switch>
+          <Route path="/signup" render={ () => <LoginFormContainer header={true} /> } />
+          <Route path="/users" render={ () => <LoginFormContainer header={true} /> } />
+          <Route exact path="/" render={ () => <LoginFormContainer header={true} /> } />
+        </Switch>
       </nav>
     </header>
   )

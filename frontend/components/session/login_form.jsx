@@ -14,6 +14,12 @@ class LoginForm extends React.Component {
     this.demoLogin = this.demoLogin.bind(this);
   }
 
+  componentWillReceiveProps(nextProps) {
+    if ( nextProps.sessionErrors.length > 0 ) {
+      this.props.history.push("/login");
+    }
+  }
+
   handleSubmit(...args) {
     if ( args.length > 0 ) {
       args[0].preventDefault();
@@ -99,6 +105,7 @@ class LoginForm extends React.Component {
     const login_page = (
       <form className="login-form">
         <h1> Log into Livenovel </h1>
+        <div className="error">{ this.props.sessionErrors }</div>
         { email_input }
         { password_input }
         { submit_input }
