@@ -40,7 +40,7 @@ class SignUpInput extends React.Component {
           { this.props.fieldHelpText }
         </div>
         <input
-          type="text"
+          type={ this.props.fieldType }
           className={ inputClass }
           onChange={ this.validate() }
           onBlur={ this.validate() }

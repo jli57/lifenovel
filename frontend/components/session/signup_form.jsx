@@ -59,6 +59,7 @@ class SignupForm extends React.Component {
               <SignUpInput changeProperty={this.changeProperty}
                 fieldName="first_name"
                 fieldValue={ this.state.first_name}
+                fieldType="text"
                 fieldHelpText="What's your name?"
                 fieldPlaceHolder="First name"/>
               <SignUpInput changeProperty={this.changeProperty}
@@ -71,12 +72,14 @@ class SignupForm extends React.Component {
               <SignUpInput changeProperty={this.changeProperty}
                 fieldName="email"
                 fieldValue={ this.state.email }
+                fieldType="text"
                 fieldHelpText="You'll use this when you log in and if you ever need to reset your password"
                 fieldPlaceHolder="Email or mobile number"/>
             </div>
             <div>
               <SignUpInput changeProperty={this.changeProperty}
                 fieldName="password"
+                fieldType="password"
                 fieldValue={ this.state.password }
                 fieldHelpText="Enter a combination of at least six numbers, letters, and punctuation marks (like ! and \&)."
                 fieldPlaceHolder="New Password"/>
