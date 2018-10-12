@@ -6,4 +6,4 @@ json.extract! user,
     :mobile_number,
     :birth_date,
     :gender
-json.profile_photo url_for(user.profile_photo)
+json.profile_photo polymorphic_url(user.profile_photo)
