@@ -21,6 +21,11 @@ User.create({
   password: "password"
 })
 
+file = File.open('app/assets/images/default.jpg')
+User.all.each do |user|
+  user.profile_photo.attach(io: file, filename: 'default.jpg')
+end
+
 5.times do
   User.create(
     first_name: Faker::Name.first_name,
