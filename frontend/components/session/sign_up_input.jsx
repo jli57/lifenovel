@@ -36,7 +36,7 @@ class SignUpInput extends React.Component {
           { error: false, help: false, fieldValue: e.target.value, modified: true },
           () => {
             this.props.update(this.props.fieldName, this.state.fieldValue);
-            this.removeSessionErrors(); 
+            this.removeSessionErrors();
           }
         );
       }

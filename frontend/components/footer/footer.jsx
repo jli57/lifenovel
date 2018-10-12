@@ -2,7 +2,7 @@ import React from 'react';
 import { Link, NavLink } from 'react-router-dom';
 import { FOOTER_LINKS } from '../../util/footer_util';
 
-const Footer = ({ currentUser }) => {
+const Footer = ({ currentUser, removeSessionErrors  }) => {
   const loggedOut = () => (
     <footer>
       <div id="footer-content">
@@ -46,7 +46,7 @@ const Footer = ({ currentUser }) => {
         <ul>
           { FOOTER_LINKS.map( ({footerText, footerLink}) => (
               <li key={ footerLink }>
-                <Link to={`/${footerLink}`}>{footerText}</Link>
+                <Link to={`/${footerLink}`} onClick={ () => { removeSessionErrors() } }>{footerText}</Link>
               </li>
           )) }
         </ul>

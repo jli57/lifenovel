@@ -8,6 +8,7 @@ class PostIndexContainer extends React.Component {
   componentDidMount() {
     this.props.fetchPosts();
   }
+
   render() {
     return (
       <PostIndex

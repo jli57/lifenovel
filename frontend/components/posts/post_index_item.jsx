@@ -4,7 +4,18 @@ class PostIndexItem extends React.Component {
 
   constructor(props) {
     super(props);
+    this.state = {
+      showMenu: false
+    }
+    this.handleMenuClick = this.handleMenuClick.bind(this);
   }
+
+  handleMenuClick() {
+    return (e) => {
+      this.setState({ showMenu: !this.state.showMenu });
+    }
+  }
+
 
   render() {
     const post = this.props.post;
@@ -12,7 +23,13 @@ class PostIndexItem extends React.Component {
       <li className="post">
         <div className="flex">
           <div>{ post.author_id } wrote: { new Date(post.created_at).toLocaleDateString("en-US") }</div>
-          <i className="fas fa-ellipsis-h"></i>
+          <div className={ "post-menu" }  onClick={ this.handleMenuClick } >
+            <i className="fas fa-ellipsis-h"></i>
+            <ul className={ this.state.showMenu ? "" : "hidden" }>
+              <li>Edit Post</li>
+              <li>Delete Post</li>
+            </ul>
+          </div>
         </div>
         <div className="post-body">
           { post.body }

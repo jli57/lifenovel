@@ -28,6 +28,7 @@ class SignupForm extends React.Component {
   }
 
   componentDidMount() {
+
     if ( this.props.currentUser ) {
       this.props.history.push("/");
     }
@@ -48,8 +49,7 @@ class SignupForm extends React.Component {
         () => this.setState({
           sessionErrors: this.props.sessionErrors,
           genderErrors: this.props.sessionErrors.includes("gender"),
-        }, ()=> {
-          console.log(user);
+
         })
     );
   }
@@ -154,7 +154,7 @@ class SignupForm extends React.Component {
                 You may receive SMS Notifications from us and can opt out any time.
             </p>
             <div className="flex">
-              <button className="signup-btn" type="submit">Sign Up</button>
+              <button className="signup-btn" type="submit" >Sign Up</button>
               <button className="signup-btn" type="button" onClick={ this.demoLogin }>Demo User</button>
             </div>
           </form>

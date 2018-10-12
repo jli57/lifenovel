@@ -17,7 +17,7 @@ class LoginForm extends React.Component {
   componentWillReceiveProps(nextProps) {
     if ( nextProps.currentUser ) {
       this.props.history.push("/");
-    } 
+    }
   }
 
   handleSubmit(...args) {
@@ -26,8 +26,8 @@ class LoginForm extends React.Component {
     }
     const user = Object.assign({}, this.state);
     this.props.login(user)
-      .then( null,
-       () => this.props.history.push("/login"));
+      .then( null
+        , () => this.props.history.push("/login"));
   }
 
   changeProperty(prop) {
@@ -70,6 +70,7 @@ class LoginForm extends React.Component {
       <input
         className="header-btn"
         type="submit"
+        onClick={ this.handleSubmit }
         value="Log In"
       />
     );
