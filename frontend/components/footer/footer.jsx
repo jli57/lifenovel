@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link, NavLink } from 'react-router-dom';
+import { FOOTER } from '../../util/footer_util';
 
 const Footer = ({ currentUser }) => {
   const loggedOut = () => (
@@ -43,12 +44,14 @@ const Footer = ({ currentUser }) => {
         </ul>
 
         <ul>
-          <li>
-            <Link to="/signup">Sign Up</Link>
-          </li>
-          <li>
-            <Link to="/login">Log In</Link>
-          </li>
+          { FOOTER.map( link => {
+            const txt = link.toLowerCase().replace(" ", "_");
+            return (
+              <li key={ txt }>
+                <Link to={`/${txt}`} >{link}</Link>
+              </li>
+            );
+          }) }
         </ul>
 
         <div>lifenovel &#0169; 2018</div>
@@ -61,6 +64,6 @@ const Footer = ({ currentUser }) => {
   );
 
   return currentUser ? loggedIn() : loggedOut();
-}; 
+};
 
 export default Footer;
