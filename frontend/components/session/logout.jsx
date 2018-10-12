@@ -4,12 +4,21 @@ class LogOut extends React.Component {
 
   constructor(props) {
     super(props);
-    this.state =
+    this.state = {
+      display: true;
+    }
   }
+
+  const handleLogout = (e) => {
+    e.preventDefault();
+    logout()
+      .then( this.props.history.push("/") );
+  }
+
   render() {
     return (
       <div>
-        <button className="header-btn" onClick={ this.props.logout }>Logout</button>
+        <button className="header-btn" onClick={ this.handleLogout }>Logout</button>
       </div>
     );
   }

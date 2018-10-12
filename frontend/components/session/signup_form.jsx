@@ -2,6 +2,7 @@ import React from 'react';
 import { Link, withRouter } from 'react-router-dom';
 import * as DateUtil from '../../util/date_util';
 import BirthDate from './birth_date';
+import SignUpInput from './sign_up_input';
 
 class SignupForm extends React.Component {
 
@@ -44,7 +45,6 @@ class SignupForm extends React.Component {
   }
 
   setBirthDate({year, month, day}) {
-    // console.log(`${year}-${month}-${day}`);
     this.setState({birth_date: `${year}-${month}-${day}` });
   }
 
@@ -56,36 +56,30 @@ class SignupForm extends React.Component {
           <h2>It’s free and always will be.</h2>
           <form className="signup-form" onSubmit={ this.handleSubmit }>
             <div className="full-name">
-              <input
-                type="text"
-                className="first-name"
-                onChange={ this.changeProperty("first_name")}
-                value={this.state.first_name}
-                placeholder="First name"
-                />
-              <input
-                type="text"
-                className="last-name"
-                onChange={ this.changeProperty("last_name")}
-                value={this.state.last_name}
-                placeholder="Last name"
-                />
+              <SignUpInput changeProperty={this.changeProperty}
+                fieldName="first_name"
+                fieldValue={ this.state.first_name}
+                fieldHelpText="What's your name?"
+                fieldPlaceHolder="First name"/>
+              <SignUpInput changeProperty={this.changeProperty}
+                fieldName="last_name"
+                fieldValue={ this.state.last_name }
+                fieldHelpText="What's your name?"
+                fieldPlaceHolder="Last name"/>
             </div>
             <div>
-              <input
-                type="text"
-                onChange={ this.changeProperty("email")}
-                value={this.state.email}
-                placeholder="Email or mobile number"
-                />
+              <SignUpInput changeProperty={this.changeProperty}
+                fieldName="email"
+                fieldValue={ this.state.email }
+                fieldHelpText="You'll use this when you log in and if you ever need to reset your password"
+                fieldPlaceHolder="Email or mobile number"/>
             </div>
             <div>
-              <input
-                type="password"
-                onChange={ this.changeProperty("password") }
-                value={this.state.password}
-                placeholder="New password"
-                />
+              <SignUpInput changeProperty={this.changeProperty}
+                fieldName="password"
+                fieldValue={ this.state.password }
+                fieldHelpText="Enter a combination of at least six numbers, letters, and punctuation marks (like ! and \&)."
+                fieldPlaceHolder="New Password"/>
             </div>
             <BirthDate birthDate={this.state.birth_date} update={this.update}/>
             <div className="gender" id="gender">
@@ -107,7 +101,7 @@ class SignupForm extends React.Component {
               </span>
             </div>
             <p>
-              By clicking Sign Up, you agree to our Terms, Data Policy and Cookies Policy. You may receive SMS Notifications from us and can opt out any time.
+              By clicking Sign Up, you agree to our <Link to="/update">Terms</Link>, <Link to="/update">Data Policy</Link> and <Link to="/update">Cookies Policy</Link>. You may receive SMS Notifications from us and can opt out any time.
             </p>
             <div className="flex">
               <button className="signup-btn" type="submit">Sign Up</button>
