@@ -12,7 +12,7 @@ User.destroy_all
 Post.destroy_all
 Comment.destroy_all
 
-User.create({
+user = User.new({
   first_name: "Demo",
   last_name: "User",
   birth_date: "2018-10-08",
@@ -20,14 +20,12 @@ User.create({
   gender: "F",
   password: "password"
 })
-
 file = File.open('app/assets/images/default.jpg')
-User.all.each do |user|
-  user.profile_photo.attach(io: file, filename: 'default.jpg')
-end
+user.profile_photo.attach(io: file, filename: 'default.jpg')
+user.save!
 
 5.times do
-  User.create(
+  user = User.new(
     first_name: Faker::Name.first_name,
     last_name: Faker::Name.last_name,
     birth_date: Faker::Date.birthday(18, 65),
@@ -35,6 +33,9 @@ end
     gender: Faker::Gender.binary_type[0],
     password: "test123"
   )
+  file = File.open('app/assets/images/default.jpg')
+  user.profile_photo.attach(io: file, filename: 'default.jpg')
+  user.save!
 end
 
 user_ids = User.ids
