@@ -8,20 +8,29 @@ class SignupForm extends React.Component {
 
   constructor(props) {
     super(props);
+    let today = new Date();
     this.state =  {
       first_name: "",
       last_name: "",
       email: "",
       password: "",
       gender: "",
-      year: "",
-      month: "",
-      day: "",
+      year: today.getFullYear() - 25,
+      month: today.getMonth() + 1,
+      day:  today.getDate(),
+      sessionErrors: this.props.sessionErrors,
+      genderErrors: false
     }
     this.handleSubmit = this.handleSubmit.bind(this);
     this.demoLogin = this.demoLogin.bind(this);
     this.setBirthDate = this.setBirthDate.bind(this);
     this.update = this.update.bind(this);
+  }
+
+  componentDidMount() {
+    if ( this.props.currentUser ) {
+      this.props.history.push("/");
+    }
   }
 
   componentWillReceiveProps(nextProps) {
@@ -32,7 +41,17 @@ class SignupForm extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault();
-    this.props.signup(this.state);
+    const user = Object.assign(this.state);
+    delete user["errors"];
+    this.props.signup(user)
+      .then( null,
+        () => this.setState({
+          sessionErrors: this.props.sessionErrors,
+          genderErrors: this.props.sessionErrors.includes("gender"),
+        }, ()=> {
+          console.log(user);
+        })
+    );
   }
 
   demoLogin(e) {
@@ -42,6 +61,9 @@ class SignupForm extends React.Component {
   changeProperty(prop) {
     return (e) => {
       this.setState({ [prop]: e.target.value });
+      if ( prop === "gender") {
+        this.setState({ genderErrors: false });
+      }
     }
   }
 
@@ -54,8 +76,8 @@ class SignupForm extends React.Component {
   }
 
   render() {
-    const genderIconClass = this.props.sessionErrors.includes("gender") ? "" : " hidden";
-    const genderInputClass = this.props.sessionErrors.includes("gender") ? "invalid" : "";
+    const genderIconClass = this.props.sessionErrors.includes("gender") && this.state.genderErrors ? "" : " hidden";
+    const genderInputClass = this.props.sessionErrors.includes("gender") && this.state.genderErrors ? "invalid" : "";
 
     return (
       <div className="center">
@@ -70,13 +92,13 @@ class SignupForm extends React.Component {
                 fieldType="text"
                 fieldHelpText="What's your name?"
                 fieldPlaceHolder="First name"
-                sessionErrors={ this.props.sessionErrors }/>
+                sessionErrors={ this.state.sessionErrors }/>
               <SignUpInput update={this.update}
                 fieldName="last_name"
                 fieldValue={ this.state.last_name }
                 fieldHelpText="What's your name?"
                 fieldPlaceHolder="Last name"
-                sessionErrors={ this.props.sessionErrors }/>
+                sessionErrors={ this.state.sessionErrors }/>
             </div>
             <div>
               <SignUpInput update={this.update}
@@ -85,7 +107,7 @@ class SignupForm extends React.Component {
                 fieldType="text"
                 fieldHelpText="You'll use this when you log in and if you ever need to reset your password"
                 fieldPlaceHolder="Email or mobile number"
-                sessionErrors={ this.props.sessionErrors }/>
+                sessionErrors={ this.state.sessionErrors }/>
             </div>
             <div>
               <SignUpInput update={this.update}
@@ -94,14 +116,18 @@ class SignupForm extends React.Component {
                 fieldValue={ this.state.password }
                 fieldHelpText="Enter a combination of at least six numbers, letters, and punctuation marks (like ! and \&)."
                 fieldPlaceHolder="New Password"
-                sessionErrors={ this.props.sessionErrors }/>
+                sessionErrors={ this.state.sessionErrors }/>
             </div>
             <div className="birthday">
               <h1 className="birthday-header">Birthday</h1>
               <BirthDate
                 birthDate={this.state.birth_date}
+                year={this.state.year}
+                month={this.state.month}
+                day={this.state.day}
                 update={this.update}
-                sessionErrors={ this.props.sessionErrors }/>
+                sessionErrors={ this.state.sessionErrors }
+                fieldName={"birth_date"}/>
             </div>
             <div className="gender field-set">
               <div className={ genderInputClass }>

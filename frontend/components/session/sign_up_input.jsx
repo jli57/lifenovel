@@ -18,17 +18,25 @@ class SignUpInput extends React.Component {
     }
   }
 
+  removeSessionErrors() {
+    const sessionErrors = this.props.sessionErrors.filter( error =>
+      error !== this.props.fieldName
+    );
+    this.props.update( "sessionErrors", sessionErrors );
+  }
+
   validate() {
     return (e) => {
       if ( e.type === "blur" && e.target.value.trim() === "" ) {
-        this.setState({ error: true, help: false, fieldValue: e.target.value.trim(), modified: true })
+        this.setState({ error: true, help: false, fieldValue: e.target.value.trim() })
       } else if ( e.type === "focus" && this.state.error ) {
-        this.setState({ help: true , error: false });
+        this.setState({ help: true , error: false, modified: true });
       } else {
         this.setState(
           { error: false, help: false, fieldValue: e.target.value, modified: true },
           () => {
-            this.props.update(this.props.fieldName, this.state.fieldValue)
+            this.props.update(this.props.fieldName, this.state.fieldValue);
+            this.removeSessionErrors(); 
           }
         );
       }

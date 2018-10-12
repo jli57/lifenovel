@@ -5,11 +5,10 @@ class BirthDate extends React.Component {
 
   constructor(props) {
     super(props);
-    let today = new Date();
     this.state = {
-      year: today.getFullYear() - 25,
-      month: today.getMonth() + 1,
-      day: today.getDate(),
+      year: this.props.year,
+      month: this.props.month,
+      day: this.props.day,
       error: false,
       help: false
     }
@@ -17,9 +16,16 @@ class BirthDate extends React.Component {
   }
 
   componentWillReceiveProps(nextProps) {
-    if ( nextProps.sessionErrors.includes( "birth_date") ) {
+    if ( nextProps.sessionErrors.includes(this.props.fieldName) ) {
       this.setState({ error: true });
     }
+  }
+
+  removeSessionErrors() {
+    const sessionErrors = this.props.sessionErrors.filter( error =>
+      error !== this.props.fieldName
+    );
+    this.props.update( "sessionErrors", sessionErrors );
   }
 
   validate() {
@@ -36,10 +42,11 @@ class BirthDate extends React.Component {
       } else if ( e.type === "focus" &&  this.state.error ) {
         this.setState({ error: false, help: true });
       } else {
-        this.setState(
+        this.setState (
           { error: false, help: false, [fieldName]: fieldValue },
           () => {
-            this.props.update( fieldName, this.state.fieldValue);
+            this.props.update( fieldName, fieldValue );
+            this.removeSessionErrors();
           }
         );
       }
