@@ -1,4 +1,4 @@
-export const FOOTER = ['Sign Up',
+const FOOTERS = ['Sign Up',
 'Log In',
 'Messenger',
 'Facebook Lite',
@@ -27,3 +27,15 @@ export const FOOTER = ['Sign Up',
 'Login Help',
 'Help',
 'Settings'];
+
+export const FOOTER_LINKS = (
+  FOOTERS.map( (footerText ) => {
+    let footerLink = footerText.toLowerCase();
+    if ( footerText === "Sign Up" || footerText === "Log In") {
+      footerLink = footerLink.replace(" ", "");
+    } else {
+      footerLink= footerLink.replace(" ", "_");
+    }
+    return { footerText, footerLink };
+  })
+);
