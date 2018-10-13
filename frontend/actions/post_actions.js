@@ -1,4 +1,5 @@
 import * as APIUtil from "../util/post_util";
+import { closeModal } from "./modal_actions";
 
 export const RECEIVE_POSTS = "RECEIVE_POSTS";
 export const RECEIVE_POST = "RECEIVE_POST";
@@ -44,7 +45,7 @@ export const createPost = (post) => dispatch => (
 export const updatePost = (post) => dispatch => (
   APIUtil.updatePost(post)
     .then(
-      (post) => dispatch(receivePost(post)),
+      (post) => { dispatch(receivePost(post)), dispatch(closeModal()) },
       (errors) => dispatch(receivePostErrors(errors.responseJSON))
   )
 );
