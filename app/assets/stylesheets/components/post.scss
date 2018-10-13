@@ -103,7 +103,6 @@
       width: 100%;
       font-size: 16px;
       padding: 5px;
-      word-wrap: break-word;
 
     }
 
@@ -145,7 +144,6 @@
   }
   form textarea {
     height: 150px;
-    word-wrap: break-word;
   }
 }
 
@@ -160,15 +158,9 @@
 .post-menu {
 
   position: relative;
+  z-index: 11;
   background-color: white;
-  z-index: 1;
-
   font-size: 13px;
-
-  .hidden {
-    display: none;
-
-  }
 
   ul {
     display: flex;
@@ -177,7 +169,7 @@
 
     width: 150px;
     position: absolute;
-    top: 20px;
+    top: 10px;
     left: -133px;
 
     background: white;

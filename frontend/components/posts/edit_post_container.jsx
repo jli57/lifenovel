@@ -13,7 +13,7 @@ class EditPostContainer extends React.Component {
       <div className="edit-post">
         <nav>
             <div><h1>Edit Post</h1></div>
-            <div onClick={ () => { this.props.closeModal() } }><span><i className="fas fa-times"></i></span></div>
+            <div onClick={ this.props.closeModal }><span><i className="fas fa-times"></i></span></div>
         </nav>
         <PostForm
           post={ this.props.post}
@@ -37,7 +37,7 @@ const mapStateToProps = ( { session, entities: { users, posts }, ui: { modal, mo
 
 const mapDispatchToProps = dispatch => ({
   submitAction: (post) => dispatch(updatePost(post)),
-  fetchPosts: () => dispatch(fetchPosts()),
+  fetchPosts: () => dispatch( fetchPosts() ),
   closeModal: () => dispatch( closeModal() ),
 });
 

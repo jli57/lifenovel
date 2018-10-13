@@ -9,8 +9,6 @@ const PostIndex = ({ posts, updatePost, deletePost, currentUser, openModal }) =>
           <PostIndexItem
             key={ post.id }
             post={ post }
-            updatePost={ updatePost }
-            deletePost={ deletePost }
             currentUser={ currentUser }
             openModal={ openModal }
         />)) }

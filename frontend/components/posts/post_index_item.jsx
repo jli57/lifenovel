@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import PostMenuModal from '../modal/post_menu_modal';
 
 class PostIndexItem extends React.Component {
 
@@ -8,24 +9,11 @@ class PostIndexItem extends React.Component {
     this.state = {
       showMenu: false
     }
-    this.handleMenuClick = this.handleMenuClick.bind(this);
-    this.handleOutsideClick = this.handleOutsideClick.bind(this);
+    this.handleClick = this.handleClick.bind(this);
   }
 
-  handleMenuClick(e) {
-    if ( !this.state.showMenu ) {
-      document.addEventListener('click', this.handleOutsideClick, false);
-    } else {
-      document.removeEventListener('click', this.handleOutsideClick, false);
-    }
-    this.setState({ showMenu: !this.state.showMenu });
-  }
-
-  handleOutsideClick(e) {
-    if ( this.node.contains(e.target)) {
-      return;
-    }
-    this.handleMenuClick();
+  handleClick(e) {
+    this.props.openModal("postMenu", this.props.post.id);
   }
 
   render() {
@@ -40,21 +28,14 @@ class PostIndexItem extends React.Component {
       <li className="post">
         <div className="flex">
           <div>{ post.author_id } wrote on { dateLog }</div>
-          <div className={ "post-menu" }
-              onClick={ this.handleMenuClick }
-              ref={ node => { this.node = node } }>
-            <i className="fas fa-ellipsis-h">
-            </i>
-            <ul className={ this.state.showMenu ? "" : "hidden" }>
-              <li onClick={ () => this.props.openModal('editPost', post.id) }>
-                <button>Edit Post</button>
-              </li>
-              <li onClick={ () => this.props.deletePost(post.id) } >
-                <button >Delete</button>
-              </li>
-            </ul>
+
+          <div className="post-menu-btn" onClick={ this.handleClick }>
+            <i className="fas fa-ellipsis-h"></i>
+            <PostMenuModal postId={post.id}/>
           </div>
+
         </div>
+
         <div className="post-body">
           { post.body }
         </div>

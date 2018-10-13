@@ -1,7 +1,7 @@
 import React from 'react';
 import { closeModal } from '../../actions/modal_actions';
 import { connect } from 'react-redux';
-import EditPostContainer from '../posts/edit_post_container'
+import EditPostContainer from '../posts/edit_post_container';
 
 const Modal = ({ modal, modalArgs, closeModal }) => {
   if ( !modal ) {
@@ -9,8 +9,6 @@ const Modal = ({ modal, modalArgs, closeModal }) => {
   }
   let component;
   switch ( modal ) {
-    // case 'postMenu':
-    //   component = <PostMenu />;
     case 'editPost':
       component = <EditPostContainer postId={ modalArgs[0] } />
       break;
