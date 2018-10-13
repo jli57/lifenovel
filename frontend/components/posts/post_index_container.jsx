@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import { updatePost, deletePost, fetchPosts } from '../../actions/post_actions';
 import PostIndex from './post_index';
 import { filterPagePosts, addAuthorToPosts } from '../../reducers/selectors';
+import { openModal } from '../../actions/modal_actions';
 
 class PostIndexContainer extends React.Component {
   componentDidMount() {
@@ -16,6 +17,7 @@ class PostIndexContainer extends React.Component {
         updatePost={ this.props.updatePost }
         deletePost={ this.props.deletePost }
         currentUser={ this.props.currentUser }
+        openModal={ this.props.openModal }
       />
     )
   }
@@ -30,6 +32,7 @@ const mapDispatchToProps = dispatch => ({
   updatePost: (post) => dispatch( updatePost(post) ),
   deletePost: (postId) => dispatch( deletePost(postId) ),
   fetchPosts: () => dispatch( fetchPosts() ),
+  openModal: (modal, postId) => dispatch( openModal(modal, postId) ),
 });
 
 export default connect( mapStateToProps, mapDispatchToProps )(PostIndexContainer);

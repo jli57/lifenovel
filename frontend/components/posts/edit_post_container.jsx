@@ -3,42 +3,39 @@ import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom'
 import { login } from '../../actions/session_actions';
 import PostForm from './post_form';
-import { createPost, fetchPosts } from '../../actions/post_actions';
+import { updatePost, fetchPosts } from '../../actions/post_actions';
+import { closeModal } from '../../actions/modal_actions';
 
-const CreatePostContainer = ({ post, currentUser, submitAction, fetchPosts }) => {
+const EditPostContainer = ({ post, currentUser, submitAction, fetchPosts, closeModal }) => {
   return (
-    <div className="create-post">
+    <div className="edit-post">
       <nav>
-        <ul>
-          <li>
-            <i className="fas fa-pencil-alt"></i><span> Make Post</span>
-          </li>
-          <li>
-            <i className="far fa-images"></i><span> Photos </span>
-          </li>
-        </ul>
+          <div><h1>Edit Post</h1></div>
+          <div onClick={ () => { closeModal() } }><span><i className="fas fa-times"></i></span></div>
       </nav>
       <PostForm
         post={post}
         currentUser={currentUser}
         submitAction={submitAction}
-        fetchPosts={fetchPosts} />
+        fetchPosts={fetchPosts}
+        closeModal={ closeModal } />
     </div>
   );
 };
 
 
-const mapStateToProps = ( { session, entities: { users } }, ownProps ) => {
-  const page_id = ownProps.location.pathname === "/" ? session.id : ownProps.match.params.userId
+const mapStateToProps = ( { session, entities: { users, posts }, ui: { modalArgs } }, ownProps ) => {
+  const postId = modalArgs[0];
   return {
-    post: {  author_id: session.id, body: "", page_id },
+    post: posts[postId],
     currentUser: users[session.id]
   };
 }
 
 const mapDispatchToProps = dispatch => ({
-  submitAction: (post) => dispatch(createPost(post)),
+  submitAction: (post) => dispatch(updatePost(post)),
   fetchPosts: () => dispatch(fetchPosts()),
+  closeModal: () => dispatch( closeModal() ),
 });
 
-export default connect( mapStateToProps, mapDispatchToProps )( CreatePostContainer );
+export default connect( mapStateToProps, mapDispatchToProps )( EditPostContainer );

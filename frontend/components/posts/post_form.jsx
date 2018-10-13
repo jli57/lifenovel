@@ -11,8 +11,8 @@ class PostForm extends React.Component {
   handleSubmit(e) {
     e.preventDefault();
     this.props.submitAction(this.state)
-      .then( () => this.setState(this.props.post) )
-      .then( () => this.props.fetchPosts() );
+      .then( () => this.props.fetchPosts() )
+      .then( () => this.props.closeModal() );
   }
 
   update(prop) {

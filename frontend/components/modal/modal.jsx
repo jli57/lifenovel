@@ -1,23 +1,26 @@
 import React from 'react';
 import { closeModal } from '../../actions/modal_actions';
-import { connect } from 'react_redux';
-import { PostMenu } from '';
+import { connect } from 'react-redux';
+import EditPostContainer from '../posts/edit_post_container'
 
-const Modal = ({ modal, closeModal }) => {
+const Modal = ({ modal, modalArgs, closeModal }) => {
   if ( !modal ) {
     return null;
   }
   let component;
-  switch ( modeal ) {
-    case 'postMenu':
-      component = <PostMenu />;
+  switch ( modal ) {
+    // case 'postMenu':
+    //   component = <PostMenu />;
+    case 'editPost':
+      component = <EditPostContainer postId={ modalArgs[0] } />
+      break;
     default:
       return null;
   }
 
   return (
-    <div className="modal-Background" onClick={ closeModal }>
-      <div className="modal-Child" onClick={ e => e.stopPropagation() }>
+    <div className="modal-background" onClick={ closeModal }>
+      <div className="modal-child" onClick={ e => e.stopPropagation() }>
         { component }
       </div>
     </div>
@@ -25,11 +28,12 @@ const Modal = ({ modal, closeModal }) => {
 }
 
 const mapStateToProps = state => ({
-  modal: state.ui.modal
+  modal: state.ui.modal,
+  modalArgs: state.ui.modalArgs
 });
 
 const mapDispatchToProps = dispatch => ({
   closeModal: () => dispatch( closeModal() )
 });
 
-export default connect( mapStateToProps, mapDispatchToProps )(Modal);
+export default connect( mapStateToProps, mapDispatchToProps )( Modal );

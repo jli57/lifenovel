@@ -1,7 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-
 class PostIndexItem extends React.Component {
 
   constructor(props) {
@@ -30,20 +29,25 @@ class PostIndexItem extends React.Component {
   }
 
   render() {
-
     const post = this.props.post;
+    const createdAt = new Date(post.created_at).toLocaleDateString("en-US");
+    const updatedAt = new Date(post.updated_at).toLocaleDateString("en-US");
+    const editText = post.created_at !== post.updated_at ? " (edited)" : "";
+
+    const dateLog = ` ${createdAt} ${editText}`;
+
     return (
       <li className="post">
         <div className="flex">
-          <div>{ post.author_id } wrote: { new Date(post.created_at).toLocaleDateString("en-US") }</div>
+          <div>{ post.author_id } wrote on { dateLog }</div>
           <div className={ "post-menu" }
               onClick={ this.handleMenuClick }
               ref={ node => { this.node = node } }>
             <i className="fas fa-ellipsis-h">
             </i>
             <ul className={ this.state.showMenu ? "" : "hidden" }>
-              <li>
-                <Link to="/edit">Edit Post</Link>
+              <li onClick={ () => this.props.openModal('editPost', post.id) }>
+                <button>Edit Post</button>
               </li>
               <li onClick={ () => this.props.deletePost(post.id) } >
                 <button >Delete</button>

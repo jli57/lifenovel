@@ -1,7 +1,7 @@
 import React from 'react';
 import PostIndexItem from './post_index_item';
 
-const PostIndex = ({ posts, updatePost, deletePost, currentUser }) => (
+const PostIndex = ({ posts, updatePost, deletePost, currentUser, openModal }) => (
   <div className="post-index">
     <h1>Posts</h1>
     <ul className="flex-vert">
@@ -12,6 +12,7 @@ const PostIndex = ({ posts, updatePost, deletePost, currentUser }) => (
             updatePost={ updatePost }
             deletePost={ deletePost }
             currentUser={ currentUser }
+            openModal={ openModal }
         />)) }
     </ul>
   </div>
