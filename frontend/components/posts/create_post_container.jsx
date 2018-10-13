@@ -22,7 +22,7 @@ const CreatePostContainer = ({ post, currentUser, submitAction, fetchPosts }) =>
         post={post}
         currentUser={currentUser}
         submitAction={submitAction}
-        fetchPosts={fetchPosts} />
+       />
     </div>
   );
 };
@@ -32,7 +32,8 @@ const mapStateToProps = ( { session, entities: { users } }, ownProps ) => {
   const page_id = ownProps.location.pathname === "/" ? session.id : ownProps.match.params.userId
   return {
     post: {  author_id: session.id, body: "", page_id },
-    currentUser: users[session.id]
+    currentUser: users[session.id],
+    formType: "create"
   };
 }
 

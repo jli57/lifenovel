@@ -10,9 +10,9 @@ class PostForm extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault();
-    this.props.submitAction(this.state)
-      .then( () => this.props.fetchPosts() )
-      .then( () => this.props.closeModal() );
+    const post = Object.assign({}, this.state);
+    this.setState({ body: ""}); 
+    this.props.submitAction(post);
   }
 
   update(prop) {
