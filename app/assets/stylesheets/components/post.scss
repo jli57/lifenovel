@@ -5,11 +5,12 @@
   }
 }
 
-.post, .create-post {
+.post, .create-post, .edit-post {
   background: white;
   width: 500px;
   text-align: left;
   border: 1px solid #dddfe2;
+  border-radius: 3px;
 }
 
 .post {
@@ -53,7 +54,7 @@
   font-size: 16px;
 }
 
-.create-post {
+.create-post, .edit-post {
   margin-bottom: 10px;
   padding-bottom: 10px;
 
@@ -91,7 +92,7 @@
       background-color: #4267b2;
       border-color: #4267b2;
       border-radius: 3px;
-      width: 50%;
+      width: 25%;
       align-self: flex-end;
 
       &:hover {
@@ -100,6 +101,27 @@
       }
     }
 
+  }
+}
+
+.edit-post {
+  nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 5px 15px;
+  }
+  div {
+    font-size: 14px;
+    color: #1D2129;
+    font-weight: bold;
+  }
+  i {
+    color: gray;
+    cursor: pointer;
+  }
+  form textarea {
+    height: 200px;
   }
 }
 
