@@ -11,10 +11,14 @@ const CreatePostContainer = ({ post, currentUser, submitAction, fetchPosts }) =>
       <nav>
         <ul>
           <li>
-            <i className="fas fa-pencil-alt"></i><span> Make Post</span>
+            <div>
+              <i className="fas fa-pencil-alt"></i><span>Make Post</span>
+            </div>
           </li>
           <li>
-            <i className="far fa-images"></i><span> Photos </span>
+            <div>
+              <i className="fas fa-camera"></i><span>Photos</span>
+            </div>
           </li>
         </ul>
       </nav>

@@ -11,8 +11,9 @@ class PostForm extends React.Component {
   handleSubmit(e) {
     e.preventDefault();
     const post = Object.assign({}, this.state);
-    this.setState({ body: ""}); 
-    this.props.submitAction(post);
+    this.setState({ body: ""},
+      () => this.props.submitAction(post)
+    );
   }
 
   update(prop) {
@@ -24,10 +25,13 @@ class PostForm extends React.Component {
   render() {
     return (
       <form onSubmit={ this.handleSubmit }>
-        <textarea
-          onChange={ this.update("body")}
-          value={this.state.body}
-          placeholder={`What's on your mind, ${this.props.currentUser.first_name}?`}></textarea>
+        <div>
+          <img className="post-profile-icon" src={ this.props.currentUser.profile_photo } />
+          <textarea
+            onChange={ this.update("body")}
+            value={this.state.body}
+            placeholder={`What's on your mind, ${this.props.currentUser.first_name}?`}></textarea>
+        </div>
         <input type="submit" value="Save"/>
       </form>
     )
