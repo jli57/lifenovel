@@ -39,7 +39,7 @@ class PostIndexItem extends React.Component {
         <div className="post-body">
           { post.body }
         </div>
-        <nav className="flex">
+        <nav>
           <div>
             <i className="far fa-thumbs-up"></i><span>  Like</span>
           </div>

@@ -28,9 +28,12 @@
   }
 
   nav {
+    display: flex;
     justify-content: space-around;
+
     border-top: 1px solid #ccc;
     padding-top: 5px;
+
     color: $text-gray;
     font-size: 13px;
 
@@ -39,7 +42,8 @@
       width: 33.33%;
       text-align: center;
       vertical-align: middle;
-      margin: auto;
+      border-radius: 3px;
+
       cursor: pointer;
 
       &:hover {

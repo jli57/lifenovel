@@ -32,11 +32,11 @@
   button {
     background: $faded-gray-hover;
     vertical-align: middle;
-    height: 24px;
+    height: 25px;
     padding: 0 15px;
     position: relative;
     right: 42px;
-    border-radius: 3px;
+    border-radius: 0 3px 3px 0;
 
     &:hover {
       background: $dark-faded-gray;
