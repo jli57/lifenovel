@@ -1,7 +1,10 @@
+@import 'base/fonts.scss';
+@import 'base/colors.scss';
+
 .post-index {
   h1 {
     font-size: 16px;
-    color: #626871;
+    color: $text-gray;
   }
 }
 
@@ -9,7 +12,7 @@
   background: white;
   width: 500px;
   text-align: left;
-  border: 1px solid #dddfe2;
+  border: 1px solid $smoke-gray;
   border-radius: 3px;
 }
 
@@ -20,7 +23,7 @@
   border-radius: 3px;
 
   i {
-    color: #626871;
+    color: $text-gray;
     transform: scale(1.2);
   }
 
@@ -28,7 +31,7 @@
     justify-content: space-around;
     border-top: 1px solid #ccc;
     padding-top: 5px;
-    color: #626871;
+    color: $text-gray;
     font-size: 13px;
 
     div {
@@ -40,7 +43,7 @@
       cursor: pointer;
 
       &:hover {
-        background: #F8F8F8;
+        background: $faded-gray-hover;
       }
     }
   }
@@ -111,15 +114,15 @@
       text-align: center;
       color: white;
       font-size: 14px;
-      background-color: #4267b2;
-      border-color: #4267b2;
+      background-color: $light-facebook-blue;
+      border-color: $light-facebook-blue;
       border-radius: 3px;
       width: 25%;
       align-self: flex-end;
 
       &:hover {
-        background-color: #365899;
-        border-color: #365899;
+        background-color: $facebook-blue;
+        border-color: $facebook-blue;
       }
     }
   }
@@ -186,7 +189,7 @@
       padding: 5px 0px;
 
       &:hover {
-        background-color: #4267B2;
+        background-color: $light-facebook-blue;
         color: white;
       }
 

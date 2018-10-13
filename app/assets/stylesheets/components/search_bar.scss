@@ -1,3 +1,6 @@
+@import 'base/fonts.scss';
+@import 'base/colors.scss';
+
 .left-nav-bar {
   display: flex;
   align-items: center;
@@ -10,7 +13,7 @@
   }
 
   input {
-    border: 1px solid #3b5998;
+    border: 1px solid $facebook-blue;
     border-radius: 3px;
     background: white;
     color: black;
@@ -27,7 +30,7 @@
   width: 100%;
 
   button {
-    background: #f5f6f7;
+    background: $faded-gray-hover;
     vertical-align: middle;
     height: 24px;
     padding: 0 15px;
@@ -36,17 +39,17 @@
     border-radius: 3px;
 
     &:hover {
-      background:#ebedf0;
+      background: $dark-faded-gray;
     }
 
     i {
-      color: #4b4f56;
+      color: $text-gray;
     }
   }
 }
 
 .nav-links > div {
-  border-right: 1px solid #3B5CA0;
+  border-right: 1px solid $facebook-blue;
   height: 25px;
   border-radius: 3px;
 }
@@ -63,12 +66,12 @@
 
 .nav-link:hover {
   text-decoration: none;
-  background: #3B5CA0
+  background: $facebook-blue;
 }
 
 
 .nav-icon {
-  color: #0E1524;
+  color: $navy-blue;
   transform: scale(1.75);
 }
 

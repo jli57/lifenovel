@@ -52,7 +52,7 @@ class SignUpInput extends React.Component {
     return (
       <div className={ `${cssClass} field-set` }>
         <div className={ "help-message" + helpClass }>
-          { this.props.fieldHelpText }
+          <span>{ this.props.fieldHelpText }</span>
         </div>
         <input
           type={ this.props.fieldType }

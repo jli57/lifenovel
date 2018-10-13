@@ -1,4 +1,5 @@
 @import 'base/fonts.scss';
+@import 'base/colors.scss';
 
 body {
   font-family: $sans-serif;
@@ -8,11 +9,11 @@ body {
 main {
   min-width: 980px;
   padding: 20px 0;
-  background: #ECF0F5;
+  background: $faded-blue;
 }
 
 a {
-  color: #365899;
+  color: $facebook-blue;
 }
 
 
@@ -28,7 +29,7 @@ ul {
 }
 
 ::placeholder {
-  color: #999;
+  color: $medium-gray;
 }
 
 .main-content {
@@ -60,8 +61,8 @@ ul {
 
 .nav-bar-container, .user-nav-bar-container  {
   min-width: 980px;
-  background-color: #3B5998;
-  border-bottom: 1px solid #133783;
+  background-color: $facebook-blue;
+  border-bottom: 1px solid $dark-blue;
   color: white;
 }
 
@@ -79,7 +80,7 @@ ul {
 
 .nav-bar-container {
   height: 82px;
-  background-image: linear-gradient(#4e69a2, #3b5998 50%);
+  background-image: linear-gradient($muted-facebook-blue, $facebook-blue 50%);
 }
 
 .user-nav-bar-container {
@@ -87,7 +88,7 @@ ul {
   align-items: center;
   padding: 7px;
   box-sizing: border-box;
-  background: #4267B2;
+  background: $light-facebook-blue;
 }
 
 .bold {
@@ -100,7 +101,7 @@ ul {
 }
 
 .error {
-  color: red;
+  color: $red;
 }
 
 .hidden {

@@ -1,9 +1,8 @@
+@import 'base/colors.scss';
+@import 'base/fonts.scss';
 
 .login-form {
-  font-family: -apple-system, BlinkMacSystemFont,
-    'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans',
-    'Droid Sans', 'Helvetica Neue', sans-serif;
+  font-family: $sans-serif;
 
   display: flex;
   flex-direction: column;
@@ -79,18 +78,18 @@
     font-weight: 500;
     font-size: 14px;
 
-    border-color: #42b72a;
-    background-color: #42b72a;
+    border-color: $bright-green;
+    background-color: $bright-green;
     color: white;
 
     &:hover {
-      background-color: #35A420;
+      background-color: $hover-green;
     }
 
   }
 
   .small-link {
-    color: #365899;
+    color: $facebook-blue;
     &:hover {
       text-decoration: underline;
     }
