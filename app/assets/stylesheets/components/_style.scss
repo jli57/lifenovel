@@ -1,6 +1,18 @@
 @import 'base/fonts.scss';
 @import 'base/colors.scss';
 
+.intro {
+  .duck {
+    width: 50px;
+    height: auto;
+    -webkit-filter: grayscale(100%);
+
+    &:hover {
+      -webkit-filter: none;
+    }
+  }
+}
+
 body {
   font-family: $sans-serif;
   font-size: 12px;

@@ -11,13 +11,13 @@ const commentsReducer = (state = {}, action) => {
   Object.freeze(state);
   switch( action.type) {
     case RECEIVE_POSTS:
-      return action.comments;
+      return merge({}, state, action.comments || {});
     case RECEIVE_COMMENT:
       return merge( {}, state, action.comment );
     case REMOVE_COMMENT:
       let newState = merge( {}, state );
       delete newState[action.commentId];
-      return newState;  
+      return newState;
     default:
       return state;
   }

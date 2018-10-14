@@ -5,7 +5,7 @@ json.posts do
 end
 
 json.comments do
-  @posts.each do |post|
+  comments = @posts.each do |post|
     post.comments.each do |comment|
       json.partial! '/api/comments/comment', comment: comment
     end

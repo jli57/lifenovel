@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import PostMenuModal from '../modal/post_menu_modal';
 import CommentIndexContainer from '../comments/comment_index_container';
 import CreateCommentContainer from '../comments/create_comment_container';
+import share from '../../../app/assets/images/share.png';
 
 class PostIndexItem extends React.Component {
 
@@ -50,7 +51,7 @@ class PostIndexItem extends React.Component {
               <i className="far fa-comment-alt"></i><span>  Comment</span>
             </div>
             <div>
-              <i className="far fa-share-square"></i><span>  Share</span>
+              <img className="share-icon" src={ share } /> <span>  Share</span>
             </div>
           </nav>
         </div>
@@ -67,3 +68,5 @@ class PostIndexItem extends React.Component {
 }
 
 export default PostIndexItem;
+
+// <i className="far fa-share-square">

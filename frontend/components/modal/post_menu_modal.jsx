@@ -18,9 +18,14 @@ const PostMenuModal = ({ modal, modalArgs, closeModal, postId }) => {
       return null;
   }
 
+  const handleClick = (e) => {
+    e.stopPropagation();
+    closeModal();
+  }
+
   return (
     <div className="modal">
-      <div className="transparent-modal-background" onClick={ closeModal }>
+      <div className="transparent-modal-background" onClick={ handleClick }>
       </div>
       <div className="relative-modal-child" onClick={ e => e.stopPropagation() }>
         { component }
@@ -35,10 +40,7 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-  closeModal: (e) => {
-    e.stopPropagation();
-    dispatch( closeModal());
-  }
+  closeModal: (e) => dispatch( closeModal())
 });
 
 export default connect( mapStateToProps, mapDispatchToProps )( PostMenuModal );

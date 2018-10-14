@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom'
 import { login } from '../../actions/session_actions';
 import PostForm from './post_form';
-import { updatePost, fetchPosts } from '../../actions/post_actions';
+import { updatePost } from '../../actions/post_actions';
 import { closeModal } from '../../actions/modal_actions';
 
 class EditPostContainer extends React.Component {
@@ -37,7 +37,6 @@ const mapStateToProps = ( { session, entities: { users, posts }, ui: { modal, mo
 
 const mapDispatchToProps = dispatch => ({
   submitAction: (post) => dispatch(updatePost(post)),
-  fetchPosts: () => dispatch( fetchPosts() ),
   closeModal: () => dispatch( closeModal() ),
 });
 
