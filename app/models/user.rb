@@ -45,12 +45,12 @@ class User < ApplicationRecord
     dependent: :delete_all
 
   has_many :outgoing_relationships,
-    foreign_key: :requester_id,
+    foreign_key: :user1_id,
     class_name: :UserRelationship,
     dependent: :delete_all
 
   has_many :incoming_relationships,
-    foreign_key: :requestee_id,
+    foreign_key: :user2_id,
     class_name: :UserRelationship,
     dependent: :delete_all
 
@@ -86,7 +86,7 @@ class User < ApplicationRecord
     self.save!
     self.session_token
   end
-  
+
   private
 
   def email_or_mobile_number

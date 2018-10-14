@@ -62,14 +62,14 @@ ActiveRecord::Schema.define(version: 2018_10_14_202050) do
   end
 
   create_table "user_relationships", force: :cascade do |t|
-    t.bigint "requester_id", null: false
-    t.bigint "requestee_id", null: false
-    t.string "type", null: false
+    t.bigint "user1_id", null: false
+    t.bigint "user2_id", null: false
+    t.string "rel_type", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["requestee_id"], name: "index_user_relationships_on_requestee_id"
-    t.index ["requester_id", "requestee_id"], name: "index_user_relationships_on_requester_id_and_requestee_id", unique: true
-    t.index ["type"], name: "index_user_relationships_on_type"
+    t.index ["rel_type"], name: "index_user_relationships_on_rel_type"
+    t.index ["user1_id", "user2_id"], name: "index_user_relationships_on_user1_id_and_user2_id", unique: true
+    t.index ["user2_id"], name: "index_user_relationships_on_user2_id"
   end
 
   create_table "users", force: :cascade do |t|

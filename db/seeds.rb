@@ -39,14 +39,22 @@ user.save!
 end
 
 user_ids = User.ids
-#
-# 10.times do
-#   Post.create(
-#     author_id: user_ids.first,
-#     body: Faker::FamousLastWords.last_words,
-#     page_id: user_ids.first
-#   )
-# end
+demo = User.first.id
+other_users = user_ids.reject{ |id| demo == id }
+3.times do
+  UserRelationship.create(
+    user1_id: demo,
+    user2_id: other_users.pop,
+    rel_type: UserRelationship.RELATIONSHIP_TYPES.sample
+  )
+end
+2.times do
+  UserRelationship.create(
+    user1_id: other_users.pop,
+    user2_id: demo,
+    rel_type: UserRelationship.RELATIONSHIP_TYPES.sample
+  )
+end
 
 10.times do
   Post.create(
