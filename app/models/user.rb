@@ -44,6 +44,16 @@ class User < ApplicationRecord
     class_name: :Comment,
     dependent: :delete_all
 
+  has_many :outgoing_relationships,
+    foreign_key: :requester_id,
+    class_name: :UserRelationship,
+    dependent: :delete_all
+
+  has_many :incoming_relationships,
+    foreign_key: :requestee_id,
+    class_name: :UserRelationship,
+    dependent: :delete_all
+
   has_one_attached :profile_photo
 
   attr_reader :password
@@ -76,7 +86,7 @@ class User < ApplicationRecord
     self.save!
     self.session_token
   end
-
+  
   private
 
   def email_or_mobile_number
