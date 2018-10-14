@@ -5,9 +5,10 @@ export const LOGOUT_CURRENT_USER = 'LOGOUT_CURRENT_USER';
 export const RECEIVE_SESSION_ERRORS = 'RECEIVE_SESSION_ERRORS';
 export const REMOVE_SESSION_ERRORS = 'REMOVE_SESSION_ERRORS';
 
-const receiveCurrentUser = (user) => ({
+const receiveCurrentUser = ({user, user_relationships}) => ({
   type: RECEIVE_CURRENT_USER,
-  user
+  user,
+  user_relationships,
 });
 const logoutCurrentUser = () => ({
   type: LOGOUT_CURRENT_USER,
@@ -25,7 +26,7 @@ export const removeSessionErrors = () => ({
 export const login = user => dispatch => (
   APIUtil.login(user)
     .then(
-      (user) => dispatch( receiveCurrentUser(user) ),
+      (payload) => dispatch( receiveCurrentUser(payload) ),
       (errors) => dispatch( receiveSessionErrors(errors.responseJSON) )
     )
 );
@@ -41,7 +42,7 @@ export const logout = () => dispatch => (
 export const signup = (user) => dispatch => (
   APIUtil.signup(user)
     .then(
-      (user) => dispatch( receiveCurrentUser(user) ),
+      ({user}) => dispatch( receiveCurrentUser(user) ),
       (errors) => dispatch( receiveSessionErrors(errors.responseJSON) )
     )
 )

@@ -1,4 +1,4 @@
-import * as APIUtil from "../util/comment_util";
+import * as APIUtil from "../util/comment_api_util";
 import { closeModal } from "./modal_actions";
 
 export const RECEIVE_COMMENTS = "RECEIVE_COMMENTS";

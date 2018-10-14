@@ -1,4 +1,4 @@
-import * as APIUtil from "../util/post_util";
+import * as APIUtil from "../util/post_api_util";
 import { closeModal } from "./modal_actions";
 
 export const RECEIVE_POSTS = "RECEIVE_POSTS";
@@ -27,8 +27,8 @@ const receivePostErrors = (errors) => ({
   errors
 });
 
-export const fetchPosts = () => dispatch => (
-  APIUtil.fetchPosts()
+export const fetchPosts = (offset, limit) => dispatch => (
+  APIUtil.fetchPosts(offset, limit)
     .then(
       (posts) => dispatch(receivePosts(posts)),
       (errors) => dispatch(receivePostErrors(errors.responseJSON))
