@@ -43,7 +43,6 @@ class LoginForm extends React.Component {
         this.handleSubmit();
       });
     });
-
   }
 
   render() {
