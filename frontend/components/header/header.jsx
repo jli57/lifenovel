@@ -40,17 +40,17 @@ const Header = ({ currentUser, logout, history }) => {
 
           <div className="nav-links">
 
-            <div>
-              <div className="nav-link">
-                <img className="user-icon" src={ currentUser.profile_photo } />
-                <Link to={`/${currentUser.id}`}>
-                  { currentUser.first_name }
-                </Link>
-              </div>
+            <div className="nav-link">
+              <img className="user-icon" src={ currentUser.profile_photo } />
+              <Link to={`/${currentUser.id}`}>
+                { currentUser.first_name }
+              </Link>
             </div>
+
             <div className="nav-link">
               <Link to="/">Home</Link>
             </div>
+
            <div className="nav-link">
               <Link to="#">Create</Link>
             </div>

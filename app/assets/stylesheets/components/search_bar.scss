@@ -53,26 +53,23 @@
   align-items: center;
 }
 
-
-.nav-links > div {
+.nav-link {
   border-right: 1px solid $facebook-blue;
   border-radius: 3px;
+  padding: 5px 7px;
+  height: 30px;
+  box-sizing: border-box;
+  vertical-align: middle;
 
   &:hover {
     cursor: pointer;
     text-decoration: none;
     background: $facebook-blue;
   }
-}
 
-
-.nav-link {
-  padding: 5px 0;
-  margin: 0 5px;
   a {
     color: white;
     font-size: 13px;
-    padding: 0px 10px;
     box-sizing: border-box;
     margin: 0px 3px;
   }
@@ -81,12 +78,9 @@
 .nav-link:first-of-type {
   display: flex;
   align-items: center;
-
+  justify-content: space-between;
   a {
-    color: white;
-    font-size: 13px;
-    box-sizing: border-box;
-    margin: 0px 3px;
+    padding-left: 5px;
   }
 }
 
