@@ -1,9 +1,9 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { fetchPosts } from '../../actions/post_actions';
-import PostIndex from './post_index';
 import { filterPagePosts, addAuthorToPosts } from '../../reducers/selectors';
 import { openModal } from '../../actions/modal_actions';
+import PostIndex from './post_index'; 
 
 class PostIndexContainer extends React.Component {
   componentDidMount() {

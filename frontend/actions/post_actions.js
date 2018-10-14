@@ -6,9 +6,10 @@ export const RECEIVE_POST = "RECEIVE_POST";
 export const REMOVE_POST = "REMOVE_POST";
 export const RECEIVE_POST_ERRORS = "RECEIVE_POST_ERRORS";
 
-const receivePosts = (posts) => ({
+const receivePosts = ({posts, comments}) => ({
   type: RECEIVE_POSTS,
-  posts
+  posts,
+  comments
 });
 
 const receivePost = (post) => ({

@@ -48,13 +48,17 @@ ul {
   flex-direction: column;
 }
 
-#homepage {
+.homepage, .user-homepage {
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
 
-#home {
+.user-homepage {
+  margin-top: 45px;
+}
+
+.home {
   height: 25px;
   width: 25px;
 }
@@ -84,11 +88,16 @@ ul {
 }
 
 .user-nav-bar-container {
-  height: 42px;
+  position: fixed;
+  width: 100%;
+  z-index: 3;
   align-items: center;
-  padding: 7px;
-  box-sizing: border-box;
+  padding: 5px;
   background: $light-facebook-blue;
+}
+
+.user-nav-bar {
+  width: 9
 }
 
 .bold {

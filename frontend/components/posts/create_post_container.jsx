@@ -1,11 +1,10 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { withRouter } from 'react-router-dom'
 import { login } from '../../actions/session_actions';
 import PostForm from './post_form';
-import { createPost, fetchPosts } from '../../actions/post_actions';
+import { createPost } from '../../actions/post_actions';
 
-const CreatePostContainer = ({ post, currentUser, submitAction, fetchPosts }) => {
+const CreatePostContainer = ({ post, currentUser, submitAction }) => {
   return (
     <div className="create-post">
       <nav>
@@ -42,8 +41,7 @@ const mapStateToProps = ( { session, entities: { users } }, ownProps ) => {
 }
 
 const mapDispatchToProps = dispatch => ({
-  submitAction: (post) => dispatch(createPost(post)),
-  fetchPosts: () => dispatch(fetchPosts()),
+  submitAction: (post) => dispatch(createPost(post))
 });
 
 export default connect( mapStateToProps, mapDispatchToProps )( CreatePostContainer );

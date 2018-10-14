@@ -1,4 +1,3 @@
-
 export const filterPagePosts = ( session, posts ) => (
   Object.values(posts)
     .filter( post => post.page_id === session.id )
@@ -19,3 +18,16 @@ export const addAuthorToPosts = ( posts, users ) => (
     return post;
   })
 )
+
+export const filterPostComments = ( comments, postId, n ) => (
+  Object.values(comments)
+    .filter( comment => comment.post_id === postId && comment.parent_id === null )
+    .sort( (a, b) => Date.parse(b.created_at) - Date.parse(a.created_at))
+    .slice(0, n)
+);
+
+export const countPostComments = ( comments, postId ) => (
+  Object.values(comments)
+    .filter( comment => comment.post_id === postId )
+    .length
+);

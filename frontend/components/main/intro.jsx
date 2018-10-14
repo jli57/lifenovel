@@ -6,7 +6,6 @@ import login_timeline from '../../../app/assets/images/login_timeline.png';
 
 const Intro = () => (
   <div className="intro">
-
     <ul>
       <li>
         <a href="https://www.linkedin.com/in/jingnali/" target="_blank">

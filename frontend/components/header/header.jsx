@@ -32,22 +32,27 @@ const Header = ({ currentUser, logout, history }) => {
       <nav className="user-nav-bar">
         <div className="left-nav-bar">
           <Link to="/" >
-            <img id="home" src={ logo } />
+            <img className="home" src={ logo } />
           </Link>
           <SearchBarContainer />
         </div>
         <div className="right-nav-bar flex">
 
-          <div className="nav-links flex">
+          <div className="nav-links">
 
             <div>
-              <Link className="nav-link" to={`/${currentUser.id}`}>{ currentUser.first_name }</Link>
+              <div className="nav-link">
+                <img className="user-icon" src={ currentUser.profile_photo } />
+                <Link to={`/${currentUser.id}`}>
+                  { currentUser.first_name }
+                </Link>
+              </div>
             </div>
-            <div>
-              <Link className="nav-link" to="/">Home</Link>
+            <div className="nav-link">
+              <Link to="/">Home</Link>
             </div>
-           <div>
-              <Link className="nav-link" to="#">Create</Link>
+           <div className="nav-link">
+              <Link to="#">Create</Link>
             </div>
 
             <div className="nav-icons flex">

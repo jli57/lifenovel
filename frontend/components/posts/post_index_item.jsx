@@ -1,6 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import PostMenuModal from '../modal/post_menu_modal';
+import CommentIndexContainer from '../comments/comment_index_container';
+import CreateCommentContainer from '../comments/create_comment_container';
 
 class PostIndexItem extends React.Component {
 
@@ -39,17 +41,25 @@ class PostIndexItem extends React.Component {
         <div className="post-body">
           { post.body }
         </div>
-        <nav>
-          <div>
-            <i className="far fa-thumbs-up"></i><span>  Like</span>
-          </div>
-          <div>
-            <i className="far fa-comment-alt"></i><span>  Comment</span>
-          </div>
-          <div>
-            <i className="far fa-share-square"></i><span>  Share</span>
-          </div>
-        </nav>
+        <div>
+          <nav>
+            <div>
+              <i className="far fa-thumbs-up"></i><span>  Like</span>
+            </div>
+            <div>
+              <i className="far fa-comment-alt"></i><span>  Comment</span>
+            </div>
+            <div>
+              <i className="far fa-share-square"></i><span>  Share</span>
+            </div>
+          </nav>
+        </div>
+        <div>
+          <CommentIndexContainer postId={post.id} />
+        </div>
+        <div>
+          <CreateCommentContainer postId={post.id} />
+        </div>
       </li>
     )
   }

@@ -12,14 +12,14 @@ import { AuthRoute, ProtectedRoute } from '../../util/route_util';
 
 const HomePage = ({ currentUser }) => {
   const loggedOut = () => (
-    <div id="homepage">
+    <div className="homepage">
       <Intro />
       <SignupFormContainer />
     </div>
   );
 
   const loggedIn = () => (
-    <div id="homepage">
+    <div className="user-homepage">
       <ProtectedRoute exact path="/:userId" component={ProfileContainer} />
       <div className="flex-vert">
         <Switch>

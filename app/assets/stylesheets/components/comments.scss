@@ -1,0 +1,124 @@
+@import 'base/colors.scss';
+
+.comment-index > * {
+  margin: 5px 0;
+}
+
+.comment-index ul {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.comment-body {
+  border-radius: 15px;
+  background: $comment-background;
+  padding: 10px;
+
+  a {
+    font-weight: bold;
+  }
+
+}
+
+.comment  {
+  display: flex;
+  align-items: center;
+  margin: 5px 0;
+
+  & > div:first-child {
+    align-self: flex-start;
+    padding-top: 2px;
+  }
+
+  & > div {
+    & > div {
+      display: flex;
+      align-items: center;
+
+      & > * {
+        margin: 0 5px;
+      }
+    }
+  }
+  .comment-menu-btn {
+
+    i {
+      color: white;
+    }
+
+    &:hover {
+      i{
+        color: $text-gray;
+      }
+    }
+  }
+}
+
+.comment-profile-icon {
+  border-radius: 50%;
+  height: 30px;
+  width: 30px;
+}
+
+.comment-links {
+  display: flex;
+  margin-top: 3px;
+
+  button {
+    color: $facebook-blue;
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+  div {
+    color: $text-gray;
+  }
+}
+
+.create-comment {
+  display: flex;
+  justify-content: space-between;
+
+  & > div:last-of-type {
+    width: 93%;
+  }
+
+  form {
+
+    display: flex;
+    align-items: center;
+
+    div {
+      width: 100%;
+      height: 35px;
+    }
+
+    input {
+      rows: 1;
+      height: inherit;
+      padding:  0 15px;
+      border: 1px solid $smoke-gray;
+
+      font-size: 14px;
+      color: $text-gray;
+      background: $comment-background;
+      border-radius: 20px;
+      width: 98%;
+    }
+  }
+}
+
+.prev-comments {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+
+  div:first-of-type {
+    color: $facebook-blue;
+    cursor: pointer;
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}

@@ -39,20 +39,20 @@ user.save!
 end
 
 user_ids = User.ids
+#
+# 10.times do
+#   Post.create(
+#     author_id: user_ids.first,
+#     body: Faker::FamousLastWords.last_words,
+#     page_id: user_ids.first
+#   )
+# end
 
 10.times do
   Post.create(
-    author_id: user_ids.sample,
-    body: Faker::FamousLastWords.last_words,
-    page_id: user_ids.sample
-  )
-end
-
-10.times do
-  Post.create(
-    author_id: user_ids.sample,
+    author_id: user_ids.first,
     body: Faker::Lorem.paragraphs(rand(1..6)).join(" "),
-    page_id: user_ids.sample
+    page_id: user_ids.first
   )
 end
 
