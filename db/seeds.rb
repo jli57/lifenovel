@@ -24,7 +24,7 @@ file = File.open('app/assets/images/default.jpg')
 user.profile_photo.attach(io: file, filename: 'default.jpg')
 user.save!
 
-5.times do
+10.times do
   user = User.new(
     first_name: Faker::Name.first_name,
     last_name: Faker::Name.last_name,
@@ -41,20 +41,49 @@ end
 user_ids = User.ids
 demo = User.first.id
 other_users = user_ids.reject{ |id| demo == id }
-3.times do
+2.times do
   UserRelationship.create(
     user1_id: demo,
     user2_id: other_users.pop,
-    rel_type: UserRelationship.RELATIONSHIP_TYPES.sample
+    rel_type: "accepted"
+  )
+end
+2.times do
+  UserRelationship.create(
+    user1_id: demo,
+    user2_id: other_users.pop,
+    rel_type: "pending"
+  )
+end
+1.times do
+  UserRelationship.create(
+    user1_id: demo,
+    user2_id: other_users.pop,
+    rel_type: "removed"
   )
 end
 2.times do
   UserRelationship.create(
     user1_id: other_users.pop,
     user2_id: demo,
-    rel_type: UserRelationship.RELATIONSHIP_TYPES.sample
+    rel_type: "accepted"
   )
 end
+2.times do
+  UserRelationship.create(
+    user1_id: other_users.pop,
+    user2_id: demo,
+    rel_type: "pending"
+  )
+end
+1.times do
+  UserRelationship.create(
+    user1_id: other_users.pop,
+    user2_id: demo,
+    rel_type: "removed"
+  )
+end
+
 
 10.times do
   Post.create(

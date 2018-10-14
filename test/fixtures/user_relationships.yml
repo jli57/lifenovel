@@ -1,0 +1,23 @@
+# == Schema Information
+#
+# Table name: user_relationships
+#
+#  id           :bigint(8)        not null, primary key
+#  requester_id :bigint(8)        not null
+#  requestee_id :bigint(8)        not null
+#  rel_type     :string           not null
+#  created_at   :datetime         not null
+#  updated_at   :datetime         not null
+#
+
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  user1_id: 
+  user2_id: 
+  type: 
+
+two:
+  user1_id: 
+  user2_id: 
+  type: 
