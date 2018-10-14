@@ -97,15 +97,12 @@ ul {
 .user-nav-bar-container {
   position: fixed;
   width: 100%;
-  z-index: 3;
+  z-index: 12;
   align-items: center;
   padding: 6px 5px 7px 5px;
   background: $light-facebook-blue;
 }
 
-.user-nav-bar {
-  width: 9
-}
 
 .bold {
   font-weight: bold;

@@ -8,7 +8,7 @@
   right: 0;
   left: 0;
   background: rgba(0, 0, 0, 0.7);
-  z-index: 10;
+  z-index: 13;
 }
 
 .transparent-modal-background {
@@ -18,11 +18,11 @@
   right: 0;
   left: 0;
   background: transparent;
-  z-index: 10;
+  z-index: 13;
 }
 
 .fixed-modal-child {
-  z-index: 11;
+  z-index: 8;
   position: absolute;
   top: 50%;
   left: 50%;
@@ -30,5 +30,5 @@
 }
 
 .relative-modal-child {
-  z-index: 11;
+  z-index: 8;
 }
