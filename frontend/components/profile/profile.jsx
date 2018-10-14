@@ -9,8 +9,8 @@ const Profile  = ({currentUser}) => {
   return (
     <div className="profile">
       <h1>{ `${currentUser.first_name} ${currentUser.last_name}` }</h1>
-      This is a profile for { currentUser.first_name }
       <img className="profile-photo" src={ currentUser.profile_photo } />
+      <span>Hi, my name is { currentUser.first_name }</span>
     </div>
   );
 };

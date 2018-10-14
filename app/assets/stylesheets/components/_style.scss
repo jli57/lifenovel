@@ -48,7 +48,7 @@ ul {
   flex-direction: column;
 }
 
-.homepage, .user-homepage {
+.homepage {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -56,6 +56,13 @@ ul {
 
 .user-homepage {
   margin-top: 45px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  > * {
+    margin: 10px 0;
+  }
 }
 
 .home {
