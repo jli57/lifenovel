@@ -22,7 +22,7 @@ const PostMenuModal = ({ modal, modalArgs, closeModal, postId }) => {
     <div className="modal">
       <div className="transparent-modal-background" onClick={ closeModal }>
       </div>
-      <div className="modal-child" onClick={ e => e.stopPropagation() }>
+      <div className="relative-modal-child" onClick={ e => e.stopPropagation() }>
         { component }
       </div>
     </div>
