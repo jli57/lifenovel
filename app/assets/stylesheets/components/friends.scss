@@ -1,0 +1,59 @@
+@import 'base/colors.scss';
+
+.friend-index {
+  background: $white;
+  border-radius: 3px;
+  margin: 5px;
+  padding: 10px;
+  width: 325px;
+  ul {
+    display: flex;
+    flex-wrap: wrap;
+  }
+  .icon {
+    background: $standard-red;
+    border-radius: 50%;
+    margin-right: 10px;
+    width: 25px;
+    height: 25px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+
+    i {
+      position: absolute;
+      top: 3px;
+      color: $white;
+      transform: scaleX(.7) scaleY(.9) ;
+    }
+  }
+}
+
+.friend-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  > div {
+    display: flex;
+    align-items: center;
+    font-size: 16px;
+  }
+
+  a {
+    color: $facebook-blue;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+  
+}
+
+.friend {
+  margin: 3px;
+  padding: 0px;
+  width: 100px;
+  height: 100px;
+}
