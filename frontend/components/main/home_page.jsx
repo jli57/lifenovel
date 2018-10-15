@@ -14,7 +14,9 @@ const HomePage = ({ currentUser }) => {
 
   const loggedIn = () => (
     <div className="user-homepage">
-      <FeedContainer />
+      <section>
+        <FeedContainer />
+      </section>
     </div>
   )
 

@@ -24,7 +24,7 @@ class Profile extends React.Component {
   }
 
   render() {
-    const { currentUser, profileUser } = this.props;
+    const { currentUser, profileUser, relType } = this.props;
 
     if ( profileUser === undefined ) return (
       <PageNotFound />
@@ -32,7 +32,7 @@ class Profile extends React.Component {
 
     return (
       <div className="profile">
-        <ProfileHeader profileUser={ profileUser }/>
+        <ProfileHeader profileUser={ profileUser } currentUser={ currentUser } relType={ relType }/>
         <div className="profile-content">
           <aside>
             <FriendIndexContainer />

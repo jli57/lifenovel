@@ -4,8 +4,9 @@ import { login } from '../../actions/session_actions';
 import PostForm from './post_form';
 import { createPost } from '../../actions/post_actions';
 import { withRouter } from 'react-router-dom';
+import { getRelType } from '../../reducers/selectors';
 
-const CreatePostContainer = ({ post, currentUser, submitAction, profileUser }) => {
+const CreatePostContainer = ({ post, currentUser, submitAction, profileUser, relType }) => {
 
   const placeholderText = (
     ( currentUser.id === profileUser.id ) ?
@@ -13,7 +14,7 @@ const CreatePostContainer = ({ post, currentUser, submitAction, profileUser }) =
       `Write something to ${profileUser.first_name}...`
   );
 
-  return (
+  const createForm = (
     <div className="create-post">
       <nav>
         <ul>
@@ -38,16 +39,19 @@ const CreatePostContainer = ({ post, currentUser, submitAction, profileUser }) =
        />
     </div>
   );
+
+  return ( relType === "self" || relType === "friends" ? createForm : null );
 };
 
 
-const mapStateToProps = ( { session, entities: { users } }, ownProps ) => {
+const mapStateToProps = ( { session, entities: { users, userRelationships } }, ownProps ) => {
   const pageId = ownProps.location.pathname === "/" ? session.id : parseInt(ownProps.match.params.userId);
   return {
     post: {  author_id: session.id, body: "" },
     currentUser: users[session.id],
     profileUser: users[pageId],
     formType: "create",
+    relType: getRelType( session.id, pageId, userRelationships )
   };
 }
 

@@ -32,13 +32,57 @@ export const countPostComments = ( comments, postId ) => (
     .length
 );
 
-export const filterRelationships = ( userId, userRelationships, rel_type ) => (
+// export const getRelType = ( currentUserId, profileUserId, userRelationships ) => {
+//   Object.values(userRelationships)
+//     .filter( rel =>
+//       ( rel.user1_id === userId || rel.user2_id === userId )
+//     )
+//
+// };
+export const getRelationship = ( currentUserId, profileUserId, userRelationships ) => {
+  const [rel] = Object.values(userRelationships)
+  .filter( rel =>
+    ( rel.user1_id ===  currentUserId && rel.user2_id === profileUserId)
+    || ( rel.user1_id === profileUserId && rel.user2_id ===  currentUserId)
+  );
+  return rel;
+};
+
+export const getRelType = ( currentUserId, profileUserId, userRelationships  ) => {
+
+  let rel = "none";
+
+  if ( currentUserId === profileUserId ) {
+    return "self";
+  }
+
+  const relationship = getRelationship( currentUserId, profileUserId, userRelationships) ;
+
+  if ( relationship === undefined ) {
+    rel = "none";
+  } else {
+    const { rel_type, user1_id } = relationship;
+    if ( rel_type === "accepted" ) {
+      rel = "friends";
+    } else if ( rel_type === "pending" ) {
+      if ( user1_id === currentUserId ) {
+        rel = "pending acceptance"
+      } else {
+        rel = "pending approval"
+      }
+    }
+  }
+  return rel;
+
+};
+
+export const filterRelationships = ( currentUserId, userRelationships, rel_type ) => (
   Object.values(userRelationships)
     .filter( rel =>
-      ( rel.user1_id === userId || rel.user2_id === userId ) &&
+      ( rel.user1_id === currentUserId || rel.user2_id === currentUserId ) &&
       rel.rel_type === rel_type
     )
-    .map( rel => rel.user1_id === userId ? rel.user2_id : rel.user1_id )
+    .map( rel => rel.user1_id === currentUserId ? rel.user2_id : rel.user1_id )
 );
 
 export const filterFriends = ( userId, users, friendIds ) => {
