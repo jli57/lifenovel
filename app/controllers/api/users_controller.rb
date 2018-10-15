@@ -1,5 +1,9 @@
 class Api::UsersController < ApplicationController
 
+  def index
+    @users = User.where(id: params[:userIds] )
+  end
+
   def create
     @user = User.new(user_params)
     file = File.open('app/assets/images/default.jpg')
