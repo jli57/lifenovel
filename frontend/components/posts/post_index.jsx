@@ -58,7 +58,8 @@ class PostIndex extends React.Component {
     return (
       <div className="post-index">
         <div>
-          <Route path="/" component={ CreatePostContainer } />
+          <Route exact path="/" component={ CreatePostContainer } />
+          <Route exact path="/:userId" component={ CreatePostContainer } />
         </div>
         <BeatLoader
           className="post-loader"
