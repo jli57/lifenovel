@@ -11,7 +11,7 @@ class PostForm extends React.Component {
   handleSubmit(e) {
     e.preventDefault();
     const post = Object.assign({}, this.state);
-    post.page_id = this.props.profileUser.id;
+    if ( !post.page_id ) { post.page_id = this.props.pageId }
     this.setState({ body: ""},
       () => this.props.submitAction(post)
     );

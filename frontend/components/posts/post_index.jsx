@@ -52,8 +52,13 @@ class PostIndex extends React.Component {
   }
 
   componentDidMount() {
-    this.props.fetchPosts({offset: 0, limit: 5, user_ids: this.props.user_ids})
+    const { posts, fetchPosts, user_ids } = this.props;
+    if ( posts.length < 5 ) {
+      fetchPosts({offset: posts.length, limit: 5, user_ids })
       .then( () => this.setState({ isLoading: false }) );
+    } else {
+      this.setState({isLoading: false});
+    }
   }
 
   render() {

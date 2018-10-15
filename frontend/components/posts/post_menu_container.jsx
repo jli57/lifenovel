@@ -4,7 +4,8 @@ import { openModal } from '../../actions/modal_actions';
 import PostMenu from './post_menu';
 
 const mapStateToProps = ({ entities: { users, posts }, session, ui: { modalArgs } }) => ({
-  postId: modalArgs[0]
+  post: posts[modalArgs[0]],
+  currentUserId: session.id,
 });
 
 const mapDispatchToProps = dispatch => ({

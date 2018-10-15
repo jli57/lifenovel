@@ -7,20 +7,24 @@ class Profile extends React.Component {
 
   constructor(props) {
     super(props);
+
   }
 
   componentDidMount() {
-    this.props.fetchPosts({ user_ids: [this.props.match.params.userId], offset: 0, limit: 5} );
+    this.props.fetchUsers([this.props.match.params.userId]);
   }
 
   componentWillReceiveProps(nextProps) {
-    if ( this.props.match.params.userId !== nextProps.match.params.userId  ) {
+    if ( this.props.match.params.userId !== nextProps.match.params.userId &&
+      !this.props.profileUser ) {
       this.props.fetchUsers([parseInt(nextProps.match.params.userId)]);
     }
   }
 
   render() {
     const { currentUser, profileUser } = this.props;
+
+    if ( profileUser === undefined ) return null;
 
     return (
       <div className="profile">

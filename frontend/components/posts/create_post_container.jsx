@@ -31,9 +31,9 @@ const CreatePostContainer = ({ post, currentUser, submitAction, profileUser }) =
       <PostForm
         post={post}
         currentUser={currentUser}
-        profileUser={profileUser}
         submitAction={submitAction}
         placeholderText={ placeholderText }
+        pageId={ profileUser.id }
        />
     </div>
   );

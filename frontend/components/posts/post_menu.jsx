@@ -1,17 +1,43 @@
 import React from 'react';
 
-const PostMenu = ({ postId, openModal, deletePost }) => (
-  <div className="post-menu">
+const PostMenu = ({ post, openModal, deletePost, currentUserId }) => {
+
+  const authorOptions = (
     <ul>
-      <li onClick={ () => openModal('editPost', postId) } >
+      <li onClick={ () => openModal('editPost', post.id) } >
         <button>Edit Post</button>
       </li>
-      <li onClick={ () => deletePost(postId) } >
+      <li onClick={ () => deletePost(post.id) } >
         <button>Delete</button>
       </li>
     </ul>
-  </div>
+  );
 
-);
+  const currenUserOptions = (
+    <ul>
+      <li>
+        <button>Save Post</button>
+      </li>
+      <li>
+        <button>Hide Post</button>
+      </li>
+    </ul>
+  )
+
+  const profileOwnerOptions = (
+    <ul>
+      <li>
+        <button>Remove Post</button>
+      </li>
+    </ul>
+  )
+
+  return (
+    <div className="post-menu">
+      { currentUserId === post.author_id ? authorOptions : currenUserOptions }
+    </div>
+  );
+
+};
 
 export default PostMenu;
