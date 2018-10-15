@@ -9,6 +9,10 @@ import HeaderContainer from './header/header_container';
 import PostIndexContainer from './posts/post_index_container';
 import { AuthRoute, ProtectedRoute } from '../util/route_util';
 import Modal from './modal/modal';
+import PageNotFound from './main/page_not_found';
+
+import Intro from './main/intro';
+
 
 const App = () => (
   <div id="app">
@@ -17,10 +21,11 @@ const App = () => (
       <Modal />
       <div className="main-content">
         <Switch>
-          <Route exact path="/signup" component={SignupFormContainer} />
-          <Route exact path="/login" render={() => <LoginFormContainer header={false} />} />
-          <Route exact path="/:userId" component={ProfileContainer} />
+          <AuthRoute exact path="/signup" component={SignupFormContainer} />
+          <AuthRoute exact path="/login" component={LoginFormContainer} />
+          <ProtectedRoute exact path="/:userId" component={ProfileContainer} />
           <Route exact path="/" component={HomePageContainer} />
+          <Route component={ PageNotFound } />
         </Switch>
       </div>
     </main>

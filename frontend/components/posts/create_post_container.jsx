@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import { login } from '../../actions/session_actions';
 import PostForm from './post_form';
 import { createPost } from '../../actions/post_actions';
+import { withRouter } from 'react-router-dom';
 
 const CreatePostContainer = ({ post, currentUser, submitAction, profileUser }) => {
 
@@ -54,4 +55,4 @@ const mapDispatchToProps = dispatch => ({
   submitAction: (post) => dispatch(createPost(post))
 });
 
-export default connect( mapStateToProps, mapDispatchToProps )( CreatePostContainer );
+export default withRouter(connect( mapStateToProps, mapDispatchToProps )( CreatePostContainer ));

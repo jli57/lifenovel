@@ -2,6 +2,8 @@ import React from 'react';
 import FriendIndexContainer from '../friends/friend_index_container';
 import PostIndexContainer from '../posts/post_index_container';
 import { ProtectedRoute } from '../../util/route_util';
+import ProfileHeader from './profile_header';
+import PageNotFound from '../main/page_not_found';
 
 class Profile extends React.Component {
 
@@ -24,17 +26,21 @@ class Profile extends React.Component {
   render() {
     const { currentUser, profileUser } = this.props;
 
-    if ( profileUser === undefined ) return null;
+    if ( profileUser === undefined ) return (
+      <PageNotFound />
+    );
 
     return (
       <div className="profile">
-        <div className="profile-info">
-          <h1>{ `${profileUser.first_name} ${profileUser.last_name}` }</h1>
-          <img className="profile-photo" src={ profileUser.profile_photo } />
-          <span>Hi, my name is { profileUser.first_name }</span>
+        <ProfileHeader profileUser={ profileUser }/>
+        <div className="profile-content">
+          <aside>
+            <FriendIndexContainer />
+          </aside>
+          <section>
+            <PostIndexContainer />
+          </section>
         </div>
-        <ProtectedRoute exact path="/:userId" component={FriendIndexContainer}/>
-        <ProtectedRoute exact path="/:userId" component={PostIndexContainer}/>
       </div>
     );
   }

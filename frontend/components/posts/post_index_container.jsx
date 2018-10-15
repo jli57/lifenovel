@@ -2,6 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { fetchPosts } from '../../actions/post_actions';
 import { filterPosts } from '../../reducers/selectors';
+import { withRouter } from 'react-router-dom';
 import PostIndex from './post_index';
 
 
@@ -19,4 +20,4 @@ const mapDispatchToProps = dispatch => ({
   openModal: (modal, postId) => dispatch( openModal(modal, postId) )
 });
 
-export default connect( mapStateToProps, mapDispatchToProps )( PostIndex );
+export default withRouter(connect( mapStateToProps, mapDispatchToProps )( PostIndex ));

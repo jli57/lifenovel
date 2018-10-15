@@ -67,8 +67,7 @@ class PostIndex extends React.Component {
     return (
       <div className="post-index">
         <div>
-          <ProtectedRoute exact path="/:userId" component={ CreatePostContainer } />
-          <ProtectedRoute exact path="/" component={ CreatePostContainer } />
+          <CreatePostContainer />
         </div>
         <BeatLoader
           className="post-loader"
@@ -89,6 +88,4 @@ class PostIndex extends React.Component {
 
   }
 }
-
-
 export default PostIndex;

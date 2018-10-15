@@ -22,4 +22,4 @@ const mapDispatchToProps = dispatch => ({
   // openModal: (modal, postId) => dispatch( openModal(modal, postId) ),
 });
 
-export default connect( mapStateToProps, mapDispatchToProps )( FriendIndex );
+export default withRouter(connect( mapStateToProps, mapDispatchToProps )( FriendIndex ));
