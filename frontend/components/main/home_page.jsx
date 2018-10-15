@@ -2,13 +2,7 @@ import React from 'react';
 
 import Intro from './intro';
 import SignupFormContainer from '../session/signup_form_container';
-import PostIndexContainer from '../posts/post_index_container';
-import ProfileContainer from '../profile/profile_container';
-import FriendIndexContainer from '../friends/friend_index_container';
-
-import { Switch } from 'react-router-dom';
-
-import { AuthRoute, ProtectedRoute } from '../../util/route_util';
+import FeedContainer from '../posts/feed_container';
 
 const HomePage = ({ currentUser }) => {
   const loggedOut = () => (
@@ -20,9 +14,7 @@ const HomePage = ({ currentUser }) => {
 
   const loggedIn = () => (
     <div className="user-homepage">
-      <ProtectedRoute exact path="/:userId" component={ProfileContainer} />
-      <ProtectedRoute exact path="/:userId" component={FriendIndexContainer}/>
-      <PostIndexContainer />
+      <FeedContainer />
     </div>
   )
 

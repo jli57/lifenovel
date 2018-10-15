@@ -1,16 +1,19 @@
+import React from 'react';
 import { connect } from 'react-redux';
-import { updatePost, deletePost } from '../../actions/post_actions';
+import { fetchPosts } from '../../actions/post_actions';
+import { filterPagePosts } from '../../reducers/selectors';
+import { openModal } from '../../actions/modal_actions';
 import PostIndex from './post_index';
-import { filterPagePosts, addAuthorToPosts } from '../../reducers/selectors';
+
 
 const mapStateToProps = ({ entities: { users, posts }, session }) => ({
-  posts: filterFeedPosts([session.id], posts),
-  currentUser: users[session.id]
+  posts: filterPagePosts(session, posts),
+  currentUser: session.id
 });
 
 const mapDispatchToProps = dispatch => ({
-  updatePost: (post) => dispatch( updatePost(post)),
-  deletePost: (postId) => dispatch( deletePost(postId)),
+  fetchPosts: (offset, limit) => dispatch( fetchPosts(offset, limit) ),
+  openModal: (modal, postId) => dispatch( openModal(modal, postId) ),
 });
 
-export default connect( mapStateToProps, mapDispatchToProps )(PostIndex);
+export default connect( mapStateToProps, mapDispatchToProps )( PostIndex );

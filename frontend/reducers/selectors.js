@@ -42,7 +42,6 @@ export const filterRelationships = ( userId, userRelationships, rel_type ) => (
 );
 
 export const filterFriends = ( userId, users, friendIds ) => {
-  console.log(friendIds)
   return Object.values(users)
     .filter( user => friendIds.includes(user.id) )
     .sort( (a, b) => `${a.first_name} ${a.last_name}` - `${b.first_name} ${b.last_name}` );

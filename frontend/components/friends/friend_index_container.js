@@ -3,15 +3,17 @@ import { connect } from 'react-redux';
 import { fetchUsers } from '../../actions/user_actions';
 import { filterFriends, filterRelationships } from '../../reducers/selectors';
 // import { openModal } from '../../actions/modal_actions';
+import { withRouter } from 'react-router-dom';
 import FriendIndex from './friend_index';
 
 
-const mapStateToProps = ({ entities: { users, userRelationships }, session }) => {
-  const friendIds = filterRelationships(session.id, userRelationships, "accepted");
+const mapStateToProps = ({ entities: { users, userRelationships }, session }, ownProps) => {
+  const userId = ownProps.profileUser.id;
+  const friendIds = filterRelationships( userId, userRelationships, "accepted");
   return {
     friendIds,
-    friends: filterFriends(session.id, users, friendIds),
-    currentUser: session.id
+    friends: filterFriends(userId, users, friendIds),
+    currentUser: users[session.Id]
   };
 };
 

@@ -1,6 +1,6 @@
 import React from 'react';
 import FriendIndexItem from './friend_index_item';
-import { Link } from 'react-router-dom'; 
+import { Link } from 'react-router-dom';
 
 class FriendIndex extends React.Component {
 
@@ -11,6 +11,7 @@ class FriendIndex extends React.Component {
   componentDidMount() {
     this.props.fetchUsers(this.props.friendIds);
   }
+
 
   render() {
 

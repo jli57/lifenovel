@@ -1,6 +1,11 @@
 @import 'base/fonts.scss';
 @import 'base/colors.scss';
 
+.posts {
+  display: flex;
+  flex-direction: column;
+}
+
 .post-index {
   h1 {
     font-size: 14px;

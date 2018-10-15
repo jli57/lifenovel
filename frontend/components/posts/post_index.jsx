@@ -56,7 +56,7 @@ class PostIndex extends React.Component {
     const { posts, currentUser, openModal } = this.props;
 
     return (
-      <div>
+      <div className="post-index">
         <div>
           <Route path="/" component={ CreatePostContainer } />
         </div>
@@ -64,7 +64,7 @@ class PostIndex extends React.Component {
           className="post-loader"
           color={'#3B5998'}
           loading={this.state.isLoading} />
-        <div className="post-index">
+        <div className="posts">
           <h1>Posts</h1>
           <ul className="flex-vert">
             { posts.map( post => (
