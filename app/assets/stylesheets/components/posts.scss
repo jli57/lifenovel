@@ -36,6 +36,9 @@
     color: $text-gray;
     transform: scale(1.2);
   }
+}
+
+.post {
 
   nav {
     display: flex;
@@ -75,6 +78,36 @@
     }
   }
 
+}
+
+.post-header {
+  display: flex;
+  justify-content: space-between;
+
+  .post-author-info {
+    display: flex;
+
+    > div {
+      padding-left: 5px;
+    }
+
+    a {
+      color: $facebook-blue;
+      font-size: 14px;
+      font-weight: 500;
+      display: block;
+      padding-bottom: 2px;
+      // font-family: $sans-serif;
+
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+
+    p {
+      font-size: 11px;
+    }
+  }
 }
 
 .post-body {
@@ -178,8 +211,8 @@
 
 .post-profile-icon {
   border-radius: 50%;
-  width: 50px;
-  height: auto;
+  width: 35px;
+  height: 35px;
   margin-right: 5px;
 }
 

@@ -12,22 +12,41 @@ class PostIndexItem extends React.Component {
     this.handleClick = this.handleClick.bind(this);
   }
 
+  componentDidMount() {
+    if ( this.props.postAuthor === undefined ) {
+      this.props.fetchUsers([this.props.post.author_id]);
+    }
+  }
+
   handleClick(e) {
     this.props.openModal("postMenu", this.props.post.id);
   }
 
   render() {
-    const post = this.props.post;
+    const { post, postAuthor } = this.props;
+    if ( !post  || !postAuthor ) return null;
+
     const createdAt = new Date(post.created_at).toLocaleDateString("en-US");
     const updatedAt = new Date(post.updated_at).toLocaleDateString("en-US");
     const editText = post.created_at !== post.updated_at ? " (edited)" : "";
 
     const dateLog = ` ${createdAt} ${editText}`;
 
+
     return (
       <li className="post">
-        <div className="flex">
-          <div>{ post.author_id } wrote on { dateLog }</div>
+        <div className="post-header">
+          <div className="post-author-info">
+            <Link to={`/${post.author_id}`}>
+              <img className="post-profile-icon" src={ postAuthor.profile_photo } />
+            </Link>
+            <div>
+              <Link to={`/${post.author_id}`}>
+                { `${postAuthor.first_name} ${postAuthor.last_name}`}
+              </Link>
+              <p>wrote on { dateLog }</p>
+            </div>
+          </div>
 
           <div className="post-menu-btn" onClick={ this.handleClick }>
             <i className="fas fa-ellipsis-h"></i>

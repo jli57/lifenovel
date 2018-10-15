@@ -1,5 +1,5 @@
 import React from 'react';
-import PostIndexItem from './post_index_item';
+import PostItemContainer from './post_item_container';
 import CreatePostContainer from './create_post_container';
 import { ProtectedRoute } from '../../util/route_util';
 import { BeatLoader } from 'react-spinners';
@@ -62,7 +62,7 @@ class PostIndex extends React.Component {
   }
 
   render() {
-    const { posts, currentUser, openModal } = this.props;
+    const { posts } = this.props;
 
     return (
       <div className="post-index">
@@ -78,10 +78,9 @@ class PostIndex extends React.Component {
           <h1>Posts</h1>
           <ul className="flex-vert">
             { posts.map( post => (
-              <PostIndexItem
+              <PostItemContainer
                 key={ post.id }
                 post={ post }
-                openModal={ openModal }
                 />)) }
           </ul>
         </div>

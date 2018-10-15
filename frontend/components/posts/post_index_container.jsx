@@ -2,7 +2,6 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { fetchPosts } from '../../actions/post_actions';
 import { filterPosts } from '../../reducers/selectors';
-import { openModal } from '../../actions/modal_actions';
 import PostIndex from './post_index';
 
 
@@ -17,7 +16,7 @@ const mapStateToProps = ({ entities: { users, posts }, session }, ownProps) => {
 
 const mapDispatchToProps = dispatch => ({
   fetchPosts: (options) => dispatch( fetchPosts(options) ),
-  openModal: (modal, postId) => dispatch( openModal(modal, postId) ),
+  openModal: (modal, postId) => dispatch( openModal(modal, postId) )
 });
 
 export default connect( mapStateToProps, mapDispatchToProps )( PostIndex );
