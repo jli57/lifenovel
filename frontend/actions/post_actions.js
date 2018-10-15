@@ -27,8 +27,8 @@ const receivePostErrors = (errors) => ({
   errors
 });
 
-export const fetchPosts = (offset, limit) => dispatch => (
-  APIUtil.fetchPosts(offset, limit)
+export const fetchPosts = (options) => dispatch => (
+  APIUtil.fetchPosts(options)
     .then(
       (posts) => dispatch(receivePosts(posts)),
       (errors) => dispatch(receivePostErrors(errors.responseJSON))

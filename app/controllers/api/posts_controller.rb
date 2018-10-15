@@ -3,6 +3,7 @@ class Api::PostsController < ApplicationController
   def index
     @posts = Post.all
       .includes(:comments)
+      .where(page_id: params[:user_ids])
       .order(created_at: :desc)
       .offset(params[:offset])
       .limit(params[:limit])

@@ -1,8 +1,8 @@
-export const fetchPosts = (offset, limit) => (
+export const fetchPosts = ({user_ids, offset, limit}) => (
   $.ajax({
     method: "GET",
     url: "/api/posts",
-    data: { offset, limit }
+    data: { user_ids, offset, limit }
   })
 )
 

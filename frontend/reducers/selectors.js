@@ -1,13 +1,13 @@
-export const filterPagePosts = ( session, posts ) => (
+export const filterPosts = ( posts, userId ) => (
   Object.values(posts)
-    .filter( post => post.page_id === session.id )
+    .filter( post => post.page_id === userId )
     .sort( (a, b) => Date.parse(b.created_at) - Date.parse(a.created_at) )
 );
 
-export const filterFeedPosts = ( friends, posts ) => (
+export const filterFeedPosts = ( posts, friendIds ) => (
   Object.values(posts)
-    .filter( post => friends.includes( post.page_id ) )
-    .sort( (a, b) => a.created_at - b.created_at )
+    .filter( post => friendIds.includes( post.page_id ) )
+    .sort( (a, b) => Date.parse(b.created_at) - Date.parse(a.created_at) )
 );
 
 export const addAuthorToPosts = ( posts, users ) => (

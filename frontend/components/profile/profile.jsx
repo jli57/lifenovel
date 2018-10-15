@@ -3,23 +3,37 @@ import FriendIndexContainer from '../friends/friend_index_container';
 import PostIndexContainer from '../posts/post_index_container';
 import { ProtectedRoute } from '../../util/route_util';
 
-const Profile  = ({currentUser, profileUser}) => {
+class Profile extends React.Component {
 
-  const handleFile = (file) =>  {
-
+  constructor(props) {
+    super(props);
   }
 
-  return (
-    <div className="profile">
-      <div className="profile-info">
-        <h1>{ `${currentUser.first_name} ${currentUser.last_name}` }</h1>
-        <img className="profile-photo" src={ currentUser.profile_photo } />
-        <span>Hi, my name is { currentUser.first_name }</span>
+  componentDidMount() {
+    this.props.fetchPosts({ user_ids: [this.props.match.params.userId], offset: 0, limit: 5} );
+  }
+
+  componentWillReceiveProps(nextProps) {
+    if ( this.props.match.params.userId !== nextProps.match.params.userId  ) {
+      this.props.fetchUsers([parseInt(nextProps.match.params.userId)]);
+    }
+  }
+
+  render() {
+    const { currentUser, profileUser } = this.props;
+
+    return (
+      <div className="profile">
+        <div className="profile-info">
+          <h1>{ `${profileUser.first_name} ${profileUser.last_name}` }</h1>
+          <img className="profile-photo" src={ profileUser.profile_photo } />
+          <span>Hi, my name is { profileUser.first_name }</span>
+        </div>
+        <ProtectedRoute exact path="/:userId" component={FriendIndexContainer}/>
+        <ProtectedRoute exact path="/:userId" component={PostIndexContainer}/>
       </div>
-      <FriendIndexContainer profileUser={profileUser}/>
-      <PostIndexContainer />
-    </div>
-  );
-};
+    );
+  }
+}
 
 export default Profile;

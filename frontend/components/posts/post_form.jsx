@@ -11,6 +11,7 @@ class PostForm extends React.Component {
   handleSubmit(e) {
     e.preventDefault();
     const post = Object.assign({}, this.state);
+    post.page_id = this.props.profileUser.id;
     this.setState({ body: ""},
       () => this.props.submitAction(post)
     );
@@ -30,7 +31,7 @@ class PostForm extends React.Component {
           <textarea
             onChange={ this.update("body")}
             value={this.state.body}
-            placeholder={`What's on your mind, ${this.props.currentUser.first_name}?`}></textarea>
+            placeholder={this.props.placeholderText}></textarea>
         </div>
         <input type="submit" value="Save"/>
       </form>

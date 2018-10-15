@@ -4,7 +4,14 @@ import { login } from '../../actions/session_actions';
 import PostForm from './post_form';
 import { createPost } from '../../actions/post_actions';
 
-const CreatePostContainer = ({ post, currentUser, submitAction }) => {
+const CreatePostContainer = ({ post, currentUser, submitAction, profileUser }) => {
+
+  const placeholderText = (
+    ( currentUser.id === profileUser.id ) ?
+      `What's on your mind, ${currentUser.first_name}` :
+      `Write something to ${profileUser.first_name}...`
+  );
+
   return (
     <div className="create-post">
       <nav>
@@ -24,7 +31,9 @@ const CreatePostContainer = ({ post, currentUser, submitAction }) => {
       <PostForm
         post={post}
         currentUser={currentUser}
+        profileUser={profileUser}
         submitAction={submitAction}
+        placeholderText={ placeholderText }
        />
     </div>
   );
@@ -32,11 +41,12 @@ const CreatePostContainer = ({ post, currentUser, submitAction }) => {
 
 
 const mapStateToProps = ( { session, entities: { users } }, ownProps ) => {
-  const page_id = ownProps.location.pathname === "/" ? session.id : ownProps.match.params.userId
+  const pageId = ownProps.location.pathname === "/" ? session.id : parseInt(ownProps.match.params.userId);
   return {
-    post: {  author_id: session.id, body: "", page_id },
+    post: {  author_id: session.id, body: "" },
     currentUser: users[session.id],
-    formType: "create"
+    profileUser: users[pageId],
+    formType: "create",
   };
 }
 

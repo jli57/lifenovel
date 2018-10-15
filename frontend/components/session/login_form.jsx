@@ -106,7 +106,7 @@ class LoginForm extends React.Component {
 
     const login_page = (
       <form className="login-form">
-        <h1> Log into Livenovel </h1>
+        <h1> Log into Lifenovel </h1>
         <div className="error">{ this.props.sessionErrors }</div>
         { email_input }
         { password_input }

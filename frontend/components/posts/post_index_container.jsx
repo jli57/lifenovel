@@ -1,18 +1,22 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { fetchPosts } from '../../actions/post_actions';
-import { filterPagePosts, addAuthorToPosts } from '../../reducers/selectors';
+import { filterPosts } from '../../reducers/selectors';
 import { openModal } from '../../actions/modal_actions';
 import PostIndex from './post_index';
 
 
-const mapStateToProps = ({ entities: { users, posts }, session }) => ({
-  posts: filterPagePosts(session, posts),
-  currentUser: session.id
-});
+const mapStateToProps = ({ entities: { users, posts }, session }, ownProps) => {
+  const userId = parseInt(ownProps.match.params.userId);
+  return {
+    posts: filterPosts( posts, userId),
+    currentUser: users[session.id],
+    user_ids: [userId],
+  }
+};
 
 const mapDispatchToProps = dispatch => ({
-  fetchPosts: (offset, limit) => dispatch( fetchPosts(offset, limit) ),
+  fetchPosts: (options) => dispatch( fetchPosts(options) ),
   openModal: (modal, postId) => dispatch( openModal(modal, postId) ),
 });
 

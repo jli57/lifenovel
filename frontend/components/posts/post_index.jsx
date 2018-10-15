@@ -1,8 +1,7 @@
 import React from 'react';
 import PostIndexItem from './post_index_item';
 import CreatePostContainer from './create_post_container';
-import { Route } from 'react-router-dom';
-
+import { ProtectedRoute } from '../../util/route_util';
 import { BeatLoader } from 'react-spinners';
 
 class PostIndex extends React.Component {
@@ -38,7 +37,12 @@ class PostIndex extends React.Component {
         window.innerHeight + document.documentElement.scrollTop
           >= document.documentElement.offsetHeight
       ) {
-        fetchPosts( posts.length, 5)
+        const options = {
+          offset: posts.length,
+          limit: 5,
+          user_ids: this.props.user_ids
+        };
+        fetchPosts(options)
           .then(
             null ,
             () => this.setState({ error: true })
@@ -48,7 +52,7 @@ class PostIndex extends React.Component {
   }
 
   componentDidMount() {
-    this.props.fetchPosts(0, 5)
+    this.props.fetchPosts({offset: 0, limit: 5, user_ids: this.props.user_ids})
       .then( () => this.setState({ isLoading: false }) );
   }
 
@@ -58,8 +62,8 @@ class PostIndex extends React.Component {
     return (
       <div className="post-index">
         <div>
-          <Route exact path="/" component={ CreatePostContainer } />
-          <Route exact path="/:userId" component={ CreatePostContainer } />
+          <ProtectedRoute exact path="/:userId" component={ CreatePostContainer } />
+          <ProtectedRoute exact path="/" component={ CreatePostContainer } />
         </div>
         <BeatLoader
           className="post-loader"
@@ -72,7 +76,6 @@ class PostIndex extends React.Component {
               <PostIndexItem
                 key={ post.id }
                 post={ post }
-                currentUser={ currentUser }
                 openModal={ openModal }
                 />)) }
           </ul>

@@ -9,9 +9,6 @@ class PostIndexItem extends React.Component {
 
   constructor(props) {
     super(props);
-    this.state = {
-      showMenu: false
-    }
     this.handleClick = this.handleClick.bind(this);
   }
 
