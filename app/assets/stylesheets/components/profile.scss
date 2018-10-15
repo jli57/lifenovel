@@ -1,34 +1,115 @@
 @import 'base/fonts.scss';
 @import 'base/colors.scss';
 
+.profile-header {
+  width: 865px;
+  position: relative;
+  margin: 0;
+}
+
+.cover-photo {
+  height: 315px;
+  background-color: $smoke-gray;
+  position: relative;
+}
+
+.profile-nav {
+  border: 1px solid $smoke-gray;
+  background-color: $white;
+  font-size: 14px;
+  font-weight: 600;
+
+  ul {
+    padding-left: 220px;
+  }
+
+  li {
+    padding: 15px 20px;
+    border-right: 1px solid $dark-faded-gray;
+
+    &:hover {
+      cursor: pointer;
+      background-color: $faded-gray-hover;
+    }
+  }
+
+  li:first-of-type {
+    border-left: 1px solid $dark-faded-gray;
+  }
+}
+
 .profile {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin-top: 45px;
+
 
   > * {
-    margin: 10px; 
+    margin: 10px;
   }
 }
 
 .profile-info {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-
-  text-align: center;
+  position: absolute;
+  bottom: 10px;
+  left: 220px;
 
   h1 {
-    font-size: 16px;
-    font-weight: bold;
+    font-size: 24px;
+    font-weight: 500;
+    letter-spacing: 1.2px;
+    // color: $white;
+    --switch: calc((var(--light) - var(--threshold)) * -100%);
+    color: hsl(0, 0%, var(--switch));
   }
+
   > * {
     margin: 5px 0;
   }
 }
 
 .profile-photo {
-  width: 150px;
-  height: 150px;
+  background-color: $text-gray;
+  padding: 5px;
+
+  position: absolute;
+  bottom: 20px;
+  left: 20px;
+  img {
+    width: 160px;
+    height: 160px;
+  }
+}
+
+.profile-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  width: 875px;
+  margin: 0;
+}
+
+.add-friend {
+  position: absolute;
+  bottom: 15px;
+  right: 15px;
+
+  .fa-user {
+    transform: scaleX(.9) scaleY(1.1);
+  }
+  .fa-plus {
+    transform: scale(.7) translate(-3px, -3px);
+  }
+
+  button {
+    width: 130px;
+    height: 30px;
+    font-weight: bold;
+    text-align: center;
+    border: 1px solid $text-gray;
+
+    background: $faded-gray-hover;
+
+    &:hover {
+      background: $comment-background;
+    }
+
+  }
 }

@@ -3,9 +3,12 @@
 .friend-index {
   background: $white;
   border-radius: 3px;
+  border: 1px solid $smoke-gray; 
   margin: 5px;
   padding: 10px;
   width: 325px;
+
+
   ul {
     display: flex;
     flex-wrap: wrap;
@@ -48,7 +51,7 @@
       text-decoration: underline;
     }
   }
-  
+
 }
 
 .friend {
