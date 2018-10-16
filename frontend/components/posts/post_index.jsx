@@ -1,7 +1,6 @@
 import React from 'react';
 import PostItemContainer from './post_item_container';
 import CreatePostContainer from './create_post_container';
-import { ProtectedRoute } from '../../util/route_util';
 import { BeatLoader } from 'react-spinners';
 
 class PostIndex extends React.Component {

@@ -1,4 +1,3 @@
-import React from 'react';
 import { connect } from 'react-redux';
 import { fetchPosts } from '../../actions/post_actions';
 import { filterFeedPosts, filterRelationships } from '../../reducers/selectors';
@@ -17,7 +16,7 @@ const mapStateToProps = ({ entities: { users, userRelationships, posts }, sessio
 
 const mapDispatchToProps = dispatch => ({
   fetchPosts: (options) => dispatch( fetchPosts(options) ),
-  openModal: (modal, postId) => dispatch( openModal(modal, postId) ),
+  openModal: (modal, options) => dispatch( openModal(modal, options) ),
 });
 
 export default connect( mapStateToProps, mapDispatchToProps )( PostIndex );

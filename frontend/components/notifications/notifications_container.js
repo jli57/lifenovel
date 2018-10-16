@@ -1,20 +1,18 @@
 import { connect } from 'react-redux';
-
-import { connect } from 'react-redux';
-import { withRouter } from 'react-router-dom';
+import { getPendingFriendRequests } from '../../reducers/selectors'; 
+import { closeModal } from '../../actions/modal_actions'; 
 import Notifications from './notifications';
 
-
-const mapStateToProps = ({ entities: { users, posts }, session }, ownProps) => {
-  const userId = Number(ownProps.match.params.userId) || 0;
+const mapStateToProps = ({ entities: { users, posts }, session }) => {
   return {
     events: filterPosts( posts, userId),
     currentUser: users[session.id],
-    user_ids: [userId],
+    pendingRelationships: getPendingFriendRequests(session.id, users),
   }
 };
 
 const mapDispatchToProps = dispatch => ({
+  closeModal: () => dispatch( closeModal() ),
 });
 
-export default withRouter(connect( mapStateToProps, null)( Notifications ));
+export default connect( mapStateToProps, mapDispatchToProps)( Notifications );

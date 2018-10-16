@@ -43,7 +43,9 @@ const Header = ({ currentUser, logout, history }) => {
               <img className="user-icon" src={ currentUser.profile_photo } />
               <span>{ currentUser.first_name }</span>
             </Link>
-            <Link to="/" className="nav-link">Home</Link>
+            <Link to="/" className="nav-link">
+              Home
+            </Link>
 
             <Link to="#" className="nav-link">Create</Link>
 

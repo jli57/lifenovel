@@ -10,7 +10,7 @@ class CommentIndexItem extends React.Component {
   }
 
   handleClick(e) {
-    this.props.openModal("commentMenu", this.props.comment.id);
+    this.props.openModal("commentMenu",{ commentId: this.props.comment.id });
   }
 
   render() {

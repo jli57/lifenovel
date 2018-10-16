@@ -85,12 +85,13 @@ export const filterRelationships = ( currentUserId, userRelationships, rel_type 
     .map( rel => rel.user1_id === currentUserId ? rel.user2_id : rel.user1_id )
 );
 
-export const filterFriends = ( userId, users, friendIds ) => {
+export const filterFriends = ( users, friendIds ) => {
   return Object.values(users)
     .filter( user => friendIds.includes(user.id) )
     .sort( (a, b) => `${a.first_name} ${a.last_name}` - `${b.first_name} ${b.last_name}` );
 };
 
-export const getPendingFriendRequests = ( currentUserId, userRelationships ) => {
-  
-}; 
+export const getPendingFriendRequests = ( currentUserId, userRelationships ) => (
+  Object.values(userRelationships)
+    .filter( rel => rel.user2_id ===  currentUserId && rel.rel_tye === "pending" )
+);

@@ -17,7 +17,7 @@ const mapStateToProps = ({ entities: { users, posts }, session }, ownProps) => {
 
 const mapDispatchToProps = dispatch => ({
   fetchPosts: (options) => dispatch( fetchPosts(options) ),
-  openModal: (modal, postId) => dispatch( openModal(modal, postId) )
+  openModal: (modal, options) => dispatch( openModal(modal, options) )
 });
 
 export default withRouter(connect( mapStateToProps, mapDispatchToProps )( PostIndex ));

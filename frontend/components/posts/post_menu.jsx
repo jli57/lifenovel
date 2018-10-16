@@ -4,7 +4,7 @@ const PostMenu = ({ post, openModal, deletePost, currentUserId }) => {
 
   const authorOptions = (
     <ul>
-      <li onClick={ () => openModal('editPost', post.id) } >
+      <li onClick={ (e) => openModal('editPost', { postId: post.id }) } >
         <button>Edit Post</button>
       </li>
       <li onClick={ () => deletePost(post.id) } >
@@ -24,13 +24,13 @@ const PostMenu = ({ post, openModal, deletePost, currentUserId }) => {
     </ul>
   )
 
-  const profileOwnerOptions = (
-    <ul>
-      <li>
-        <button>Remove Post</button>
-      </li>
-    </ul>
-  )
+  // const profileOwnerOptions = (
+  //   <ul>
+  //     <li>
+  //       <button>Remove Post</button>
+  //     </li>
+  //   </ul>
+  // )
 
   return (
     <div className="post-menu">

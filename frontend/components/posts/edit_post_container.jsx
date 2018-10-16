@@ -1,7 +1,5 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { withRouter } from 'react-router-dom'
-import { login } from '../../actions/session_actions';
 import PostForm from './post_form';
 import { updatePost } from '../../actions/post_actions';
 import { closeModal } from '../../actions/modal_actions';
@@ -26,9 +24,8 @@ class EditPostContainer extends React.Component {
 
 
 const mapStateToProps = ( { session, entities: { users, posts }, ui: { modal, modalArgs } }, ownProps ) => {
-  const postId = modalArgs[0];
   return {
-    post: posts[postId],
+    post: posts[modalArgs.postId],
     modal,
     currentUser: users[session.id],
     formType: "edit",

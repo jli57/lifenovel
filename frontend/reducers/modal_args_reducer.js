@@ -3,12 +3,12 @@ import {
   CLOSE_MODAL
 } from '../actions/modal_actions';
 
-const modalArgsReducer = ( state = [], action ) => {
+const modalArgsReducer = ( state = {}, action ) => {
   switch( action.type) {
     case OPEN_MODAL:
-      return action.modalArgs;
+      return action.modalArgs; 
     case CLOSE_MODAL:
-      return [];
+      return {};
     default:
       return state;
   }

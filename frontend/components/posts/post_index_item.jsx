@@ -19,7 +19,8 @@ class PostIndexItem extends React.Component {
   }
 
   handleClick(e) {
-    this.props.openModal("postMenu", this.props.post.id);
+    const pos = e.target.getBoundingClientRect(); 
+    this.props.openModal("postMenu", {postId: this.props.post.id, pos });
   }
 
   render() {
@@ -27,7 +28,6 @@ class PostIndexItem extends React.Component {
     if ( !post  || !postAuthor ) return null;
 
     const createdAt = new Date(post.created_at).toLocaleDateString("en-US");
-    const updatedAt = new Date(post.updated_at).toLocaleDateString("en-US");
     const editText = post.created_at !== post.updated_at ? " (edited)" : "";
 
     const dateLog = ` ${createdAt} ${editText}`;

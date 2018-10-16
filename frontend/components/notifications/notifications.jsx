@@ -1,3 +1,5 @@
+import React from 'react'; 
+
 const Notifications = ({ events }) => {
   return (
     <ul>
@@ -5,3 +7,5 @@ const Notifications = ({ events }) => {
     </ul>
   );
 };
+
+export default Notifications; 

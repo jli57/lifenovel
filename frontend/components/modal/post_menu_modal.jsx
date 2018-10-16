@@ -10,7 +10,7 @@ const PostMenuModal = ({ modal, modalArgs, closeModal, postId }) => {
   let component;
   switch ( modal ) {
     case 'postMenu':
-      if ( postId === modalArgs[0]) {
+      if ( postId === modalArgs.postId ) {
         component = <PostMenuContainer />
         break;
       }
