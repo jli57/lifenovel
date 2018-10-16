@@ -2,9 +2,19 @@ import React from 'react';
 
 const PostMenu = ({ post, openModal, deletePost, currentUserId }) => {
 
+  const handleClick = (e) => {
+    const pos = e.target.getBoundingClientRect(); 
+    openModal( 'editPost',
+      { postId: post.id,
+        mode: "absolute",
+        pos,
+      }
+    )
+  }; 
+
   const authorOptions = (
     <ul>
-      <li onClick={ (e) => openModal('editPost', { postId: post.id }) } >
+      <li onClick={ handleClick } >
         <button>Edit Post</button>
       </li>
       <li onClick={ () => deletePost(post.id) } >

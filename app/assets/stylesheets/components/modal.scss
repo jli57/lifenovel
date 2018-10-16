@@ -18,7 +18,7 @@
   right: 0;
   left: 0;
   background: transparent;
-  z-index: 10;
+  z-index: 14;
 }
 
 .fixed-modal-child {
@@ -30,5 +30,7 @@
 }
 
 .relative-modal-child {
-  z-index: 8;
+  z-index: 20;
+  position: absolute;
+  left: attr(data-left) + "px"; 
 }

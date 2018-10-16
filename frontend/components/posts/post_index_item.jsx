@@ -1,6 +1,5 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import PostMenuModal from '../modal/post_menu_modal';
 import CommentIndexContainer from '../comments/comment_index_container';
 import CreateCommentContainer from '../comments/create_comment_container';
 import share from '../../../app/assets/images/share.png';
@@ -20,7 +19,7 @@ class PostIndexItem extends React.Component {
 
   handleClick(e) {
     const pos = e.target.getBoundingClientRect(); 
-    this.props.openModal("postMenu", {postId: this.props.post.id, pos });
+    this.props.openModal("postMenu", {postId: this.props.post.id, pos, mode: "relative" });
   }
 
   render() {
@@ -50,7 +49,6 @@ class PostIndexItem extends React.Component {
 
           <div className="post-menu-btn" onClick={ this.handleClick }>
             <i className="fas fa-ellipsis-h"></i>
-            <PostMenuModal postId={post.id}/>
           </div>
 
         </div>
