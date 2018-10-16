@@ -32,3 +32,5 @@ bundle.js.map
 .DS_STORE
 .byebug_history
 npm-debug.log
+
+.vscode 

@@ -54,24 +54,20 @@
 }
 
 .nav-link {
+  color: white;
+  font-size: 13px;
+  box-sizing: border-box;
+  margin: 0px 3px;
+
   border-right: 1px solid $facebook-blue;
   border-radius: 3px;
   padding: 5px 7px;
-  height: 30px;
   box-sizing: border-box;
-  vertical-align: middle;
 
   &:hover {
     cursor: pointer;
     text-decoration: none;
     background: $facebook-blue;
-  }
-
-  a {
-    color: white;
-    font-size: 13px;
-    box-sizing: border-box;
-    margin: 0px 3px;
   }
 }
 
@@ -79,10 +75,11 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  a {
+  span {
     padding-left: 5px;
   }
 }
+
 
 .nav-icon {
   color: $navy-blue;

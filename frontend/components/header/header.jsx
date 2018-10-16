@@ -2,7 +2,6 @@ import React from 'react';
 import { Link, Route, Switch } from 'react-router-dom';
 import LoginFormContainer from '../session/login_form_container';
 import SearchBarContainer from '../search/search_bar_container';
-import { AuthRoute, ProtectedRoute } from '../../util/route_util';
 import logo from '../../../app/assets/images/logo_white.png';
 
 const Header = ({ currentUser, logout, history }) => {
@@ -40,20 +39,13 @@ const Header = ({ currentUser, logout, history }) => {
 
           <div className="nav-links">
 
-            <div className="nav-link">
+            <Link to={`/${currentUser.id}`} className="nav-link">
               <img className="user-icon" src={ currentUser.profile_photo } />
-              <Link to={`/${currentUser.id}`}>
-                { currentUser.first_name }
-              </Link>
-            </div>
+              <span>{ currentUser.first_name }</span>
+            </Link>
+            <Link to="/" className="nav-link">Home</Link>
 
-            <div className="nav-link">
-              <Link to="/">Home</Link>
-            </div>
-
-           <div className="nav-link">
-              <Link to="#">Create</Link>
-            </div>
+            <Link to="#" className="nav-link">Create</Link>
 
             <div className="nav-icons flex">
                 <i tabIndex="1" className="fas fa-user-friends nav-icon"></i>

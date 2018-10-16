@@ -90,3 +90,7 @@ export const filterFriends = ( userId, users, friendIds ) => {
     .filter( user => friendIds.includes(user.id) )
     .sort( (a, b) => `${a.first_name} ${a.last_name}` - `${b.first_name} ${b.last_name}` );
 };
+
+export const getPendingFriendRequests = ( currentUserId, userRelationships ) => {
+  
+}; 
