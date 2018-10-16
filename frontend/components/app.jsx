@@ -6,12 +6,9 @@ import FooterContainer from './footer/footer_container';
 import HomePageContainer from './main/home_page_container';
 import ProfileContainer from './profile/profile_container';
 import HeaderContainer from './header/header_container';
-import PostIndexContainer from './posts/post_index_container';
 import { AuthRoute, ProtectedRoute } from '../util/route_util';
 import Modal from './modal/modal';
 import PageNotFound from './main/page_not_found';
-
-import Intro from './main/intro';
 
 
 const App = () => (
