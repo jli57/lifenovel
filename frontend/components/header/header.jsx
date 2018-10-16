@@ -32,7 +32,7 @@ const Header = ({ currentUser, logout, history }) => {
       <nav className="user-nav-bar">
         <div className="left-nav-bar">
           <Link to="/" >
-            <img className="home" src={ logo } />
+            <img className="home-btn" src={ logo } />
           </Link>
           <SearchBarContainer />
         </div>

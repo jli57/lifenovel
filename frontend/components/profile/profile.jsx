@@ -10,6 +10,12 @@ class Profile extends React.Component {
   constructor(props) {
     super(props);
 
+    if ( window.performance ) {
+      if ( performance.navigation.type === 1 ) {
+        console.log("Page reloaded"); 
+      }  
+    } 
+
   }
 
   componentDidMount() {

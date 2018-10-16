@@ -60,65 +60,6 @@ ul {
   flex-direction: column;
 }
 
-.homepage {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.user-homepage {
-  margin-top: 45px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-
-  > * {
-    margin: 10px 0;
-  }
-  section {
-    width: 500px; 
-  }
-}
-
-.home {
-  height: 25px;
-  width: 25px;
-}
-
-.nav-bar-container, .user-nav-bar-container  {
-  min-width: 980px;
-  background-color: $facebook-blue;
-  border-bottom: 1px solid $dark-blue;
-  color: white;
-}
-
-.nav-bar, .user-nav-bar {
-  display: flex;
-  justify-content: space-between;
-  width: 1000px;
-  margin: auto;
-}
-
-.nav-bar {
-  padding-top: 10px;
-  display: flex;
-}
-
-.nav-bar-container {
-  height: 82px;
-  background-image: linear-gradient($muted-facebook-blue, $facebook-blue 50%);
-}
-
-.user-nav-bar-container {
-  position: fixed;
-  width: 100%;
-  z-index: 12;
-  align-items: center;
-  padding: 6px 5px 7px 5px;
-  background: $light-facebook-blue;
-}
-
-
 .bold {
   font-weight: bold;
 }
