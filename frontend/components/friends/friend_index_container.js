@@ -8,7 +8,7 @@ import FriendIndex from './friend_index';
 
 
 const mapStateToProps = ({ entities: { users, userRelationships }, session }, ownProps) => {
-  const userId = parseInt(ownProps.match.params.userId);
+  const userId = Number(ownProps.match.params.userId) || 0;
   const friendIds = filterRelationships( userId, userRelationships, "accepted");
   return {
     friendIds,

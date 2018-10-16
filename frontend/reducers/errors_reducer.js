@@ -2,10 +2,12 @@ import { combineReducers } from 'redux';
 
 import sessionErrorsReducer from './session_errors_reducer';
 import postErrorsReducer from './post_errors_reducer';
+import userRelationshipErorsReducer from './user_relationship_errors_reducer';
 
 const errorsReducer = combineReducers({
   session: sessionErrorsReducer,
-  posts: postErrorsReducer
+  posts: postErrorsReducer,
+  userRelationships: userRelationshipErorsReducer,
 });
 
 export default errorsReducer;

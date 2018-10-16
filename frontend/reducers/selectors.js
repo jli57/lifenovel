@@ -66,9 +66,9 @@ export const getRelType = ( currentUserId, profileUserId, userRelationships  ) =
       rel = "friends";
     } else if ( rel_type === "pending" ) {
       if ( user1_id === currentUserId ) {
-        rel = "pending acceptance"
+        rel = "request sent"
       } else {
-        rel = "pending approval"
+        rel = "request received"
       }
     }
   }

@@ -13,6 +13,7 @@ const Modal = ({ modal, modalArgs, closeModal }) => {
       component = <EditPostContainer postId={ modalArgs[0] } />
       break;
     case 'search':
+    case 'notifications': 
     default:
       return null;
   }

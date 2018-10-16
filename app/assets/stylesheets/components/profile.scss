@@ -91,12 +91,12 @@
 
   section {
     width: 500px;
-    margin: 0; 
+    margin: 0;
   }
 
 }
 
-.add-friend {
+.add-friend, .pending-approval, .remove-friend, .accept-friend {
   position: absolute;
   bottom: 15px;
   right: 15px;
@@ -109,8 +109,8 @@
   }
 
   button {
-    width: 130px;
-    height: 30px;
+    padding: 7px 7px;
+    min-width: 130px;
     font-weight: bold;
     text-align: center;
     border: 1px solid $text-gray;

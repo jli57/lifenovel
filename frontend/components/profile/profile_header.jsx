@@ -1,37 +1,15 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import FriendsMenuContainer from './friends_menu_container';
 
-const ProfileHeader = ({currentUser, profileUser, relType }) => {
-  console.log( currentUser.id, profileUser.id, relType ); 
-  const addFriend = (
-    <div className="add-friend">
-      <button>
-        <i className="fas fa-user"></i>
-        <i className="fas fa-plus"></i>
-        <span>Add Friend</span>
-      </button>
-    </div>
-  );
-
-  const RemoveFriend = (
-    <div className="add-friend">
-      <button>
-        <i className="fas fa-user"></i>
-        <i className="fas fa-plus"></i>
-        <span>Remove Friend</span>
-      </button>
-    </div>
-  );
-
+const ProfileHeader = ({currentUser, profileUser}) => {
   return (
     <div className="profile-header">
       <div className="cover-photo">
         <div className="profile-info">
           <h1>{ `${profileUser.first_name} ${profileUser.last_name}` }</h1>
         </div>
-        <div className="profile-actions">
-          { relType === "none" ? addFriend : null }
-        </div>
+        <FriendsMenuContainer />
       </div>
       <nav className="profile-nav">
         <ul>

@@ -19,7 +19,7 @@ class Profile extends React.Component {
   componentWillReceiveProps(nextProps) {
     if ( this.props.match.params.userId !== nextProps.match.params.userId &&
       !this.props.profileUser ) {
-      this.props.fetchUsers([parseInt(nextProps.match.params.userId)]);
+      this.props.fetchUsers([Number(nextProps.match.params.userId) || 0]);
     }
   }
 

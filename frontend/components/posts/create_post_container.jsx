@@ -45,7 +45,7 @@ const CreatePostContainer = ({ post, currentUser, submitAction, profileUser, rel
 
 
 const mapStateToProps = ( { session, entities: { users, userRelationships } }, ownProps ) => {
-  const pageId = ownProps.location.pathname === "/" ? session.id : parseInt(ownProps.match.params.userId);
+  const pageId = ownProps.location.pathname === "/" ? session.id : Number(ownProps.match.params.userId) || 0;
   return {
     post: {  author_id: session.id, body: "" },
     currentUser: users[session.id],

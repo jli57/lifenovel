@@ -7,7 +7,7 @@ import PostIndex from './post_index';
 
 
 const mapStateToProps = ({ entities: { users, posts }, session }, ownProps) => {
-  const userId = parseInt(ownProps.match.params.userId);
+  const userId = Number(ownProps.match.params.userId) || 0;
   return {
     posts: filterPosts( posts, userId),
     currentUser: users[session.id],

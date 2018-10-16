@@ -5,10 +5,10 @@ export const LOGOUT_CURRENT_USER = 'LOGOUT_CURRENT_USER';
 export const RECEIVE_SESSION_ERRORS = 'RECEIVE_SESSION_ERRORS';
 export const REMOVE_SESSION_ERRORS = 'REMOVE_SESSION_ERRORS';
 
-const receiveCurrentUser = ({user, user_relationships}) => ({
+const receiveCurrentUser = ({user, userRelationships}) => ({
   type: RECEIVE_CURRENT_USER,
   user,
-  user_relationships,
+  userRelationships,
 });
 const logoutCurrentUser = () => ({
   type: LOGOUT_CURRENT_USER,
