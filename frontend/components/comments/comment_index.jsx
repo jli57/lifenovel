@@ -13,23 +13,17 @@ const CommentIndex = ({ comments, total, postId, parentId, level }) => {
 
   return (
 
-  <div className="comment-index">
-    { prevComments }
-    <ul>
-      { comments.map( comment => (
-        <div key={ comment.id }>
-           <CommentIndexItem comment={ comment } />
-          { comment.child_comment_ids.length > 0 ? 
-            <div style={ { marginLeft: "15px" } }>
-              <CommentIndexContainer postId={ postId } parentId={ comment.id } level={ level+1 }/> 
-            </div>
-            : null  
-          }
-        </div>
-      )) }
-    </ul>
-  </div>
-);
+    <div className="comment-index">
+      { prevComments }
+      <ul>
+        { comments.map( comment => (
+          <div key={ comment.id }>
+            <CommentIndexItem comment={ comment } level={ level } />
+          </div>
+        )) }
+      </ul>
+    </div>
+  );
 };
 
 export default CommentIndex;

@@ -5,27 +5,27 @@ import { filterPostComments, countPostComments } from '../../reducers/selectors'
 import { fetchPosts } from '../../actions/post_actions'; 
 // import { openModal } from '../../actions/modal_actions';
 
-class CommentIndexContainer extends React.Component {
-  componentDidMount() {
-    // this.props.fetchPosts();
-  }
+// class CommentIndexContainer extends React.Component {
+//   componentDidMount() {
+//     // this.props.fetchPosts();
+//   }
 
-  componentWillReceiveProps() {
-    // this.props.fetchPosts(); 
-  }
+//   componentWillReceiveProps() {
+//     // this.props.fetchPosts(); 
+//   }
 
-  render() {
-    return (
-      <CommentIndex
-        comments={ this.props.comments }
-        total={ this.props.total }
-        postId={ this.props.postId }
-        parentId={ this.props.parentId }
-        level={ this.props.level }
-      />
-    );
-  }
-}
+//   render() {
+//     return (
+//       <CommentIndex
+//         comments={ this.props.comments }
+//         total={ this.props.total }
+//         postId={ this.props.postId }
+//         parentId={ this.props.parentId }
+//         level={ this.props.level }
+//       />
+//     );
+//   }
+// }
 
 const mapStateToProps = ({ entities: { comments } }, ownProps) => {
   const { parentId, postId, level } = ownProps; 
@@ -42,4 +42,4 @@ const mapDispatchToProps = dispatch => ({
   fetchPosts: () => dispatch(fetchPosts()), 
 });
 
-export default connect( mapStateToProps, mapDispatchToProps )( CommentIndexContainer );
+export default connect( mapStateToProps, mapDispatchToProps )( CommentIndex );

@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import logo from '../../../app/assets/images/logo.png';
 import moment from 'moment'; 
 import CreateCommentContainer from './create_comment_container'; 
+import CommentIndexContainer from './comment_index_container'; 
 
 class CommentIndexItem extends React.Component {
 
@@ -55,13 +56,20 @@ class CommentIndexItem extends React.Component {
             <button onClick={ this.openCommentForm }>Reply</button>
             <div>{ moment(created_at).fromNow() }</div>
           </div>
+          
+          { this.props.comment.child_comment_ids.length > 0 ? 
+            <div>
+              <CommentIndexContainer postId={ post_id } parentId={ id } level={ this.props.level + 1 }/> 
+            </div>
+            : null  
+          }
           { createCommentForm() }
+
         </div>
       </li>
     );
   }
   
 }
-// <PostMenuModal postId={post.id}/>
 
 export default CommentIndexItem;
