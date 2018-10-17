@@ -2,7 +2,7 @@ import React from 'react';
 import CommentIndexItem from './comment_index_item';
 import CommentIndexContainer from './comment_index_container'; 
 
-const CommentIndex = ({ comments, total, postId, level }) => {
+const CommentIndex = ({ comments, total, postId, parentId, level }) => {
 
   const prevComments =  comments.length <= total || total === 0 ? null : (
     <div className="prev-comments">
@@ -10,7 +10,7 @@ const CommentIndex = ({ comments, total, postId, level }) => {
       <div>{ comments.length } of { total }</div>
     </div>
   );
-  
+
   return (
 
   <div className="comment-index">
@@ -20,7 +20,7 @@ const CommentIndex = ({ comments, total, postId, level }) => {
         <div key={ comment.id }>
            <CommentIndexItem comment={ comment } />
           { comment.child_comment_ids.length > 0 ? 
-            <div style={ { marginLeft: "10px" } }>
+            <div style={ { marginLeft: "15px" } }>
               <CommentIndexContainer postId={ postId } parentId={ comment.id } level={ level+1 }/> 
             </div>
             : null  

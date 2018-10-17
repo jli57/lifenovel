@@ -10,10 +10,7 @@ const CreateCommentContainer = ({ comment, currentUser, submitAction }) => {
         <img className="comment-profile-icon" src={currentUser.profile_photo} />
       </div>
       <div>
-        <CommentForm
-          comment={comment}
-          submitAction={submitAction}
-          />
+        <CommentForm comment={comment} submitAction={submitAction} />
       </div>
     </div>
   );
@@ -21,11 +18,12 @@ const CreateCommentContainer = ({ comment, currentUser, submitAction }) => {
 
 
 const mapStateToProps = ( { session, entities: { users } }, ownProps ) => {
+  const { postId, parentId } = ownProps; 
   return {
     comment: {  author_id: session.id,
       body: "",
-      post_id: ownProps.postId,
-      parent_id: null },
+      post_id: postId ,
+      parent_id: parentId  },
     currentUser: users[session.id],
     formType: "create"
   };

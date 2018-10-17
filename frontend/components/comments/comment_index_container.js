@@ -20,17 +20,21 @@ class CommentIndexContainer extends React.Component {
         comments={ this.props.comments }
         total={ this.props.total }
         postId={ this.props.postId }
+        parentId={ this.props.parentId }
+        level={ this.props.level }
       />
     );
   }
 }
 
 const mapStateToProps = ({ entities: { comments } }, ownProps) => {
+  const { parentId, postId, level } = ownProps; 
   return {
-    comments: filterPostComments(comments, ownProps.postId, ownProps.parentId, 4),
-    total: countPostComments( comments, ownProps.postId ), 
-    postId: ownProps.postId, 
-    level: ownProps.level 
+    comments: filterPostComments(comments, postId, parentId),
+    total: countPostComments( comments, postId ), 
+    postId: postId, 
+    parentId: parentId,
+    level: level, 
   }; 
 };
 

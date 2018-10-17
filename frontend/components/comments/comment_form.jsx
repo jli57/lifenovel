@@ -6,10 +6,13 @@ class CommentForm extends React.Component {
     super(props);
     this.state = this.props.comment;
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.checkSubmit = this.checkSubmit.bind(this); 
   }
 
   handleSubmit(e) {
-    e.preventDefault();
+    if ( e ) {
+      e.preventDefault();
+    }
     const comment = Object.assign({}, this.state);
     comment.commentable_id = comment.post_id;
     comment.commentable_type = "Post"; 
@@ -24,13 +27,21 @@ class CommentForm extends React.Component {
     }
   }
 
+  checkSubmit(e) {
+    if ( e.which === 13 && !e.shiftKey ) {
+      this.handleSubmit(); 
+      return false; 
+    }
+  }
+
   render() {
     return (
       <form className="comment-form" onSubmit={ this.handleSubmit } >
         <div>
           <textarea
-            type="text"
+            type="submit"
             onChange={ this.update("body")}
+            onKeyPress={ this.checkSubmit }
             value={this.state.body}
             placeholder="Write a comment..."></textarea>
         </div>

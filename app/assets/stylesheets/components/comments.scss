@@ -1,7 +1,6 @@
 @import 'base/colors.scss';
 
 .comment-index > * {
-  margin: 5px 0;
   color: black;
 }
 
@@ -9,14 +8,24 @@
   display: flex;
   flex-direction: column;
   align-items: flex-start;
+
+  > div { 
+    width: 100%; 
+    display: flex; 
+    flex-wrap: wrap; 
+
+    > div {
+      width: 100%; 
+    }
+  }
 }
+
 
 .comment-body {
   border-radius: 15px;
   background: $comment-background;
   padding: 10px;
   border: 1px solid $smoke-gray;
-
   a {
     font-weight: bold;
   }
@@ -27,6 +36,7 @@
   display: flex;
   align-items: center;
   margin: 5px 0;
+  width: 100%; 
 
   & > div:first-child {
     align-self: flex-start;
@@ -37,11 +47,23 @@
     & > div {
       display: flex;
       align-items: center;
-
       & > * {
         margin: 0 5px;
       }
     }
+  }
+
+  .comment-right { 
+    width: 100%; 
+
+    > div:last-of-type {
+      padding-top: 5px;
+    }
+
+    textarea { 
+      width: 100%; 
+    }
+    
   }
 
   .comment-menu-btn {
@@ -79,9 +101,19 @@
   }
 }
 
+
+.create-comment-container { 
+  width: 100%; 
+
+  .hidden {
+    display: none; 
+  }
+}
+
 .create-comment {
   display: flex;
   justify-content: space-between;
+  width: 100%; 
 
   & > div:last-of-type {
     width: 93%;
@@ -91,6 +123,7 @@
 
     display: flex;
     align-items: center;
+    width: 100%; 
     div {
       width: 100%; 
 
