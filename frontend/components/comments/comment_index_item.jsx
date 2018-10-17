@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import logo from '../../../app/assets/images/logo.png';
+import moment from 'moment'; 
 
 class CommentIndexItem extends React.Component {
 
@@ -15,8 +16,7 @@ class CommentIndexItem extends React.Component {
 
   render() {
     const { author_id, body, created_at } = this.props.comment;
-    const createdAt = new Date(created_at).toLocaleDateString("en-US");
-
+    
     return (
       <li className="comment">
         <div>
@@ -35,7 +35,7 @@ class CommentIndexItem extends React.Component {
           <div className="comment-links">
             <button>Like</button>
             <button>Reply</button>
-            <div>{ createdAt }</div>
+            <div>{ moment(created_at).fromNow() }</div>
           </div>
         </div>
       </li>

@@ -4,6 +4,7 @@ import CommentIndexContainer from '../comments/comment_index_container';
 import CreateCommentContainer from '../comments/create_comment_container';
 import share from '../../../app/assets/images/share.png';
 import Modal from '../modal/modal'; 
+import moment from 'moment'; 
 
 class PostIndexItem extends React.Component {
 
@@ -27,10 +28,8 @@ class PostIndexItem extends React.Component {
     const { post, postAuthor } = this.props;
     if ( !post  || !postAuthor ) return null;
 
-    const createdAt = new Date(post.created_at).toLocaleDateString("en-US");
     const editText = post.created_at !== post.updated_at ? " (edited)" : "";
-
-    const dateLog = ` ${createdAt} ${editText}`;
+    const dateLog = ` ${moment(post.created_at).fromNow()} ${editText}`;
 
 
     return (
@@ -44,7 +43,7 @@ class PostIndexItem extends React.Component {
               <Link to={`/${post.author_id}`}>
                 { `${postAuthor.first_name} ${postAuthor.last_name}`}
               </Link>
-              <p>wrote on { dateLog }</p>
+              <p className="post-date">{ dateLog }</p>
             </div>
           </div>
 
