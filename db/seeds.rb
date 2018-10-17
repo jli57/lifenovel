@@ -106,12 +106,29 @@ end
 
 parent_comment_ids = Comment.ids
 
-10.times do
+15.times do
+
+  parent_id = parent_comment_ids.sample
   Comment.create(
     author_id: user_ids.sample,
     body: Faker::FamousLastWords.last_words,
-    commentable_id: post_ids.sample,
+    commentable_id: Comment.find_by_id(parent_id).commentable_id,
     commentable_type: "Post",
-    parent_id: parent_comment_ids.sample
+    parent_id: parent_id
+  )
+end
+
+
+parent_comment_ids = Comment.where.not(parent_id: nil).ids
+
+15.times do
+
+  parent_id = parent_comment_ids.sample
+  Comment.create(
+    author_id: user_ids.sample,
+    body: Faker::FamousLastWords.last_words,
+    commentable_id: Comment.find_by_id(parent_id).commentable_id,
+    commentable_type: "Post",
+    parent_id: parent_id
   )
 end

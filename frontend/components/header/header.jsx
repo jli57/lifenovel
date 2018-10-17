@@ -3,7 +3,7 @@ import { Link, Route, Switch } from 'react-router-dom';
 import LoginFormContainer from '../session/login_form_container';
 import SearchBarContainer from '../search/search_bar_container';
 import logo from '../../../app/assets/images/logo_white.png';
-import Modal from '../modal/modal'; 
+import HeaderModal from '../modal/header_modal'; 
 
 const Header = ({ currentUser, logout, history, openModal }) => {
 
@@ -56,12 +56,10 @@ const Header = ({ currentUser, logout, history, openModal }) => {
                 ></i>
                 <i tabIndex="1" className="fab fa-facebook-messenger nav-icon"></i>
                 <div>
-                  <i tabIndex="1" 
-                    className="fas fa-bell nav-icon"
-                    onClick={ (e) => { 
-                      openModal("notifications", { pos: e.target.getBoundingClientRect(), mode: "relative" }) } }
+                  <i tabIndex="1" className="fas fa-bell nav-icon"
+                    onClick={ () => { openModal("notifications", {}) } }
                   ></i>
-                  <Modal modalType="notifications" id={ 0 }/>
+                  <HeaderModal modalType="notifications" />
                 </div>
                 
             </div>

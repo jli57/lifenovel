@@ -19,9 +19,9 @@ export const addAuthorToPosts = ( posts, users ) => (
   })
 );
 
-export const filterPostComments = ( comments, postId, n ) => (
+export const filterPostComments = ( comments, postId, parentId, n ) => (
   Object.values(comments)
-    .filter( comment => comment.post_id === postId && comment.parent_id === null )
+    .filter( comment => comment.post_id === postId && comment.parent_id === parentId )
     .sort( (a, b) => Date.parse(a.created_at) - Date.parse(b.created_at))
     .slice(0, n)
 );

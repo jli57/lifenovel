@@ -28,11 +28,11 @@ class CommentForm extends React.Component {
     return (
       <form className="comment-form" onSubmit={ this.handleSubmit } >
         <div>
-          <input
+          <textarea
             type="text"
             onChange={ this.update("body")}
             value={this.state.body}
-            placeholder="Write a comment..." />
+            placeholder="Write a comment..."></textarea>
         </div>
       </form>
     )

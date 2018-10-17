@@ -229,7 +229,7 @@
 .post-menu {
   width: 150px;
   padding: 10px 0px;
-  
+
   ul {    
     li:hover {
       background-color: $light-facebook-blue;
@@ -241,4 +241,8 @@
     padding: 0 10px;
     color: inherit;
   }
+}
+
+.post-date {
+  color: $text-gray
 }

@@ -71,7 +71,7 @@ class PostIndexItem extends React.Component {
           </nav>
         </div>
         <div>
-          <CommentIndexContainer postId={post.id} />
+          <CommentIndexContainer postId={post.id} parentId={ null } level={ 1 } />
         </div>
         <div>
           <CreateCommentContainer postId={post.id} />

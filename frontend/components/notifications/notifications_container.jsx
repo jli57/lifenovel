@@ -1,6 +1,6 @@
 import React from 'react'; 
 import { connect } from 'react-redux';
-import { filterUsers, getPendingFriendRequests } from '../../reducers/selectors'; 
+import { getPendingFriendRequests } from '../../reducers/selectors'; 
 import { fetchUsers } from '../../actions/user_actions'; 
 import Notifications from './notifications';
 
