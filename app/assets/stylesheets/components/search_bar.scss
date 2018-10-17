@@ -80,7 +80,6 @@
   }
 }
 
-
 .nav-icon {
   color: $navy-blue;
   transform: scale(1.75);
@@ -98,7 +97,7 @@ header .nav-icons {
   margin: 0px 5px;
 }
 
-header .nav-icons i {
-  padding-left: 10px;
-  padding-right: 10px;
+header .nav-icon {
+  margin: 0 10px; 
+  cursor: pointer;
 }

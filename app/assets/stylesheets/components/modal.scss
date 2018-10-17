@@ -18,7 +18,7 @@
   right: 0;
   left: 0;
   background: transparent;
-  z-index: 14;
+  z-index: 7;
 }
 
 .fixed-modal-child {
@@ -30,7 +30,32 @@
 }
 
 .relative-modal-child {
-  z-index: 20;
+  z-index: 8;
   position: absolute;
-  left: attr(data-left) + "px"; 
+
+}
+.notifications, .post-menu {
+  position: absolute; 
+  background: white; 
+  font-size: 13px;
+
+  border: 1px solid #bbbbbb;
+  box-shadow: 0 0 5px #b2b2b2;
+
+  top: 5px; 
+  right: -15px; 
+
+  ul {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    color: #626871;
+
+    li {
+      width: 100%;
+      padding: 5px 0px;
+      cursor: pointer;
+    }
+  }
+
 }

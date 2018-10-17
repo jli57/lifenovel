@@ -1,0 +1,67 @@
+@import 'base/colors.scss'; 
+
+.notifications {
+  
+  top: 15px; 
+  right: -28px; 
+  width: 400px; 
+  color: black; 
+  box-shadow: 2px 2px 5px #b2b2b2;
+  padding-top: 5px; 
+  
+  > * {
+    margin: 10px 0; 
+  }
+
+  h1 {
+    padding: 0 15px;
+    font-weight: bold; 
+  }
+  li:hover{
+    background-color: $faded-gray-hover; 
+  }
+
+  div:last-of-type {
+    text-align: center;
+  }
+
+}
+
+.notification-link {
+  display: flex; 
+  justify-content: space-between;
+  align-items: center;
+  color: $text-gray; 
+  
+  img { 
+    width: 35px; 
+    height: 35px; 
+    border-radius: 50%; 
+    margin: 5px; 
+    padding-left: 10px; 
+  }
+
+  div:last-of-type {
+    margin: 0 10px 0 0; 
+  }
+
+}
+
+.notification-message {
+  display: flex; 
+  align-items: center;
+
+  div:first-of-type {
+    text-align: left; 
+
+    .name {
+      color: $facebook-blue; 
+      font-weight: 500; 
+
+      &:hover {
+        text-decoration: underline; 
+      }
+    }
+    
+  }
+}
