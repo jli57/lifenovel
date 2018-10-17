@@ -5,26 +5,29 @@ import EditPostContainer from '../posts/edit_post_container';
 import NotificationsContainer from '../notifications/notifications_container'; 
 import PostMenuContainer from '../posts/post_menu_container';
 
-const Modal = ({ modal, modalArgs, closeModal }) => {
-  if ( !modal ) {
+const Modal = ({ modal, modalArgs, closeModal, modalType, id }) => {
+
+  if ( !modal || (modalType !== "general" && modal !== modalType ) ) {
     return null;
   }
 
-  let { left, right, top, bottom } = modalArgs.pos; 
-
   let component;
+
   switch ( modal ) {
     case 'editPost':
       component = <EditPostContainer postId={ modalArgs.postId } />
       break;
-    case 'postMenu':
-      component = <PostMenuContainer />
-      top += 10; 
-      break;
-    case 'search':
-      component = <NotificationsContainer />
-      break; 
     case 'notifications': 
+      if  ( modalType !== "general" ) {
+        component = <NotificationsContainer />
+        break; 
+      }
+    case 'postMenu':
+      if ( modalArgs.postId === id ) {
+        component = <PostMenuContainer />
+        break; 
+      }
+    case 'search':
     default:
       return null;
   }
@@ -45,7 +48,10 @@ const Modal = ({ modal, modalArgs, closeModal }) => {
     <div className="modal">
       <div className="transparent-modal-background" onClick={ handleClick }>
       </div>
-      <div className="relative-modal-child" style={{top: `${top}px`, left: `${left}px`}} onClick={ e => e.stopPropagation() }>
+      <div 
+        className="relative-modal-child" 
+        // style={{top: `${y}px`, left: `${x}px`}} 
+        onClick={ e => e.stopPropagation() }>
         { component }
       </div>
     </div>

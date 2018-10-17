@@ -59,7 +59,6 @@ class PostIndex extends React.Component {
       this.setState({isLoading: false});
     }
   }
-
   render() {
     const { posts } = this.props;
 

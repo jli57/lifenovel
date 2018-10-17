@@ -1,5 +1,5 @@
 import React from 'react';
-import { Route, Link, Switch } from 'react-router-dom';
+import { Route, Switch } from 'react-router-dom';
 import LoginFormContainer from './session/login_form_container';
 import SignupFormContainer from './session/signup_form_container';
 import FooterContainer from './footer/footer_container';
@@ -13,9 +13,9 @@ import PageNotFound from './main/page_not_found';
 
 const App = () => (
   <div id="app">
-    <Route path="/" component={ HeaderContainer } />
+    <Route path="/" component={ HeaderContainer }/>
     <main>
-      <Modal />
+      <Modal modalType="general" id={ 0 } />
       <div className="main-content">
         <Switch>
           <AuthRoute exact path="/signup" component={SignupFormContainer} />

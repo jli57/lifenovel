@@ -3,8 +3,9 @@ import { Link, Route, Switch } from 'react-router-dom';
 import LoginFormContainer from '../session/login_form_container';
 import SearchBarContainer from '../search/search_bar_container';
 import logo from '../../../app/assets/images/logo_white.png';
+import Modal from '../modal/modal'; 
 
-const Header = ({ currentUser, logout, history }) => {
+const Header = ({ currentUser, logout, history, openModal }) => {
 
   const handleLogout = (e) => {
     e.preventDefault();
@@ -50,9 +51,19 @@ const Header = ({ currentUser, logout, history }) => {
             <Link to="#" className="nav-link">Create</Link>
 
             <div className="nav-icons flex">
-                <i tabIndex="1" className="fas fa-user-friends nav-icon"></i>
+                <i tabIndex="1" 
+                   className="fas fa-user-friends nav-icon"
+                ></i>
                 <i tabIndex="1" className="fab fa-facebook-messenger nav-icon"></i>
-                <i tabIndex="1" className="fas fa-bell nav-icon"></i>
+                <div>
+                  <i tabIndex="1" 
+                    className="fas fa-bell nav-icon"
+                    onClick={ (e) => { 
+                      openModal("notifications", { pos: e.target.getBoundingClientRect(), mode: "relative" }) } }
+                  ></i>
+                  <Modal modalType="notifications" id={ 0 }/>
+                </div>
+                
             </div>
 
             <div className="nav-icons flex">

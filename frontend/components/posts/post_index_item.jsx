@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import CommentIndexContainer from '../comments/comment_index_container';
 import CreateCommentContainer from '../comments/create_comment_container';
 import share from '../../../app/assets/images/share.png';
+import Modal from '../modal/modal'; 
 
 class PostIndexItem extends React.Component {
 
@@ -49,6 +50,7 @@ class PostIndexItem extends React.Component {
 
           <div className="post-menu-btn" onClick={ this.handleClick }>
             <i className="fas fa-ellipsis-h"></i>
+            <Modal modalType="postMenu" id={ post.id }/>
           </div>
 
         </div>
