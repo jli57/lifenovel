@@ -3,19 +3,22 @@ import { connect } from 'react-redux';
 import CommentForm from './comment_form';
 import { createComment } from '../../actions/comment_actions';
 
-const CreateCommentContainer = ({ comment, currentUser, submitAction }) => {
-  return (
-    <div className="create-comment">
-      <div>
-        <img className="comment-profile-icon" src={currentUser.profile_photo} />
-      </div>
-      <div>
-        <CommentForm comment={comment} submitAction={submitAction} />
-      </div>
-    </div>
-  );
-};
+class CreateCommentContainer extends React.Component {
 
+  render() { 
+    const { comment, currentUser, submitAction } = this.props; 
+    return (
+      <div className="create-comment">
+        <div>
+          <img className="comment-profile-icon" src={currentUser.profile_photo} />
+        </div>
+        <div>
+          <CommentForm comment={comment} submitAction={submitAction} />
+        </div>
+      </div>
+    );
+  }
+}
 
 const mapStateToProps = ( { session, entities: { users } }, ownProps ) => {
   const { postId, parentId } = ownProps; 

@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import EditPostContainer from '../posts/edit_post_container';
 import NotificationsContainer from '../notifications/notifications_container'; 
 import PostMenuContainer from '../posts/post_menu_container';
+import CommentMenuContainer from '../comments/comment_menu_container'; 
 
 const Modal = ({ modal, modalArgs, closeModal, modalType, id }) => {
 
@@ -20,6 +21,11 @@ const Modal = ({ modal, modalArgs, closeModal, modalType, id }) => {
     case 'notifications': 
       if  ( modalType !== "general" ) {
         component = <NotificationsContainer />
+        break; 
+      }
+    case 'commentMenu': 
+      if ( modalArgs.commentId === id ) {
+        component = <CommentMenuContainer />
         break; 
       }
     case 'postMenu':

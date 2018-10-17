@@ -17,8 +17,11 @@ class CommentForm extends React.Component {
     comment.commentable_id = comment.post_id;
     comment.commentable_type = "Post"; 
     this.setState({ body: "" },
-      () => this.props.submitAction(comment)
-    );
+      () => {
+        this.props.submitAction(comment)
+          .then( () => this.props.formType == "edit" ? this.props.toggleEditForm() : null )
+      }
+    ); 
   }
 
   update(prop) {
