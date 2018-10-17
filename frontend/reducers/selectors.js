@@ -22,7 +22,7 @@ export const addAuthorToPosts = ( posts, users ) => (
 export const filterPostComments = ( comments, postId, n ) => (
   Object.values(comments)
     .filter( comment => comment.post_id === postId && comment.parent_id === null )
-    .sort( (a, b) => Date.parse(b.created_at) - Date.parse(a.created_at))
+    .sort( (a, b) => Date.parse(a.created_at) - Date.parse(b.created_at))
     .slice(0, n)
 );
 
@@ -32,13 +32,6 @@ export const countPostComments = ( comments, postId ) => (
     .length
 );
 
-// export const getRelType = ( currentUserId, profileUserId, userRelationships ) => {
-//   Object.values(userRelationships)
-//     .filter( rel =>
-//       ( rel.user1_id === userId || rel.user2_id === userId )
-//     )
-//
-// };
 export const getRelationship = ( currentUserId, profileUserId, userRelationships ) => {
   const [rel] = Object.values(userRelationships)
   .filter( rel =>
@@ -93,5 +86,11 @@ export const filterFriends = ( users, friendIds ) => {
 
 export const getPendingFriendRequests = ( currentUserId, userRelationships ) => (
   Object.values(userRelationships)
-    .filter( rel => rel.user2_id ===  currentUserId && rel.rel_tye === "pending" )
-);
+    .filter( rel => rel.user2_id === currentUserId && rel.rel_type === "pending" )
+    .sort( (a, b) => Date.parse(b.created_at) - Date.parse(a.created_at) )
+); 
+
+export const filterUsers = ( userIds, users ) => (
+  userIds.map( id => users[id] )
+); 
+
