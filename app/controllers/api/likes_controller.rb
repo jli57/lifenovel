@@ -1,5 +1,9 @@
 class Api::LikesController < ApplicationController
 
+  def index 
+    @likes = Like.where(likeable_id: params[:likeable_id], likeable_type: params[:likeable_type])
+  end 
+
   def create
     @like = Like.new(like_params)
     if @like.save

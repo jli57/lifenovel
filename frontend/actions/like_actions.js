@@ -1,5 +1,4 @@
 import * as APIUtil from "../util/like_api_util";
-import { closeModal } from "./modal_actions";
 
 export const RECEIVE_LIKES = "RECEIVE_LIKES";
 export const RECEIVE_LIKE = "RECEIVE_LIKE";
@@ -26,13 +25,13 @@ const receiveLikeErrors = (errors) => ({
   errors
 });
 
-// export const fetchLikes = () => dispatch => (
-//   APIUtil.fetchLikes()
-//     .then(
-//       (likes) => dispatch(receiveLikes(likes)),
-//       (errors) => dispatch(receiveLikeErrors(errors.responseJSON))
-//     )
-// );
+export const fetchLikes = (options) => dispatch => (
+  APIUtil.fetchLikes(options)
+    .then(
+      (likes) => dispatch(receiveLikes(likes)),
+      (errors) => dispatch(receiveLikeErrors(errors.responseJSON))
+    )
+);
 
 // export const fetchLike = (likeId) => dispatch => (
 //   APIUtil.fetchLike(likeId) 

@@ -11,7 +11,7 @@ Rails.application.routes.draw do
       resources :comments, only: [:create]
     end
     resources :comments, only: [:update, :destroy, :show]
-    resources :likes, only: [:create, :destroy]
+    resources :likes, only: [:create, :destroy, :index]
     get 'users/search'
   end
 end

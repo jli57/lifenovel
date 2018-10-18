@@ -3,6 +3,7 @@ import {
 } from '../actions/post_actions';
 import {
   RECEIVE_LIKE,
+  RECEIVE_LIKES,
   REMOVE_LIKE,
 } from '../actions/like_actions';
 import merge from 'lodash/merge';
@@ -12,6 +13,8 @@ const likesReducer = (state = {}, action) => {
   switch( action.type) {
     case RECEIVE_POSTS:
       return merge({}, state, action.likes || {});
+    case RECEIVE_LIKES: 
+      return merge({}, state, action.likes ); 
     case RECEIVE_LIKE:
       return merge( {}, state, action.like );
     case REMOVE_LIKE:
