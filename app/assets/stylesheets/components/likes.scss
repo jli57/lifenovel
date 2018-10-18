@@ -13,7 +13,7 @@
   .like-btn-container {
 
     &:hover .fa-thumbs-up {
-      transform: scale(2); 
+      transform: scale(1.3) rotate(-35deg); 
       -webkit-transform: scale(1.3) rotate(-35deg); 
     }
   }

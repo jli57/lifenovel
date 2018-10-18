@@ -1,7 +1,7 @@
 import React from 'react'; 
 
-const Alert = ({num}) => ( 
-  num ? (
+const Alert = ({num, newNotifications}) => ( 
+  newNotifications ? (
     <div className="alert">
       { num }
     </div>

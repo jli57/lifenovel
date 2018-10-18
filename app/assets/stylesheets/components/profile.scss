@@ -9,8 +9,19 @@
 
 .cover-photo {
   height: 315px;
-  background-color: $smoke-gray;
   position: relative;
+  opacity: 1;
+}
+
+.cover-photo::before {
+  content: ""; 
+  background-image: image-url('pusheen_background'); 
+  opacity: .7;
+  position: absolute;
+  top: 0; 
+  left: 0; 
+  bottom: 0; 
+  right: 0; 
 }
 
 .profile-nav {
@@ -53,12 +64,19 @@
 
   h1 {
     font-size: 24px;
-    font-weight: 500;
+    font-weight: 700;
     letter-spacing: 1.2px;
-    // color: $white;
-    --switch: calc((var(--light) - var(--threshold)) * -100%);
-    color: hsl(0, 0%, var(--switch));
+    color: #1c0800;
+    text-shadow: 2px 2px 2px #F7EEE7; 
+    // -webkit-text-stroke-color: black;  
+    // -webkit-text-stroke-width: 1px; 
+    // --switch: calc((var(--light) - var(--threshold)) * -100%);
+    // color: hsl(0, 0%, var(--switch));
+    // color: #5C422A; 
+    opacity: 1;
+    z-index: 2;
   }
+
 
   > * {
     margin: 5px 0;
