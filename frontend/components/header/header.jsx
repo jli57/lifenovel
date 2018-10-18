@@ -4,6 +4,7 @@ import LoginFormContainer from '../session/login_form_container';
 import SearchBarContainer from '../search/search_bar_container';
 import logo from '../../../app/assets/images/logo_white.png';
 import HeaderModal from '../modal/header_modal'; 
+import NotificationsAlertContainer from '../notifications/notification_alert_container'; 
 
 const Header = ({ currentUser, logout, history, openModal }) => {
 
@@ -52,13 +53,10 @@ const Header = ({ currentUser, logout, history, openModal }) => {
 
             <div className="nav-icons flex">
                 <i tabIndex="1" 
-                   className="fas fa-user-friends nav-icon"
-                ></i>
+                   className="fas fa-user-friends nav-icon"></i>
                 <i tabIndex="1" className="fab fa-facebook-messenger nav-icon"></i>
                 <div>
-                  <i tabIndex="1" className="fas fa-bell nav-icon"
-                    onClick={ () => { openModal("notifications", {}) } }
-                  ></i>
+                  <NotificationsAlertContainer />                  
                   <HeaderModal modalType="notifications" />
                 </div>
                 

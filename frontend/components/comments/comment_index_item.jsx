@@ -33,11 +33,11 @@ class CommentIndexItem extends React.Component {
   }
 
   render() {
-    const { author_id, body, created_at, post_id, id, parent_id } = this.props.comment;
+    const { author_id, body, created_at, commentable_id, id, parent_id } = this.props.comment;
     
     const createCommentForm = () => (
       this.state.showCreateForm ? 
-       ( <CreateCommentContainer postId={ post_id } parentId={ id } />
+       ( <CreateCommentContainer postId={ commentable_id } parentId={ id } />
        ) :  null
     ); 
 
@@ -79,7 +79,7 @@ class CommentIndexItem extends React.Component {
         </div>    
         { this.props.comment.child_comment_ids.length > 0 ? 
           <div className="child-comments" >
-            <CommentIndexContainer postId={ post_id } parentId={ id } level={ this.props.level + 1 }/> 
+            <CommentIndexContainer postId={ commentable_id } parentId={ id } level={ this.props.level + 1 }/> 
           </div>
           : null  
         }

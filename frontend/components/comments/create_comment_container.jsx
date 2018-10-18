@@ -21,7 +21,8 @@ const mapStateToProps = ( { session, entities: { users } }, ownProps ) => {
   return {
     comment: {  author_id: session.id,
       body: "",
-      post_id: postId ,
+      commentable_id: postId ,
+      commentable_type: "Post",
       parent_id: parentId  },
     currentUser: users[session.id],
     formType: "create"

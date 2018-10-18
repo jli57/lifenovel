@@ -1,7 +1,6 @@
 import React from 'react';
 import FriendIndexContainer from '../friends/friend_index_container';
 import PostIndexContainer from '../posts/post_index_container';
-import { ProtectedRoute } from '../../util/route_util';
 import ProfileHeader from './profile_header';
 import PageNotFound from '../main/page_not_found';
 
@@ -12,7 +11,7 @@ class Profile extends React.Component {
 
     if ( window.performance ) {
       if ( performance.navigation.type === 1 ) {
-        console.log("Page reloaded"); 
+        // console.log("Page reloaded"); 
       }  
     } 
 

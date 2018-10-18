@@ -21,14 +21,17 @@ export const addAuthorToPosts = ( posts, users ) => (
 
 export const filterPostComments = ( comments, postId, parentId, n ) => (
   Object.values(comments)
-    .filter( comment => comment.post_id === postId && comment.parent_id === parentId )
+    .filter( comment => comment.commentable_id === postId && 
+      comment.commentable_type === "Post" && 
+      comment.parent_id === parentId )
     .sort( (a, b) => Date.parse(a.created_at) - Date.parse(b.created_at))
     .slice(0, n)
 );
 
 export const countPostComments = ( comments, postId ) => (
   Object.values(comments)
-    .filter( comment => comment.post_id === postId )
+    .filter( comment => 
+      comment.commentable_id === postId && comment.commentable_type === "Post" )
     .length
 );
 

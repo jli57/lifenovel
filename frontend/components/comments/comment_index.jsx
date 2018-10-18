@@ -1,7 +1,7 @@
 import React from 'react';
 import CommentIndexItem from './comment_index_item';
 
-const CommentIndex = ({ comments, total, postId, parentId, level, openModal }) => {
+const CommentIndex = ({ comments, total, level, openModal }) => {
 
   const prevComments =  comments.length <= total || total === 0 ? null : (
     <div className="prev-comments">

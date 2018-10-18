@@ -15,8 +15,6 @@ class CommentForm extends React.Component {
       e.preventDefault();
     }
     const comment = Object.assign({}, this.state);
-    comment.commentable_id = comment.post_id;
-    comment.commentable_type = "Post"; 
     this.setState({ body: "" },
       () => {
         this.props.submitAction(comment)
