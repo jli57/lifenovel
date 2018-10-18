@@ -11,6 +11,7 @@ const mapStateToProps = ({ entities: { users, posts }, session }, ownProps) => {
     posts: filterPosts( posts, userId),
     currentUser: users[session.id],
     user_ids: [userId],
+    pageType: "profile", 
   }
 };
 

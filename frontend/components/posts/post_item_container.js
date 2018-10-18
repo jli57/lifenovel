@@ -5,12 +5,14 @@ import PostIndexItem from './post_index_item';
 import { createLike, deleteLike } from '../../actions/like_actions'; 
 import { filterLikeByUser } from '../../reducers/selectors'; 
 
-const mapStateToProps = ({ entities: { users, likes }, session }, { post }) => {
+const mapStateToProps = ({ entities: { users, likes }, session }, { post, pageType }) => {
   return {
     post,
     postAuthor: users[post.author_id],
+    pageOwner: users[post.page_id], 
     currentUserId: session.id,
-    like: filterLikeByUser( session.id, post.id, "Post", likes)[0]
+    like: filterLikeByUser( session.id, post.id, "Post", likes)[0], 
+    pageType 
   }
 };
 

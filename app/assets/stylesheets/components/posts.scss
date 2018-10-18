@@ -247,3 +247,18 @@
 .post-date {
   color: $text-gray
 }
+
+.feed-info {
+
+  i {
+    margin: 0 10px; 
+    color: $facebook-blue; 
+  }
+}
+.post-author-name {
+  display: flex; 
+  > div {
+    display: flex; 
+    align-items: center; 
+  }
+}

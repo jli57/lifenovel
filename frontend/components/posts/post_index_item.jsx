@@ -19,6 +19,9 @@ class PostIndexItem extends React.Component {
     if ( this.props.postAuthor === undefined ) {
       this.props.fetchUsers([this.props.post.author_id]);
     }
+    if ( this.props.pageOwner === undefined ) {
+      this.props.fetchUsers([this.props.post.page_id]); 
+    }
   }
 
   handleClick(e) {
@@ -35,12 +38,25 @@ class PostIndexItem extends React.Component {
   }
 
   render() {
-    const { post, postAuthor, like } = this.props;
-    if ( !post  || !postAuthor ) return null;
+    const { post, postAuthor, like, pageOwner } = this.props;
+    if ( !post  || !postAuthor || !pageOwner ) return null;
 
     const editText = post.created_at !== post.updated_at ? " (edited)" : "";
     const dateLog = ` ${moment(post.created_at).fromNow()} ${editText}`;
     const likeClass = like ? "like-btn-container liked" : "like-btn-container"; 
+
+    const showFeed = () => {
+      if ( this.props.pageType === "feed" && post.author_id !== post.page_id ) {
+        return (
+          <div className="feed-info">
+            <i className="fas fa-caret-right"></i>
+            <Link to={`/${post.page_id}`}>
+              { `${pageOwner.first_name} ${pageOwner.last_name}`}
+            </Link>
+          </div>
+        ); 
+      }
+    }
 
     return (
       <li className="post">
@@ -50,9 +66,12 @@ class PostIndexItem extends React.Component {
               <img className="post-profile-icon" src={ postAuthor.profile_photo } />
             </Link>
             <div>
-              <Link to={`/${post.author_id}`}>
-                { `${postAuthor.first_name} ${postAuthor.last_name}`}
-              </Link>
+              <div className="post-author-name">
+                <Link to={`/${post.author_id}`}>
+                  { `${postAuthor.first_name} ${postAuthor.last_name}`}
+                </Link>
+                { showFeed() }
+              </div>
               <p className="post-date">{ dateLog }</p>
             </div>
           </div>

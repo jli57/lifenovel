@@ -78,6 +78,7 @@ class PostIndex extends React.Component {
               <PostItemContainer
                 key={ post.id }
                 post={ post }
+                pageType={ this.props.pageType }
               />)) }
           </ul>
         </div>

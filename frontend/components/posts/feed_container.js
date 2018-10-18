@@ -10,7 +10,8 @@ const mapStateToProps = ({ entities: { users, userRelationships, posts }, sessio
   return {
     posts: filterFeedPosts(posts, friendIds),
     currentUser: users[session.id],
-    user_ids: friendIds
+    user_ids: friendIds, 
+    pageType: "feed", 
   };
 };
 
