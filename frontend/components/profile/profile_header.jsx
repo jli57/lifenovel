@@ -1,8 +1,9 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import FriendsMenuContainer from './friends_menu_container';
+import PhotoFormContainer from './photo_form_container'; 
 
-const ProfileHeader = ({currentUser, profileUser}) => {
+const ProfileHeader = ({profileUser}) => {
   return (
     <div className="profile-header">
       <div className="cover-photo">
@@ -32,6 +33,9 @@ const ProfileHeader = ({currentUser, profileUser}) => {
       </nav>
       <div className="profile-photo">
         <img src={ profileUser.profile_photo } />
+      </div>
+      <div> 
+        <PhotoFormContainer />
       </div>
     </div>
   );

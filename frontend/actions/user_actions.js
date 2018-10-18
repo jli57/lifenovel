@@ -10,6 +10,11 @@ const receiveUsers = (users) => ({
   users
 });
 
+const receiveUser = ({user}) => ({
+  type: RECEIVE_USER,
+  user
+});
+
 const receiveUserErrors = (errors) => ({
   type: RECEIVE_USER_ERRORS,
   errors
@@ -33,5 +38,13 @@ export const searchUsers = (searchText) => dispatch => (
     .then(
       (users) => dispatch(receiveSearchUsers(users)), 
       (errors) => dispatch(receiveUserErrors(errors.responseJSON))
+    )
+); 
+
+export const updateUser = (formData, userId) => dispatch => (
+  APIUtil.updateUser(formData, userId) 
+    .then ( 
+      (payload) =>  dispatch(receiveUser(payload)) ,
+      (errors) =>  dispatch(receiveUserErrors(errors.responseJSON)) 
     )
 ); 

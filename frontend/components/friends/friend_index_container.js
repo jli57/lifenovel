@@ -11,7 +11,7 @@ const mapStateToProps = ({ entities: { users, userRelationships }, session }, ow
   return {
     friendIds,
     friends: filterFriends(users, friendIds),
-    currentUser: users[session.Id]
+    currentUser: users[session.id]
   };
 };
 
