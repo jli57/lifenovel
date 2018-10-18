@@ -41,8 +41,14 @@ class PostIndexItem extends React.Component {
     const { post, postAuthor, like, pageOwner } = this.props;
     if ( !post  || !postAuthor || !pageOwner ) return null;
 
-    const editText = post.created_at !== post.updated_at ? " (edited)" : "";
-    const dateLog = ` ${moment(post.created_at).fromNow()} ${editText}`;
+    const editText = post.created_at !== post.updated_at ? "(edited)" : "";
+    const postDate = moment(post.created_at); 
+    const currDate = moment(); 
+    const relativeDate = ` ${postDate.fromNow()} `;   
+    const formattedDate = ` ${postDate.format("MMM DD, YY")}` 
+    let displayDate = currDate.diff(postDate, "days") > 7 ? formattedDate : relativeDate; 
+    if ( currDate.diff(postDate, "hours") >= 24 ) displayDate = displayDate.concat( ` at ${postDate.format("h:mma")}` )
+
     const likeClass = like ? "like-btn-container liked" : "like-btn-container"; 
 
     const showFeed = () => {
@@ -57,7 +63,6 @@ class PostIndexItem extends React.Component {
         ); 
       }
     }
-
     return (
       <li className="post">
         <div className="post-header">
@@ -72,7 +77,7 @@ class PostIndexItem extends React.Component {
                 </Link>
                 { showFeed() }
               </div>
-              <p className="post-date">{ dateLog }</p>
+              <p className="post-date">{ `${displayDate} ${editText}` }</p>
             </div>
           </div>
 
