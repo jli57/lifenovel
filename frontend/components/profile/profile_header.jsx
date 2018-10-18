@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import FriendsMenuContainer from './friends_menu_container';
-import PhotoFormContainer from './photo_form_container'; 
+import ProfilePhotoFormContainer from './profile_photo_form_container'; 
 
 const ProfileHeader = ({profileUser}) => {
   return (
@@ -35,7 +35,7 @@ const ProfileHeader = ({profileUser}) => {
         <img src={ profileUser.profile_photo } />
       </div>
       <div> 
-        <PhotoFormContainer />
+        <ProfilePhotoFormContainer />
       </div>
     </div>
   );
