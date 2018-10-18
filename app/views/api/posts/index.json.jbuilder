@@ -5,9 +5,17 @@ json.posts do
 end
 
 json.comments do
-  comments = @posts.each do |post|
+  @posts.each do |post|
     post.comments.each do |comment|
       json.partial! '/api/comments/comment', comment: comment
     end
   end
 end
+
+json.likes do 
+  @posts.each do |post|
+    post.likes.each do |like| 
+      json.partial! '/api/likes/like', like: like 
+    end 
+  end 
+end 

@@ -24,11 +24,15 @@ class Comment < ApplicationRecord
     foreign_key: :parent_id,
     class_name: :Comment,
     optional: true
-
+  
+  belongs_to :commentable, polymorphic: true
+    
   has_many :child_comments,
     foreign_key: :parent_id,
     class_name: :Comment,
     dependent: :delete_all
-
-  belongs_to :commentable, polymorphic: true
+    
+  has_many :likes,
+    as: :likeable,
+    dependent: :delete_all
 end

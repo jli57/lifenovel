@@ -132,3 +132,21 @@ parent_comment_ids = Comment.where.not(parent_id: nil).ids
     parent_id: parent_id
   )
 end
+
+comment_ids = Comment.ids
+
+30.times do 
+  Like.create(
+    user_id: user_ids.sample, 
+    likeable_id: comment_ids.sample,
+    likeable_type: "Comment"
+  )
+end
+
+30.times do 
+  Like.create(
+    user_id: user_ids.sample, 
+    likeable_id: post_ids.sample,
+    likeable_type: "Post"
+  ) 
+end 

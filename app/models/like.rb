@@ -10,12 +10,9 @@
 #  updated_at    :datetime         not null
 #
 
-# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+class Like < ApplicationRecord
 
-one:
-  user: one
-  type: one
-
-two:
-  user: two
-  type: two
+  belongs_to :user
+  
+  belongs_to :likeable, polymorphic: true
+end

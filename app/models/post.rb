@@ -26,4 +26,7 @@ class Post < ApplicationRecord
     as: :commentable,
     dependent: :delete_all
 
+  has_many :likes,
+    as: :likeable,
+    dependent: :delete_all
 end
