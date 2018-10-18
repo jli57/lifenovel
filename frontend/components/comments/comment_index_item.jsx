@@ -89,7 +89,7 @@ class CommentIndexItem extends React.Component {
             </div>
             : ( 
             <div className="comment-links">
-              <button onClick={ this.handleLike }>Like</button>
+              <button onClick={ this.handleLike }>{ this.props.like ? "Unlike" : "Like" }</button>
               <button onClick={ this.openCommentForm }>Reply</button>
               <div>{ moment(created_at).fromNow() }</div>
             </div>
