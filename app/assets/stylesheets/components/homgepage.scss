@@ -21,7 +21,9 @@
 
   aside {
     width: 150px; 
+    margin-top: 15px; 
     font-size: 14px; 
+    position: relative;
 
     ul {
       display: flex; 
@@ -43,6 +45,17 @@
       a {
         padding: 5px;  
         color: black;  
+        display: flex; 
+        position: relative;
+        // overflow: hidden;
+      }
+
+      img {
+        width: 45px; 
+        position: absolute; 
+      }
+      span {
+        margin-left: 25px; 
       }
     }
   }
@@ -67,5 +80,71 @@
     border: 1px solid $smoke-gray; 
     border-radius: 3px; 
     height: 150px; 
+  }
+}
+
+.news-feed-link { 
+  img {  
+    top: -5px; 
+    left: -10px; 
+    clip: rect(0px, 50px, 40px, 0); 
+  }
+}
+
+.messenger-link { 
+  img { 
+    top: -38px; 
+    left: -10px; 
+    clip: rect(40px, 50px, 70px, 0); 
+  }
+}
+
+.watch-link { 
+  img { 
+    top: -71px; 
+    left: -10px; 
+    clip: rect(70px, 50px, 100px, 0); 
+  }
+}
+.marketplace-link { 
+  img { 
+    top: -106px; 
+    left: -10px; 
+    clip: rect(100px, 50px, 130px, 0); 
+  }
+}
+.pages-link { 
+  img { 
+    top: -140px; 
+    left: -10px; 
+    clip: rect(132px, 50px, 162px, 0); 
+  }
+}
+.events-link { 
+  img { 
+    top: -172px; 
+    left: -10px; 
+    clip: rect(170px, 50px, 205px, 0); 
+  }
+}
+.groups-link { 
+  img { 
+    top: -206px; 
+    left: -10px; 
+    clip: rect(205px, 50px, 235px, 0); 
+  }
+}
+.fundraisers-link { 
+  img { 
+    top: -238px; 
+    left: -10px; 
+    clip: rect(235px, 50px, 265px, 0); 
+  }
+}
+.friends-lists-link { 
+  img { 
+    top: -273px; 
+    left: -10px; 
+    clip: rect(265px, 50px, 295px, 0); 
   }
 }

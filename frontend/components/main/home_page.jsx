@@ -3,6 +3,7 @@ import React from 'react';
 import Intro from './intro';
 import SignupFormContainer from '../session/signup_form_container';
 import FeedContainer from '../posts/feed_container';
+import menu_buttons from '../../../app/assets/images/menu_buttons.png'; 
 
 import { Link } from "react-router-dom"; 
 
@@ -19,14 +20,60 @@ const HomePage = ({ currentUser }) => {
       <aside>
         <nav>
           <ul>
-            <li><Link to="#">New Feed</Link></li>
-            <li><Link to="#">Messenger</Link></li>
-            <li><Link to="#">Watch</Link></li>
-            <li><Link to="#">Marketplace</Link></li>
-            <li><Link to="#">Groups</Link></li>
-            <li><Link to="#">Events</Link></li>
-            <li><Link to="#">Fundraisers</Link></li>
-            <li><Link to="#">Friends Lists</Link></li>
+            <li>
+              <Link to="#" className="news-feed-link">
+                <img src={ menu_buttons } />
+                <span>New Feed</span>
+              </Link>
+            </li>
+            <li>
+              <Link to="#" className="messenger-link">
+                  <img src={ menu_buttons } />
+                  <span>Messenger</span>
+              </Link>
+            </li>
+            <li>
+              <Link to="#" className="watch-link">
+                  <img src={ menu_buttons } />
+                  <span>Watch</span>
+              </Link>
+            </li>
+            <li>
+              <Link to="#" className="marketplace-link">
+                  <img src={ menu_buttons } />
+                  <span>Marketplace</span>
+              </Link>
+            </li>
+            <li>
+              <Link to="#" className="pages-link">
+                  <img src={ menu_buttons } />
+                  <span>Pages</span>
+              </Link>
+            </li>
+            <li>
+              <Link to="#" className="groups-link">
+                  <img src={ menu_buttons } />
+                  <span>Groups</span>
+              </Link>
+            </li>
+            <li>
+              <Link to="#" className="events-link">
+                  <img src={ menu_buttons } />
+                  <span>Events</span>
+              </Link>
+            </li>
+            <li>
+              <Link to="#" className="fundraisers-link">
+                  <img src={ menu_buttons } />
+                  <span>Fundraisers</span>
+              </Link>
+            </li>
+            <li>
+              <Link to="#" className="friends-lists-link">
+                  <img src={ menu_buttons } />
+                  <span>Friends Lists</span>
+              </Link>
+            </li>
           </ul>
         </nav>
       </aside>
