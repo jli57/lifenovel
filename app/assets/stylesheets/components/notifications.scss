@@ -93,11 +93,18 @@
   border-radius: 3px;
 }
 
-header .nav-icon {
-  color: $navy-blue;
-  transform: scale(1.75);
-  padding: 5px; 
-  margin: 0 5px;
+header {
+  
+  .nav-icon {
+    color: $navy-blue;
+    transform: scale(1.75);
+    padding: 5px; 
+    margin: 0 5px;
+  }
+  
+  .white {
+    color: white; 
+  }
 }
 
 .nav-icon-container {

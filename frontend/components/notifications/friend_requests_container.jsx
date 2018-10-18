@@ -4,7 +4,7 @@ import { getPendingFriendRequests } from '../../reducers/selectors';
 import { fetchUsers } from '../../actions/user_actions'; 
 import Notifications from './notifications';
 
-class NotificationsContainer extends React.Component {
+class FriendRequestsContainer extends React.Component {
 
   componentDidMount() {
     this.props.fetchUsers(this.props.notifications.map(rel => rel.user1_id)); 
@@ -33,13 +33,13 @@ class NotificationsContainer extends React.Component {
 }
 
 const mapStateToProps = ({ entities: { users, userRelationships }, session }) => {
-  const notifications = []; 
+  const notifications = getPendingFriendRequests( session.id, userRelationships ); 
   return {
     currentUser: users[session.id],
     notifications, 
     users,
-    notificationType: "Notifications", 
-    message: ""
+    message: " wants to be your friend!",
+    notificationType: "Friend Requests", 
   }
 };
 
@@ -47,4 +47,4 @@ const mapDispatchToProps = dispatch => ({
   fetchUsers: (userIds) => dispatch( fetchUsers(userIds) ), 
 });
 
-export default connect( mapStateToProps, mapDispatchToProps)( NotificationsContainer );
+export default connect( mapStateToProps, mapDispatchToProps)( FriendRequestsContainer );

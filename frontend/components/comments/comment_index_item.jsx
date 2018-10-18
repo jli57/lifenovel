@@ -4,6 +4,7 @@ import moment from 'moment';
 import CreateCommentContainer from './create_comment_container';
 import EditCommentContainer from './edit_comment_container';  
 import CommentIndexContainer from './comment_index_container'; 
+import LikesContainer from '../likes/likes_container'; 
 import Modal from '../modal/modal'; 
 
 class CommentIndexItem extends React.Component {
@@ -44,10 +45,11 @@ class CommentIndexItem extends React.Component {
   }
 
   render() {
+    
     if ( !this.props.commentAuthor ) return null; 
     const { author_id, body, created_at, commentable_id, id } = this.props.comment;
     const { first_name, last_name } = this.props.commentAuthor; 
-    const fullName = `${first_name} ${last_name}`; 
+    const fullName = `${first_name} ${last_name}`;  
 
     const createCommentForm = () => (
       this.state.showCreateForm ? 
@@ -64,6 +66,9 @@ class CommentIndexItem extends React.Component {
           <div className="comment-body">
             <Link to={ `/users/${author_id}` }>{ fullName }&nbsp;</Link>
             <span>{ body }</span>
+          </div>
+          <div className="comment-likes"> 
+            <LikesContainer likeableId={ id } likeableType="Comment"/>
           </div>
           <div className="comment-menu-btn" onClick={ this.handleClick }>
             <i className="fas fa-ellipsis-h"></i>

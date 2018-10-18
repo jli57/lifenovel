@@ -12,8 +12,8 @@ class CommentItemContainer extends React.Component {
     if ( this.props.commentAuthor === undefined ) {
       this.props.fetchUsers([this.props.comment.author_id]);
     }
-    if ( !this.props.like ) { 
-      fetchLikes({ likeable_id: this.props.comment.id, likeable_type: "Comment" }); 
+    if ( this.props.like === undefined ) { 
+      this.props.fetchLikes({ likeable_id: this.props.comment.id, likeable_type: "Comment" }); 
     }
   }
  

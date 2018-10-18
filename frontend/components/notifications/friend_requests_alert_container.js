@@ -4,9 +4,9 @@ import { getPendingFriendRequests } from '../../reducers/selectors';
 import Alert from './alert';
 import { openModal } from '../../actions/modal_actions'; 
 
-const NotificationsAlertContainer = ({num, openModal}) => (
-  <div className="nav-icon-container" onClick={ () => { openModal("notifications", {}) } } >
-    <i tabIndex="1" className="fas fa-bell nav-icon"></i>
+const FriendRequestsAlertContainer = ({num, openModal}) => (
+  <div className="nav-icon-container" onClick={ () => { openModal("friendRequests", {}) } } >
+    <i tabIndex="1" className={`fas fa-user-friends nav-icon${num ? ' white' : ''}`}></i>
     <Alert num={num}/>
   </div>
 ); 
@@ -22,4 +22,4 @@ const mapDispatchToProps = dispatch => ({
   openModal: (modal, modalArgs) => dispatch( openModal(modal, modalArgs)),
 }); 
 
-export default connect( mapStateToProps, mapDispatchToProps)( NotificationsAlertContainer );
+export default connect( mapStateToProps, mapDispatchToProps)( FriendRequestsAlertContainer );

@@ -14,7 +14,7 @@ const likesReducer = (state = {}, action) => {
     case RECEIVE_POSTS:
       return merge({}, state, action.likes || {});
     case RECEIVE_LIKES: 
-      return merge({}, state, action.likes ); 
+      return merge({}, state, action.likes || {}); 
     case RECEIVE_LIKE:
       return merge( {}, state, action.like );
     case REMOVE_LIKE:

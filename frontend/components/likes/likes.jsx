@@ -1,7 +1,9 @@
 import React from 'react'; 
 
 const Likes = ({likes}) => {
-  const numLikes = likes.length 
+  if ( likes === undefined ) return null; 
+
+  const numLikes = likes.length; 
   const pluralize = numLikes > 1 ? "s" : ""; 
 
   return numLikes ? (

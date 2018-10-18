@@ -48,18 +48,11 @@ other_users = user_ids.reject{ |id| demo == id }
     rel_type: "accepted"
   )
 end
-2.times do
+3.times do
   UserRelationship.create(
     user1_id: demo,
     user2_id: other_users.pop,
     rel_type: "pending"
-  )
-end
-1.times do
-  UserRelationship.create(
-    user1_id: demo,
-    user2_id: other_users.pop,
-    rel_type: "removed"
   )
 end
 2.times do
@@ -69,18 +62,11 @@ end
     rel_type: "accepted"
   )
 end
-2.times do
+3.times do
   UserRelationship.create(
     user1_id: other_users.pop,
     user2_id: demo,
     rel_type: "pending"
-  )
-end
-1.times do
-  UserRelationship.create(
-    user1_id: other_users.pop,
-    user2_id: demo,
-    rel_type: "removed"
   )
 end
 

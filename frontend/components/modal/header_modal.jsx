@@ -3,6 +3,7 @@ import { closeModal } from '../../actions/modal_actions';
 import { connect } from 'react-redux';
 import NotificationsContainer from '../notifications/notifications_container'; 
 import SearchResultsContainer from '../search/search_results_container'; 
+import FriendRequestsContainer from '../notifications/friend_requests_container'; 
 
 const HeaderModal = ({ modal, modalArgs, closeModal, modalType}) => {
 
@@ -15,6 +16,9 @@ const HeaderModal = ({ modal, modalArgs, closeModal, modalType}) => {
   switch ( modal ) {
     case 'notifications': 
       component = <NotificationsContainer />
+      break; 
+    case 'friendRequests': 
+      component = <FriendRequestsContainer />
       break; 
     case 'search':
       component = <SearchResultsContainer />

@@ -4,7 +4,8 @@ import LoginFormContainer from '../session/login_form_container';
 import SearchBarContainer from '../search/search_bar_container';
 import logo from '../../../app/assets/images/logo_white.png';
 import HeaderModal from '../modal/header_modal'; 
-import NotificationsAlertContainer from '../notifications/notification_alert_container'; 
+import NotificationsAlertContainer from '../notifications/notifications_alert_container'; 
+import FriendRequestsAlertContainer from '..//notifications/friend_requests_alert_container'; 
 
 const Header = ({ currentUser, logout, history, openModal }) => {
 
@@ -52,8 +53,10 @@ const Header = ({ currentUser, logout, history, openModal }) => {
             <Link to="#" className="nav-link">Create</Link>
 
             <div className="nav-icons flex">
-                <i tabIndex="1" 
-                   className="fas fa-user-friends nav-icon"></i>
+                <div>
+                  <FriendRequestsAlertContainer />
+                  <HeaderModal modalType="friendRequests" />
+                </div>
                 <i tabIndex="1" className="fab fa-facebook-messenger nav-icon"></i>
                 <div>
                   <NotificationsAlertContainer />                  

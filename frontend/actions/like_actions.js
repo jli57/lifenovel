@@ -5,7 +5,7 @@ export const RECEIVE_LIKE = "RECEIVE_LIKE";
 export const REMOVE_LIKE = "REMOVE_LIKE";
 export const RECEIVE_LIKE_ERRORS = "RECEIVE_LIKE_ERRORS";
 
-const receiveLikes = ({likes}) => ({
+const receiveLikes = (likes) => ({
   type: RECEIVE_LIKES,
   likes
 });
