@@ -34,7 +34,8 @@
   position: absolute;
 
 }
-.notifications, .post-menu, .comment-menu {
+
+.notifications, .post-menu, .comment-menu, .search-results {
   position: absolute; 
   background: white; 
   font-size: 13px;
@@ -42,8 +43,6 @@
   border: 1px solid #bbbbbb;
   box-shadow: 0 0 5px #b2b2b2;
 
-  top: 5px; 
-  right: -15px; 
 
   ul {
     display: flex;

@@ -2,6 +2,7 @@ import React from 'react';
 import { closeModal } from '../../actions/modal_actions';
 import { connect } from 'react-redux';
 import NotificationsContainer from '../notifications/notifications_container'; 
+import SearchResultsContainer from '../search/search_results_container'; 
 
 const HeaderModal = ({ modal, modalArgs, closeModal, modalType}) => {
 
@@ -16,6 +17,8 @@ const HeaderModal = ({ modal, modalArgs, closeModal, modalType}) => {
       component = <NotificationsContainer />
       break; 
     case 'search':
+      component = <SearchResultsContainer />
+      break; 
     default:
       return null;
   }

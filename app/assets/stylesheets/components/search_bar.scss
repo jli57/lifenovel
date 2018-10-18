@@ -106,3 +106,35 @@ header .nav-icon {
 header .nav-icons {
   margin: 0px 5px;
 }
+
+.search-results { 
+  background-color: white; 
+  width: 482px; 
+  right: -483px;
+  text-align: center; 
+  padding: 5px 0 10px 0;
+  z-index: 21; 
+
+  .profile-icon {
+    width: 35px; 
+    height: 35px;
+    border-radius: 50%; 
+    margin-right: 5px;  
+  }
+
+  a:hover {
+    text-decoration: underline;
+  }
+}
+
+.user-item a {
+  display: flex; 
+  align-items: center; 
+  padding: 0 10px; 
+  font-size: 15px;  
+  font-weight: bold; 
+
+  &:hover {
+    background: $faded-gray-hover; 
+  }
+}

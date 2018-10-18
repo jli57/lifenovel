@@ -151,7 +151,9 @@
 .comment-menu {
   width: 150px;
   padding: 10px 0px;
-
+  top: 5px; 
+  right: -15px; 
+  
   ul {    
     li:hover {
       background-color: $light-facebook-blue;
