@@ -5,11 +5,9 @@ import Alert from './alert';
 import { openModal } from '../../actions/modal_actions'; 
 
 const NotificationsAlertContainer = ({num, openModal}) => (
-  <div>
+  <div className="nav-icon-container" onClick={ () => { openModal("notifications", {}) } } >
+    <i tabIndex="1" className="fas fa-bell nav-icon"></i>
     <Alert num={num}/>
-    <i tabIndex="1" className="fas fa-bell nav-icon"
-      onClick={ () => { openModal("notifications", {}) } } >
-    </i>
   </div>
 ); 
 

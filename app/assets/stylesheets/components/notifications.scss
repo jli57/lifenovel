@@ -2,7 +2,7 @@
 @import 'base/fonts.scss'; 
 
 .notifications {
-  top: 15px; 
+  top: 12px; 
   right: -30px; 
   width: 400px; 
   color: black; 
@@ -93,14 +93,15 @@
   border-radius: 3px;
 }
 
-
 header .nav-icon {
   color: $navy-blue;
   transform: scale(1.75);
   padding: 5px; 
   margin: 0 5px;
-  cursor: pointer;
-  z-index: 5; 
+}
+
+.nav-icon-container {
+  cursor: pointer; 
 }
 
 .nav-icon:focus {
