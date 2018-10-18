@@ -1,7 +1,7 @@
 @import 'base/colors.scss'; 
+@import 'base/fonts.scss'; 
 
 .notifications {
-  
   top: 15px; 
   right: -30px; 
   width: 400px; 
@@ -77,4 +77,44 @@
     }
     
   }
+}
+
+.alert { 
+  position: absolute;
+  right: 0;
+  top: -25%; 
+  vertical-align: middle;
+  text-align: center;
+  padding: 2px; 
+  background: #ef4037; 
+  color: white; 
+  font-size: 10px;
+  font-family: $sans-serif;
+  border-radius: 3px;
+}
+
+
+header .nav-icon {
+  color: $navy-blue;
+  transform: scale(1.75);
+  padding: 5px; 
+  margin: 0 5px;
+  cursor: pointer;
+  z-index: 5; 
+}
+
+.nav-icon:focus {
+  color: white; 
+}
+
+.fa-caret-down {
+  transform: scale(1.5);
+}
+
+header .nav-icons {
+  margin: 0px 5px;
+}
+
+.nav-icons > div {
+  position: relative; 
 }

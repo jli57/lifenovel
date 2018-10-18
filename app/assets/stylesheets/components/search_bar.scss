@@ -87,30 +87,10 @@
   }
 }
 
-header .nav-icon {
-  color: $navy-blue;
-  transform: scale(1.75);
-  padding: 5px; 
-  margin: 0 5px;
-  cursor: pointer;
-}
-
-[tabIndex="1"]:focus {
-  color: white;
-}
-
-.fa-caret-down {
-  transform: scale(1.5);
-}
-
-header .nav-icons {
-  margin: 0px 5px;
-}
-
 .search-results { 
   background-color: white; 
   width: 482px; 
-  right: -483px;
+  right: -484px;
   text-align: center; 
   padding: 5px 0 10px 0;
   z-index: 21; 
