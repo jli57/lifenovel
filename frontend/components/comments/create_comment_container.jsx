@@ -3,14 +3,19 @@ import { connect } from 'react-redux';
 import CommentForm from './comment_form';
 import { createComment, fetchComment } from '../../actions/comment_actions';
 
-const CreateCommentContainer = ({ comment, currentUser, submitAction, fetchComment }) => {
+const CreateCommentContainer = ({ comment, currentUser, submitAction, fetchComment, toggleForm, formType }) => {
   return (
     <div className="create-comment">
       <div>
         <img className="comment-profile-icon" src={currentUser.profile_photo} />
       </div>
       <div>
-        <CommentForm comment={comment} submitAction={submitAction} fetchComment={fetchComment} />
+        <CommentForm comment={comment} 
+          submitAction={submitAction} 
+          fetchComment={fetchComment} 
+          toggleForm={toggleForm}
+          formType={ formType }
+        />
       </div>
     </div>
   );
@@ -25,7 +30,8 @@ const mapStateToProps = ( { session, entities: { users } }, ownProps ) => {
       commentable_type: "Post",
       parent_id: parentId  },
     currentUser: users[session.id],
-    formType: "create"
+    formType: "Create",
+    toggleForm: ownProps.toggleForm
   };
 }
 

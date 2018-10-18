@@ -14,7 +14,6 @@ class CommentIndexContainer extends React.Component {
         total={ this.props.total }
         postId={ this.props.postId }
         parentId={ this.props.parentId }
-        level={ this.props.level }
         openModal={ this.props.openModal }
       />
     );
@@ -22,13 +21,12 @@ class CommentIndexContainer extends React.Component {
 }
 
 const mapStateToProps = ({ entities: { comments } }, ownProps) => {
-  const { parentId, postId, level } = ownProps; 
+  const { parentId, postId } = ownProps; 
   return {
     comments: filterPostComments(comments, postId, parentId),
     total: countPostComments( comments, postId ), 
     postId: postId, 
     parentId: parentId,
-    level: level, 
   }; 
 };
 

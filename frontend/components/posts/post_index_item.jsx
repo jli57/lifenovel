@@ -6,7 +6,6 @@ import LikesContainer from '../likes/likes_container';
 import share from '../../../app/assets/images/share.png';
 import Modal from '../modal/modal'; 
 import moment from 'moment'; 
-import { deleteLike } from '../../actions/like_actions';
 
 class PostIndexItem extends React.Component {
 
@@ -89,7 +88,7 @@ class PostIndexItem extends React.Component {
           </nav>
         </div>
         <div>
-          <CommentIndexContainer postId={post.id} parentId={ null } level={ 1 } />
+          <CommentIndexContainer postId={post.id} parentId={ null } />
         </div>
         <div className="create-comment-container">
           <CreateCommentContainer postId={post.id} parentId={ null } />

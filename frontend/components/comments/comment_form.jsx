@@ -18,8 +18,8 @@ class CommentForm extends React.Component {
     this.setState({ body: "" },
       () => {
         this.props.submitAction(comment)
-        .then( () => this.props.formType == "edit" ? this.props.toggleEditForm() : null )
-        .then( () => this.props.fetchComment(comment.parent_id) )
+        .then( () => this.props.toggleForm ? this.props.toggleForm(this.props.formType) : null )
+        .then( () => comment.parent_id ? this.props.fetchComment(comment.parent_id) : null )
       }
     ); 
   }

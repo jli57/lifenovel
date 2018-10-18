@@ -6,6 +6,7 @@ import { closeModal } from '../../actions/modal_actions';
 const mapStateToProps = ({ entities: { comments }, session, ui: { modalArgs } }) => ({
   comment: comments[modalArgs.commentId],
   currentUserId: session.id,
+  toggleForm: modalArgs.toggleForm,
   toggleEditForm: modalArgs.toggleEditForm,
 });
 

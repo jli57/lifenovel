@@ -14,7 +14,7 @@ class EditCommentContainer extends React.Component {
           currentUser={ this.props.currentUser}
           submitAction={ this.props.submitAction }
           fetchComment={ this.props.fetchComment }
-          toggleEditForm={ this.props.toggleEditForm }
+          toggleForm={ this.props.toggleForm }
           formType={ this.props.formType } />
       </div>
     );
@@ -27,8 +27,8 @@ const mapStateToProps = ( { session, entities: { users, comments }, ui: { modal 
     comment: comments[ownProps.commentId],
     modal,
     currentUser: users[session.id],
-    formType: "edit",
-    toggleEditForm: ownProps.toggleEditForm, 
+    formType: "Edit",
+    toggleForm: ownProps.toggleForm, 
   };
 }
 

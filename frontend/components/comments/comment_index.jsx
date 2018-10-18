@@ -1,7 +1,7 @@
 import React from 'react';
-import CommentIndexItem from './comment_index_item';
+import CommentItemContainer from './comment_item_container'; 
 
-const CommentIndex = ({ comments, total, level, openModal }) => {
+const CommentIndex = ({ comments, total }) => {
 
   const prevComments =  comments.length <= total || total === 0 ? null : (
     <div className="prev-comments">
@@ -16,8 +16,7 @@ const CommentIndex = ({ comments, total, level, openModal }) => {
       { prevComments }
       <ul>
         { comments.map( comment => (
-          <CommentIndexItem key={ comment.id } comment={ comment } level={ level } 
-            openModal={ openModal } />
+          <CommentItemContainer key={ comment.id } comment={ comment } />
         )) }
       </ul>
     </div>

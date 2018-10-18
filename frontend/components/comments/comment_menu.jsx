@@ -1,11 +1,10 @@
 import React from 'react';
-import { closeModal } from '../../actions/modal_actions';
 
-const CommentMenu = ({ comment, toggleEditForm, deleteComment, currentUserId, closeModal }) => {
+const CommentMenu = ({ comment, toggleForm, toggleEditForm, deleteComment, currentUserId, closeModal }) => {
 
   const handleClick = () => {
     closeModal(); 
-    toggleEditForm(); 
+    toggleForm("Edit"); 
   }
 
   const authorOptions = (
@@ -29,7 +28,6 @@ const CommentMenu = ({ comment, toggleEditForm, deleteComment, currentUserId, cl
       </li>
     </ul>
   )
-
   // const profileOwnerOptions = (
   //   <ul>
   //     <li>

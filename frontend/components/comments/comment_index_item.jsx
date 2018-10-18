@@ -1,6 +1,5 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import logo from '../../../app/assets/images/logo.png';
 import moment from 'moment'; 
 import CreateCommentContainer from './create_comment_container';
 import EditCommentContainer from './edit_comment_container';  
@@ -17,38 +16,53 @@ class CommentIndexItem extends React.Component {
     }; 
     this.handleClick = this.handleClick.bind(this);
     this.openCommentForm = this.openCommentForm.bind(this); 
-    this.toggleEditForm = this.toggleEditForm.bind(this); 
+    this.handleLike = this.handleLike.bind(this); 
+    this.toggleForm = this.toggleForm.bind(this); 
   }
 
   handleClick(e) {
-    this.props.openModal("commentMenu",{ commentId: this.props.comment.id, toggleEditForm: this.toggleEditForm });
+    this.props.openModal("commentMenu",{ commentId: this.props.comment.id, 
+      toggleForm: this.toggleForm, toggleEditForm: this.toggleEditForm });
   }
 
   openCommentForm(e) {
     this.setState({ showCreateForm: true })
   }
 
-  toggleEditForm(e) {
-    this.setState({ showEditForm: !this.state.showEditForm }); 
+  toggleForm(formType) {
+    const prop = `show${formType}Form`; 
+    const val = !this.state[prop]; 
+    this.setState({ [prop]: val }); 
+  }
+
+  handleLike(e) {
+    const { currentUserId, comment, like } = this.props; 
+
+    like ? 
+      this.props.deleteLike(like.id) : 
+      this.props.createLike({ user_id: currentUserId, likeable_id: comment.id, likeable_type: "Comment" })
   }
 
   render() {
-    const { author_id, body, created_at, commentable_id, id, parent_id } = this.props.comment;
-    
+    if ( !this.props.commentAuthor ) return null; 
+    const { author_id, body, created_at, commentable_id, id } = this.props.comment;
+    const { first_name, last_name } = this.props.commentAuthor; 
+    const fullName = `${first_name} ${last_name}`; 
+
     const createCommentForm = () => (
       this.state.showCreateForm ? 
-       ( <CreateCommentContainer postId={ commentable_id } parentId={ id } />
+       ( <CreateCommentContainer toggleForm={ this.toggleForm } postId={ commentable_id } parentId={ id } />
        ) :  null
     ); 
 
     const editCommentForm = () => {
       return this.state.showEditForm ? 
       (
-        <EditCommentContainer toggleEditForm={ this.toggleEditForm } commentId={ this.props.comment.id } />
+        <EditCommentContainer toggleForm={ this.toggleForm } commentId={ this.props.comment.id } />
       ) : (
         <div className="comment-and-options">
           <div className="comment-body">
-            <Link to={ `/users/${author_id}` }>{ author_id }&nbsp;</Link>
+            <Link to={ `/users/${author_id}` }>{ fullName }&nbsp;</Link>
             <span>{ body }</span>
           </div>
           <div className="comment-menu-btn" onClick={ this.handleClick }>
@@ -62,15 +76,15 @@ class CommentIndexItem extends React.Component {
     return (
       <li className="comment">
          <div className="comment-content">
-          <img className="comment-profile-icon" src={ logo } />
+          <img className="comment-profile-icon" src={ this.props.commentAuthor.profile_photo } />
           { editCommentForm() }
           { this.state.showEditForm ?
             <div className="comment-links">
-              <button onClick={ this.toggleEditForm }>Cancel</button>
+              <button onClick={ () => { this.toggleForm("Edit") } }>Cancel</button>
             </div>
             : ( 
             <div className="comment-links">
-              <button>Like</button>
+              <button onClick={ this.handleLike }>Like</button>
               <button onClick={ this.openCommentForm }>Reply</button>
               <div>{ moment(created_at).fromNow() }</div>
             </div>
@@ -79,7 +93,7 @@ class CommentIndexItem extends React.Component {
         </div>    
         { this.props.comment.child_comment_ids.length > 0 ? 
           <div className="child-comments" >
-            <CommentIndexContainer postId={ commentable_id } parentId={ id } level={ this.props.level + 1 }/> 
+            <CommentIndexContainer postId={ commentable_id } parentId={ id } /> 
           </div>
           : null  
         }
