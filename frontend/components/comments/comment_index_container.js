@@ -7,7 +7,6 @@ import { openModal } from '../../actions/modal_actions';
 
 class CommentIndexContainer extends React.Component {
 
-
   render() {
     return (
       <CommentIndex

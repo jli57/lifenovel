@@ -1,24 +1,20 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import CommentForm from './comment_form';
-import { createComment } from '../../actions/comment_actions';
+import { createComment, fetchComment } from '../../actions/comment_actions';
 
-class CreateCommentContainer extends React.Component {
-
-  render() { 
-    const { comment, currentUser, submitAction } = this.props; 
-    return (
-      <div className="create-comment">
-        <div>
-          <img className="comment-profile-icon" src={currentUser.profile_photo} />
-        </div>
-        <div>
-          <CommentForm comment={comment} submitAction={submitAction} />
-        </div>
+const CreateCommentContainer = ({ comment, currentUser, submitAction, fetchComment }) => {
+  return (
+    <div className="create-comment">
+      <div>
+        <img className="comment-profile-icon" src={currentUser.profile_photo} />
       </div>
-    );
-  }
-}
+      <div>
+        <CommentForm comment={comment} submitAction={submitAction} fetchComment={fetchComment} />
+      </div>
+    </div>
+  );
+}; 
 
 const mapStateToProps = ( { session, entities: { users } }, ownProps ) => {
   const { postId, parentId } = ownProps; 
@@ -33,7 +29,8 @@ const mapStateToProps = ( { session, entities: { users } }, ownProps ) => {
 }
 
 const mapDispatchToProps = dispatch => ({
-  submitAction: (comment) => dispatch(createComment(comment))
+  submitAction: (comment) => dispatch(createComment(comment)), 
+  fetchComment: (commentId) => dispatch(fetchComment(commentId)), 
 });
 
 export default connect( mapStateToProps, mapDispatchToProps )( CreateCommentContainer );

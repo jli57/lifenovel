@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import CommentForm from './comment_form';
-import { updateComment } from '../../actions/comment_actions';
+import { updateComment, fetchComment } from '../../actions/comment_actions';
 import { closeModal } from '../../actions/modal_actions'; 
 
 class EditCommentContainer extends React.Component {
@@ -13,6 +13,7 @@ class EditCommentContainer extends React.Component {
           comment={ this.props.comment}
           currentUser={ this.props.currentUser}
           submitAction={ this.props.submitAction }
+          fetchComment={ this.props.fetchComment }
           toggleEditForm={ this.props.toggleEditForm }
           formType={ this.props.formType } />
       </div>
@@ -33,6 +34,7 @@ const mapStateToProps = ( { session, entities: { users, comments }, ui: { modal 
 
 const mapDispatchToProps = dispatch => ({
   submitAction: (comment) => dispatch( updateComment(comment) ), 
+  fetchComment: (commentId) => dispatch(fetchComment(commentId)), 
   closeModal: () => dispatch( closeModal ), 
 });
 

@@ -8,7 +8,7 @@ Rails.application.routes.draw do
     resources :posts, only: [:index, :create, :update, :destroy] do
       resources :comments, only: [:create]
     end
-    resources :comments, only: [:update, :destroy]
+    resources :comments, only: [:update, :destroy, :show]
     get 'users/search'
   end
 end

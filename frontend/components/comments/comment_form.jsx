@@ -4,6 +4,7 @@ class CommentForm extends React.Component {
 
   constructor(props) {
     super(props);
+
     this.state = this.props.comment;
     this.handleSubmit = this.handleSubmit.bind(this);
     this.checkSubmit = this.checkSubmit.bind(this); 
@@ -19,7 +20,8 @@ class CommentForm extends React.Component {
     this.setState({ body: "" },
       () => {
         this.props.submitAction(comment)
-          .then( () => this.props.formType == "edit" ? this.props.toggleEditForm() : null )
+        .then( () => this.props.formType == "edit" ? this.props.toggleEditForm() : null )
+        .then( () => this.props.fetchComment(comment.parent_id) )
       }
     ); 
   }
