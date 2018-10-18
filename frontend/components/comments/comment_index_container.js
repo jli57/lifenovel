@@ -34,7 +34,7 @@ const mapStateToProps = ({ entities: { comments } }, ownProps) => {
 
 const mapDispatchToProps = dispatch => ({
   fetchPosts: () => dispatch(fetchPosts()), 
-  openModal: (modal, modalArgs) => dispatch(openModal(modal, modalArgs))
+  openModal: (modal, modalArgs) => dispatch(openModal(modal, modalArgs)),
 });
 
 export default connect( mapStateToProps, mapDispatchToProps )( CommentIndexContainer );

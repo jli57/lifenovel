@@ -30,8 +30,15 @@ const HomePage = ({ currentUser }) => {
           </ul>
         </nav>
       </aside>
-      <section>
+      <section className="main-section">
         <FeedContainer />
+      </section>
+      <section className="side-section">
+        <div>Stories</div>
+        <div>Birthdays</div>
+        <div>Sponsored</div>
+        <div>Advertisements</div>
+        <div>Footer</div>
       </section>
     </div>
   )
