@@ -97,3 +97,16 @@ export const filterUsers = ( userIds, users ) => (
   userIds.map( id => users[id] )
 ); 
 
+export const filterLikes = ( likeableId, likeableType, likes ) => (
+  Object.values(likes)
+    .filter( like => like.likeable_id === likeableId && like.likeable_type === likeableType )
+); 
+
+export const filterLikeByUser = ( currentUserId, likeableId, likeableType, likes ) => (
+  Object.values(likes)
+    .filter( like => 
+      like.likeable_id === likeableId && 
+      like.likeable_type === likeableType &&
+      like.user_id === currentUserId
+    )
+); 

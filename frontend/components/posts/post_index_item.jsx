@@ -2,15 +2,18 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import CommentIndexContainer from '../comments/comment_index_container';
 import CreateCommentContainer from '../comments/create_comment_container';
+import LikesContainer from '../likes/likes_container'; 
 import share from '../../../app/assets/images/share.png';
 import Modal from '../modal/modal'; 
 import moment from 'moment'; 
+import { deleteLike } from '../../actions/like_actions';
 
 class PostIndexItem extends React.Component {
 
   constructor(props) {
     super(props);
     this.handleClick = this.handleClick.bind(this);
+    this.handleLike = this.handleLike.bind(this); 
   }
 
   componentDidMount() {
@@ -24,13 +27,21 @@ class PostIndexItem extends React.Component {
     this.props.openModal("postMenu", {postId: this.props.post.id, pos, mode: "relative" });
   }
 
+  handleLike(e) {
+    const { currentUserId, post, like } = this.props; 
+
+    like ? 
+      this.props.deleteLike(like.id) : 
+      this.props.createLike({ user_id: currentUserId, likeable_id: post.id, likeable_type: "Post" })
+  }
+
   render() {
-    const { post, postAuthor } = this.props;
+    const { post, postAuthor, like } = this.props;
     if ( !post  || !postAuthor ) return null;
 
     const editText = post.created_at !== post.updated_at ? " (edited)" : "";
     const dateLog = ` ${moment(post.created_at).fromNow()} ${editText}`;
-
+    const likeClass = like ? "like-btn-container liked" : "like-btn-container"; 
 
     return (
       <li className="post">
@@ -57,10 +68,17 @@ class PostIndexItem extends React.Component {
         <div className="post-body">
           { post.body }
         </div>
-        <div>
+        <div className="post-stats">
+          <LikesContainer likeableId={ post.id } likeableType="Post"/>
+        </div>
+        <div className="post-nav">
           <nav>
-            <div>
-              <i className="far fa-thumbs-up"></i><span>  Like</span>
+            <div onClick={ this.handleLike } className={ likeClass }>
+              { like ? 
+                <i className="fas fa-thumbs-up liked"></i> :
+                <i className="far fa-thumbs-up"></i>
+              }
+              <span>  Like</span>
             </div>
             <div>
               <i className="far fa-comment-alt"></i><span>  Comment</span>
