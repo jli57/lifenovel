@@ -33,6 +33,18 @@
   }
 }
 
+.advertisements {
+  display: flex; 
+  flex-direction: column;  
+  align-items: center; 
+
+  li {
+    text-align: center; 
+  }
+  span {
+    text-align: center; 
+  }
+}
 
 
 .ad-link {
@@ -42,6 +54,7 @@
     cursor: pointer;
     text-decoration: underline; 
   }
+  text-align: center; 
 }
 
 .ad-image {

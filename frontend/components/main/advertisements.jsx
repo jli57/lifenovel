@@ -9,6 +9,7 @@ const Advertisements = () => {
         <li>
           <a href="http://a.co/d/5POIgbT" title="Pusheen">
             <img className="ad-image" src="https://images-na.ssl-images-amazon.com/images/I/81o-fxiF1hL._UX679_.jpg" />
+            <span>Buy a Pusheen Beanie!</span>
           </a>
         </li>
       </ul>

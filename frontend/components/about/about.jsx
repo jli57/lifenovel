@@ -1,6 +1,6 @@
 import React from 'react'; 
 
-const About = ({ user }) => { 
+const About = ({ user, currentUser }) => { 
   if ( !user ) return null; 
 
   return ( 

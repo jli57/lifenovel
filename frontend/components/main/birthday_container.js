@@ -16,7 +16,6 @@ class BirthdayContainer extends React.Component {
         missingUsers.push(id); 
       }
     })
-    console.log(missingUsers); 
     if ( missingUsers.length > 0 ) {
       this.props.fetchUsers(missingUsers);     
     }

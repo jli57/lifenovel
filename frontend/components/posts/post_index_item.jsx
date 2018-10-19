@@ -13,6 +13,7 @@ class PostIndexItem extends React.Component {
     super(props);
     this.handleClick = this.handleClick.bind(this);
     this.handleLike = this.handleLike.bind(this); 
+    this.handleComment = this.handleComment.bind(this); 
   }
 
   componentDidMount() {
@@ -25,6 +26,9 @@ class PostIndexItem extends React.Component {
   }
 
   handleClick(e) {
+    if (e) {
+      e.preventDefault(); 
+    }
     const pos = e.target.getBoundingClientRect(); 
     this.props.openModal("postMenu", {postId: this.props.post.id, pos, mode: "relative" });
   }
@@ -35,6 +39,12 @@ class PostIndexItem extends React.Component {
     like ? 
       this.props.deleteLike(like.id) : 
       this.props.createLike({ user_id: currentUserId, likeable_id: post.id, likeable_type: "Post" })
+  }
+
+  handleComment(e) {
+    e.preventDefault(); 
+    console.log(document.getElementById(`create-comment-${this.props.post.id}`))
+    document.getElementById(`create-comment-${this.props.post.id}`).focus(); 
   }
 
   render() {
@@ -103,7 +113,7 @@ class PostIndexItem extends React.Component {
               }
               <span>  Like</span>
             </div>
-            <div>
+            <div onClick={ this.handleComment }>
               <i className="far fa-comment-alt"></i><span>  Comment</span>
             </div>
             <div>

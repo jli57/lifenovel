@@ -30,7 +30,7 @@ class AboutContainer extends React.Component {
           </div>
           <Link to="#">Edit</Link>
         </div>
-        <About user={ this.props.user } />
+        <About user={ this.props.user } currentUser={this.props.currentUser} />
       </div>
     );
   }

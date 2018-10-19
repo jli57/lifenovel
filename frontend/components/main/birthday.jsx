@@ -5,7 +5,6 @@ import { Link } from 'react-router-dom';
 const Birthday = ({friends}) => {
   if ( friends.length === 0 ) return null; 
 
-  console.log(friends); 
   return (
     <div className="birthdays homepage-side-section"> 
       <h1>Birthdays</h1>

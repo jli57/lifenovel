@@ -42,6 +42,7 @@ class CommentForm extends React.Component {
       <form className="comment-form" onSubmit={ this.handleSubmit } >
         <div>
           <textarea
+            id={`create-comment-${this.props.comment.commentable_id}`}
             type="submit"
             onChange={ this.update("body")}
             onKeyPress={ this.checkSubmit }
