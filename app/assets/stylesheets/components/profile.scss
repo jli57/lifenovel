@@ -170,16 +170,15 @@
   }
 }
 
-
 .photo-form {
   background: white; 
   border-radius: 3px; 
   display: flex; 
   flex-direction: column; 
   justify-content: center; 
-  width: 500px; 
-  height: 400px; 
-  padding: 5px; 
+  width: 490px; 
+  height: 400px;  
+  box-sizing: border-box;
 
   .form-buttons {
     display: flex; 
@@ -203,7 +202,6 @@
       }
     }
   }
-
   input[type="file"] {
     display: none; 
   }
@@ -241,3 +239,8 @@
     }
   }
 }
+
+.create-post .photo-form {
+  margin: auto;   
+}
+

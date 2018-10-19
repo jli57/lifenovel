@@ -7,11 +7,12 @@ import { closeModal } from '../../actions/modal_actions';
 const mapStateToProps = ({ session, entities: { users} }) => {
   return {
     currentUser: users[session.id],
+    formType: "profile"
   };
 };
 
 const mapDispatchToProps = dispatch => ({
-  updateUser: (formData, userId) => dispatch( updateUser(formData, userId) ), 
+  submitAction: (formData, userId) => dispatch( updateUser(formData, userId) ), 
   closeForm: () => dispatch( closeModal() ),
 });
 

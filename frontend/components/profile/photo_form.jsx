@@ -17,10 +17,17 @@ class PhotoForm extends React.Component {
 
     const formData = new FormData(); 
 
-    formData.append('user[profile_photo]', this.state.photoFile); 
-    this.props.updateUser(formData, this.state.id)
+    switch( this.props.formType ) {
+      case "profile":
+        formData.append('user[profile_photo]', this.state.photoFile); 
+        break; 
+      case "post": 
+        formData.append('post[photo]', this.state.photoFile); 
+        break; 
+      default: 
+    }
+    this.props.submitAction(formData, this.state.id)
       .then( () =>  this.props.closeForm() ); 
-
   }
 
   handleFile(e) {
@@ -33,7 +40,6 @@ class PhotoForm extends React.Component {
       fileReader.readAsDataURL(file);
     }
   }
-
 
   render() {
     const preview = this.state.photoUrl ? <img className="preview" src={this.state.photoUrl} /> 
