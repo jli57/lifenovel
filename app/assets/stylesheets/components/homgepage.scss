@@ -79,7 +79,9 @@
     background-color: white; 
     border: 1px solid $smoke-gray; 
     border-radius: 3px; 
-    height: 150px; 
+    h1 {
+      margin-bottom: 5px; 
+    }
   }
 }
 

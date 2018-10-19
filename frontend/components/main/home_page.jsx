@@ -5,6 +5,9 @@ import SignupFormContainer from '../session/signup_form_container';
 import FeedContainer from '../posts/feed_container';
 import menu_buttons from '../../../app/assets/images/menu_buttons.png'; 
 
+import BirthdayContainer from './birthday_container'; 
+import Advertisements from './advertisements'; 
+
 import { Link } from "react-router-dom"; 
 
 const HomePage = ({ currentUser }) => {
@@ -81,11 +84,11 @@ const HomePage = ({ currentUser }) => {
         <FeedContainer />
       </section>
       <section className="side-section">
-        <div>Stories</div>
-        <div>Birthdays</div>
-        <div>Sponsored</div>
-        <div>Advertisements</div>
-        <div>Footer</div>
+        {/* <div>Stories</div> */}
+        <BirthdayContainer />
+        {/* <div>Sponsored</div> */}
+        <Advertisements />
+        {/* <div>Footer</div> */}
       </section>
     </div>
   )
