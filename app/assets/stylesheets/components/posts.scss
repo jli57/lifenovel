@@ -235,12 +235,18 @@
     li:hover {
       background-color: $light-facebook-blue;
       color: white;
+      i {
+        color: white; 
+      }
     }
   }
 
   a, button {
     padding: 0 10px;
     color: inherit;
+  }
+  i {
+    padding-left: 10px;
   }
 }
 

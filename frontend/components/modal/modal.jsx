@@ -2,7 +2,7 @@ import React from 'react';
 import { closeModal } from '../../actions/modal_actions';
 import { connect } from 'react-redux';
 import EditPostContainer from '../posts/edit_post_container';
-import NotificationsContainer from '../notifications/notifications_container'; 
+import ProfilePhotoFormContainer from '../profile/profile_photo_form_container'; 
 import PostMenuContainer from '../posts/post_menu_container';
 import CommentMenuContainer from '../comments/comment_menu_container'; 
 
@@ -18,11 +18,9 @@ const Modal = ({ modal, modalArgs, closeModal, modalType, id }) => {
     case 'editPost':
       component = <EditPostContainer postId={ modalArgs.postId } />
       break;
-    case 'notifications': 
-      if  ( modalType !== "general" ) {
-        component = <NotificationsContainer />
-        break; 
-      }
+    case 'editProfilePhoto': 
+      component = <ProfilePhotoFormContainer userId={modalArgs.userId}/>
+      break; 
     case 'commentMenu': 
       if ( modalArgs.commentId === id ) {
         component = <CommentMenuContainer />

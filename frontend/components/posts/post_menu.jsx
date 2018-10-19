@@ -15,9 +15,11 @@ const PostMenu = ({ post, openModal, deletePost, currentUserId }) => {
   const authorOptions = (
     <ul>
       <li onClick={ handleClick } >
+        <i className="fas fa-pencil-alt"></i>
         <button>Edit Post</button>
       </li>
       <li onClick={ () => deletePost(post.id) } >
+        <i className="fas fa-trash-alt"></i>
         <button>Delete</button>
       </li>
     </ul>

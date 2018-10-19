@@ -50,8 +50,6 @@
 }
 
 .profile {
-
-
   > * {
     margin: 10px;
   }
@@ -72,7 +70,6 @@
     // -webkit-text-stroke-width: 1px; 
     // --switch: calc((var(--light) - var(--threshold)) * -100%);
     // color: hsl(0, 0%, var(--switch));
-    // color: #5C422A; 
     opacity: 1;
     z-index: 2;
   }
@@ -114,6 +111,37 @@
 
 }
 
+.edit-profile-photo {
+  display: none; 
+}
+
+.profile-photo:hover {
+  cursor: pointer;
+  .edit-profile-photo { 
+    position: absolute; 
+    right: 0; 
+    left: 0;  
+    height: 30%;
+    bottom: 0; 
+    display: flex; 
+    align-items: center; 
+    justify-content: space-around;
+    background-color: black; 
+    opacity: .8;
+    span {
+      width: 100px; 
+      color: $smoke-gray;
+      text-align: left;
+    }
+    i { 
+      padding-left: 5px;
+      transform: scale(1.7); 
+      color: $text-gray; 
+      z-index: 5;
+    }
+  }
+}
+
 .add-friend, .pending-approval, .remove-friend, .accept-friend {
   position: absolute;
   bottom: 15px;
@@ -139,5 +167,77 @@
       background: $comment-background;
     }
 
+  }
+}
+
+
+.photo-form {
+  background: white; 
+  border-radius: 3px; 
+  display: flex; 
+  flex-direction: column; 
+  justify-content: center; 
+  width: 500px; 
+  height: 400px; 
+  padding: 5px; 
+
+  .form-buttons {
+    display: flex; 
+    justify-content: flex-end; 
+    
+    input[type="submit"], button {
+      cursor: pointer;
+      padding: 7px 20px;
+      margin: 5px;
+      text-align: center;
+      color: white;
+      font-size: 14px;
+      background-color: $light-facebook-blue;
+      border-color: $light-facebook-blue;
+      border-radius: 3px;
+      align-self: flex-end;
+  
+      &:hover {
+        background-color: $facebook-blue;
+        border-color: $facebook-blue;
+      }
+    }
+  }
+
+  input[type="file"] {
+    display: none; 
+  }
+
+  .profile-photo-upload {
+    margin: 10px; 
+    cursor: pointer;
+    min-height: 300px; 
+    border: 5px dashed $smoke-gray; 
+    font-size: 20px; 
+    text-align: center;  
+    display: flex; 
+    align-items: center; 
+    justify-content: center; 
+    color: $text-gray;
+    i {
+      transform: scale(.8); 
+      color: $text-gray;
+    }
+  }
+
+  .preview {
+    margin: 10px; 
+    width: 300px; 
+    align-items: center; 
+    border: 1px solid $smoke-gray; 
+  }
+
+  .preview-box {
+    display: flex; 
+    justify-content: center; 
+    align-items: center; 
+    i {
+      margin-right: 5px; 
+    }
   }
 }

@@ -3,7 +3,25 @@ import { Link } from 'react-router-dom';
 import FriendsMenuContainer from './friends_menu_container';
 import ProfilePhotoFormContainer from './profile_photo_form_container'; 
 
-const ProfileHeader = ({profileUser}) => {
+const ProfileHeader = ({profileUser, currentUser, openModal }) => {
+
+  if ( profileUser === undefined || currentUser === undefined ) return null; 
+
+  const editProfilePhoto = () => {
+    return currentUser.id === profileUser.id ? (
+      <div className="edit-profile-photo">
+        <i className="fas fa-camera"></i>  
+        <span>Update Profile Picture</span>
+      </div> 
+    ) : null 
+  }
+
+  const handleClick = (e) => {
+    if ( currentUser.id === profileUser.id ) {
+      openModal("editProfilePhoto", {userId: currentUser.id, mode: "absolute" })
+    }
+  }
+
   return (
     <div className="profile-header">
       <div className="cover-photo">
@@ -31,11 +49,9 @@ const ProfileHeader = ({profileUser}) => {
           </li>
         </ul>
       </nav>
-      <div className="profile-photo">
-        <img src={ profileUser.profile_photo } />
-      </div>
-      <div> 
-        <ProfilePhotoFormContainer />
+      <div className="profile-photo" onClick={ () => { handleClick() }}>
+        <img src={ profileUser.profile_photo } className="profile-img"/>
+        { editProfilePhoto() }
       </div>
     </div>
   );

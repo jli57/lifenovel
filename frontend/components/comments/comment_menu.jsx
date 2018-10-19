@@ -10,9 +10,11 @@ const CommentMenu = ({ comment, toggleForm, toggleEditForm, deleteComment, curre
   const authorOptions = (
     <ul>
       <li onClick={ handleClick } >
+        <i className="fas fa-pencil-alt"></i>
         <button>Edit Comment</button>
       </li>
       <li onClick={ () => deleteComment(comment.id) } >
+        <i className="fas fa-trash-alt"></i>
         <button>Delete</button>
       </li>
     </ul>

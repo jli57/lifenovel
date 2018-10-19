@@ -2,7 +2,7 @@ import React from 'react';
 import FriendIndexContainer from '../friends/friend_index_container';
 import PostIndexContainer from '../posts/post_index_container';
 import AboutContainer from '../about/about_container'; 
-import ProfileHeader from './profile_header';
+import ProfileHeaderContainer from './profile_header_container';
 import PageNotFound from '../main/page_not_found';
 
 class Profile extends React.Component {
@@ -30,7 +30,7 @@ class Profile extends React.Component {
   }
 
   render() {
-    const { currentUser, profileUser, relType } = this.props;
+    const { profileUser } = this.props;
 
     if ( profileUser === undefined ) return (
       <PageNotFound />
@@ -38,7 +38,7 @@ class Profile extends React.Component {
 
     return (
       <div className="profile">
-        <ProfileHeader profileUser={ profileUser } currentUser={ currentUser } relType={ relType }/>
+        <ProfileHeaderContainer profileUser={ profileUser }/>
         <div className="profile-content">
           <aside>
             <AboutContainer />
