@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link, withRouter } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import * as DemoUtil from '../../util/demo_util';
 
 class LoginForm extends React.Component {
@@ -12,6 +12,10 @@ class LoginForm extends React.Component {
     }
     this.handleSubmit = this.handleSubmit.bind(this);
     this.demoLogin = this.demoLogin.bind(this);
+  }
+
+  componentDidMount() {
+    this.props.receiveLogin(this.demoLogin); 
   }
 
   componentWillReceiveProps(nextProps) {
@@ -37,7 +41,9 @@ class LoginForm extends React.Component {
   }
 
   demoLogin(e) {
-    e.preventDefault();
+    if ( e ) {
+      e.preventDefault();
+    }
     DemoUtil.fillProperty.call( this, DemoUtil.EMAIL, "email", 100, () => {
       DemoUtil.fillProperty.call( this, DemoUtil.PASSWORD, "password", 100, () => {
         this.handleSubmit();

@@ -1,6 +1,5 @@
 import React from 'react';
 import { Link, withRouter } from 'react-router-dom';
-import * as DateUtil from '../../util/date_util';
 import BirthDate from './birth_date';
 import SignUpInput from './sign_up_input';
 
@@ -55,7 +54,9 @@ class SignupForm extends React.Component {
   }
 
   demoLogin(e) {
-    this.props.login({email: "demo-user@gmail.com", password: "password"});
+    this.props.loginDemo(); 
+    this.props.removeLoginDemo(); 
+    // this.props.login({email: "demo-user@gmail.com", password: "password"});
   }
 
   changeProperty(prop) {
