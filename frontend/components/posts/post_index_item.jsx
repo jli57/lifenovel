@@ -43,7 +43,6 @@ class PostIndexItem extends React.Component {
 
   handleComment(e) {
     e.preventDefault(); 
-    console.log(document.getElementById(`create-comment-${this.props.post.id}`))
     document.getElementById(`create-comment-${this.props.post.id}`).focus(); 
   }
 
