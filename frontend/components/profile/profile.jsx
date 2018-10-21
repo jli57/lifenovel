@@ -30,15 +30,14 @@ class Profile extends React.Component {
   }
 
   render() {
-    const { profileUser } = this.props;
+    const { profileUser, relType } = this.props;
 
     if ( profileUser === undefined ) return (
       <PageNotFound />
     );
 
-    return (
-      <div className="profile">
-        <ProfileHeaderContainer profileUser={ profileUser }/>
+    const profileContent = () => {
+      return relType === "self" || relType === "friends" ? (
         <div className="profile-content">
           <aside>
             <AboutContainer />
@@ -48,6 +47,13 @@ class Profile extends React.Component {
             <PostIndexContainer />
           </section>
         </div>
+      ) : null  
+    }
+
+    return (
+      <div className="profile">
+        <ProfileHeaderContainer profileUser={ profileUser }/>
+        { profileContent() }
       </div>
     );
   }

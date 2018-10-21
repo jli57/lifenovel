@@ -23,7 +23,7 @@ class CreatePostContainer extends React.Component {
   }
 
   render() {
-    const { post, currentUser, submitAction, profileUser, relType } = this.props; 
+    const { post, currentUser, submitAction, profileUser } = this.props; 
 
     const placeholderText = (
       ( currentUser.id === profileUser.id ) ?
@@ -53,13 +53,12 @@ class CreatePostContainer extends React.Component {
             currentUser={currentUser}
             submitAction={submitAction}
             placeholderText={ placeholderText }
-            pageId={ profileUser.id }
           /> : 
           <PostPhotoFormContainer updatePostType={ this.updatePostType }/> }
       </div>
     );
 
-    return ( relType === "self" || relType === "friends" ? createForm : null );
+    return createForm; 
   }
 }
 
@@ -67,11 +66,10 @@ class CreatePostContainer extends React.Component {
 const mapStateToProps = ( { session, entities: { users, userRelationships } }, ownProps ) => {
   const pageId = ownProps.location.pathname === "/" ? session.id : Number(ownProps.match.params.userId) || 0;
   return {
-    post: {  author_id: session.id, body: "" },
+    post: {  author_id: session.id, body: "", page_id: pageId },
     currentUser: users[session.id],
     profileUser: users[pageId],
     formType: "create",
-    relType: getRelType( session.id, pageId, userRelationships )
   };
 }
 
