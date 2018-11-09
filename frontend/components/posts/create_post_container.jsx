@@ -4,26 +4,26 @@ import PostForm from './post_form';
 import { createPost } from '../../actions/post_actions';
 import { withRouter } from 'react-router-dom';
 import { getRelType } from '../../reducers/selectors';
-import PostPhotoFormContainer from './post_photo_form_container'; 
+import PostPhotoFormContainer from './post_photo_form_container';
 
 class CreatePostContainer extends React.Component {
 
   constructor(props) {
-    super(props); 
+    super(props);
     this.state = {
       postType: "text"
     }
-    this.updatePostType = this.updatePostType.bind(this); 
+    this.updatePostType = this.updatePostType.bind(this);
   }
 
   updatePostType(postType) {
     return (e) => {
-      this.setState({postType}); 
+      this.setState({postType});
     }
   }
 
   render() {
-    const { post, currentUser, submitAction, profileUser } = this.props; 
+    const { post, currentUser, submitAction, profileUser } = this.props;
 
     const placeholderText = (
       ( currentUser.id === profileUser.id ) ?
@@ -47,24 +47,25 @@ class CreatePostContainer extends React.Component {
             </li>
           </ul>
         </nav>
-        { this.state.postType === "text" ? 
+        { this.state.postType === "text" ?
           <PostForm
             post={post}
-            currentUser={currentUser}
+            currentUser={ currentUser }
             submitAction={submitAction}
             placeholderText={ placeholderText }
-          /> : 
+          /> :
           <PostPhotoFormContainer updatePostType={ this.updatePostType }/> }
       </div>
     );
 
-    return createForm; 
+    return createForm;
   }
 }
 
 
-const mapStateToProps = ( { session, entities: { users, userRelationships } }, ownProps ) => {
+const mapStateToProps = ( { session, entities: { users } }, ownProps ) => {
   const pageId = ownProps.location.pathname === "/" ? session.id : Number(ownProps.match.params.userId) || 0;
+  console.log(pageId);
   return {
     post: {  author_id: session.id, body: "", page_id: pageId },
     currentUser: users[session.id],

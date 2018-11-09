@@ -6,7 +6,13 @@ class PostForm extends React.Component {
     super(props);
     this.state = this.props.post;
     this.handleSubmit = this.handleSubmit.bind(this);
-    this.checkSubmit = this.checkSubmit.bind(this); 
+    this.checkSubmit = this.checkSubmit.bind(this);
+  }
+
+  componentWillReceiveProps(nextProps) {
+    if ( nextProps.post.page_id !== this.props.post.page_id ) {
+      this.setState(nextProps.post);
+    }
   }
 
   handleSubmit(e) {
@@ -15,14 +21,16 @@ class PostForm extends React.Component {
     }
     const post = Object.assign({}, this.state);
     this.setState({ body: ""},
-      () => this.props.submitAction(post)
+      () => {
+        this.props.submitAction(post);
+      }
     );
   }
 
   checkSubmit(e) {
     if ( e.which === 13 && !e.shiftKey ) {
-      this.handleSubmit(); 
-      return false; 
+      this.handleSubmit();
+      return false;
     }
   }
 
