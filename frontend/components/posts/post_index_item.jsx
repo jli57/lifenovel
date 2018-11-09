@@ -2,18 +2,18 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import CommentIndexContainer from '../comments/comment_index_container';
 import CreateCommentContainer from '../comments/create_comment_container';
-import LikesContainer from '../likes/likes_container'; 
+import LikesContainer from '../likes/likes_container';
 import share from '../../../app/assets/images/share.png';
-import Modal from '../modal/modal'; 
-import moment from 'moment'; 
+import Modal from '../modal/modal';
+import moment from 'moment';
 
 class PostIndexItem extends React.Component {
 
   constructor(props) {
     super(props);
     this.handleClick = this.handleClick.bind(this);
-    this.handleLike = this.handleLike.bind(this); 
-    this.handleComment = this.handleComment.bind(this); 
+    this.handleLike = this.handleLike.bind(this);
+    this.handleComment = this.handleComment.bind(this);
   }
 
   componentDidMount() {
@@ -21,29 +21,29 @@ class PostIndexItem extends React.Component {
       this.props.fetchUsers([this.props.post.author_id]);
     }
     if ( this.props.pageOwner === undefined ) {
-      this.props.fetchUsers([this.props.post.page_id]); 
+      this.props.fetchUsers([this.props.post.page_id]);
     }
   }
 
   handleClick(e) {
     if (e) {
-      e.preventDefault(); 
+      e.preventDefault();
     }
-    const pos = e.target.getBoundingClientRect(); 
+    const pos = e.target.getBoundingClientRect();
     this.props.openModal("postMenu", {postId: this.props.post.id, pos, mode: "relative" });
   }
 
   handleLike(e) {
-    const { currentUserId, post, like } = this.props; 
+    const { currentUserId, post, like } = this.props;
 
-    like ? 
-      this.props.deleteLike(like.id) : 
+    like ?
+      this.props.deleteLike(like.id) :
       this.props.createLike({ user_id: currentUserId, likeable_id: post.id, likeable_type: "Post" })
   }
 
   handleComment(e) {
-    e.preventDefault(); 
-    document.getElementById(`create-comment-${this.props.post.id}`).focus(); 
+    e.preventDefault();
+    document.getElementById(`create-comment-${this.props.post.id}`).focus();
   }
 
   render() {
@@ -51,14 +51,14 @@ class PostIndexItem extends React.Component {
     if ( !post  || !postAuthor || !pageOwner ) return null;
 
     const editText = post.created_at !== post.updated_at ? "(edited)" : "";
-    const postDate = moment(post.created_at); 
-    const currDate = moment(); 
-    const relativeDate = ` ${postDate.fromNow()} `;   
-    const formattedDate = ` ${postDate.format("MMM DD, YY")}` 
-    let displayDate = currDate.diff(postDate, "days") > 7 ? formattedDate : relativeDate; 
+    const postDate = moment(post.created_at);
+    const currDate = moment();
+    const relativeDate = ` ${postDate.fromNow()} `;
+    const formattedDate = ` ${postDate.format("MMM DD, YY")}`
+    let displayDate = currDate.diff(postDate, "days") > 7 ? formattedDate : relativeDate;
     if ( currDate.diff(postDate, "hours") >= 24 ) displayDate = displayDate.concat( ` at ${postDate.format("h:mma")}` )
 
-    const likeClass = like ? "like-btn-container liked" : "like-btn-container"; 
+    const likeClass = like ? "like-btn-container liked" : "like-btn-container";
 
     const showFeed = () => {
       if ( this.props.pageType === "feed" && post.author_id !== post.page_id ) {
@@ -69,7 +69,7 @@ class PostIndexItem extends React.Component {
               { `${pageOwner.first_name} ${pageOwner.last_name}`}
             </Link>
           </div>
-        ); 
+        );
       }
     }
     return (
@@ -106,7 +106,7 @@ class PostIndexItem extends React.Component {
         <div className="post-nav">
           <nav>
             <div onClick={ this.handleLike } className={ likeClass }>
-              { like ? 
+              { like ?
                 <i className="fas fa-thumbs-up liked"></i> :
                 <i className="far fa-thumbs-up"></i>
               }
@@ -120,12 +120,8 @@ class PostIndexItem extends React.Component {
             </div>
           </nav>
         </div>
-        <div>
-          <CommentIndexContainer postId={post.id} parentId={ null } />
-        </div>
-        <div className="create-comment-container">
-          <CreateCommentContainer postId={post.id} parentId={ null } />
-        </div>
+        <CommentIndexContainer postId={post.id} parentId={ null } />
+        <CreateCommentContainer postId={post.id} parentId={ null } />
       </li>
     )
   }

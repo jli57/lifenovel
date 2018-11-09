@@ -28,7 +28,7 @@
 }
 
 .edit-post {
-  width: 500px; 
+  width: 500px;
 }
 
 .post {
@@ -229,14 +229,14 @@
 .post-menu {
   width: 150px;
   padding: 10px 0px;
-  top: 5px; 
-  right: -15px; 
-  ul {    
+  top: 5px;
+  right: -15px;
+  ul {
     li:hover {
       background-color: $light-facebook-blue;
       color: white;
       i {
-        color: white; 
+        color: white;
       }
     }
   }
@@ -257,14 +257,14 @@
 .feed-info {
 
   i {
-    margin: 0 10px; 
-    color: $facebook-blue; 
+    margin: 0 10px;
+    color: $facebook-blue;
   }
 }
 .post-author-name {
-  display: flex; 
+  display: flex;
   > div {
-    display: flex; 
-    align-items: center; 
+    display: flex;
+    align-items: center;
   }
 }
