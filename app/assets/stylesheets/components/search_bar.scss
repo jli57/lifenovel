@@ -32,7 +32,7 @@
   button {
     background: $faded-gray-hover;
     vertical-align: middle;
-    height: 25px;
+    height: 24px;
     padding: 0 15px;
     position: relative;
     right: 42px;
@@ -56,7 +56,7 @@
   }
 
   a:first-child {
-    border-left: none; 
+    border-left: none;
   }
 }
 
@@ -87,19 +87,19 @@
   }
 }
 
-.search-results { 
-  background-color: white; 
+.search-results {
+  background-color: white;
   width: 470px;
   left: 0;
-  text-align: center; 
+  text-align: center;
   padding: 5px 0 10px 0;
-  z-index: 21; 
+  z-index: 21;
 
   .profile-icon {
-    width: 35px; 
+    width: 35px;
     height: 35px;
-    border-radius: 50%; 
-    margin-right: 5px;  
+    border-radius: 50%;
+    margin-right: 5px;
   }
 
   a:hover {
@@ -108,13 +108,13 @@
 }
 
 .user-item a {
-  display: flex; 
-  align-items: center; 
-  padding: 0 10px; 
-  font-size: 15px;  
-  font-weight: bold; 
+  display: flex;
+  align-items: center;
+  padding: 0 10px;
+  font-size: 15px;
+  font-weight: bold;
 
   &:hover {
-    background: $faded-gray-hover; 
+    background: $faded-gray-hover;
   }
 }
