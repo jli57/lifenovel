@@ -1,5 +1,5 @@
-import React from 'react'; 
-import { Link } from 'react-router-dom'; 
+import React from 'react';
+import { Link } from 'react-router-dom';
 
 const Advertisements = () => {
   return (
@@ -7,8 +7,10 @@ const Advertisements = () => {
       <h1>Advertisements</h1>
       <ul>
         <li>
-          <a href="http://a.co/d/5POIgbT" title="Pusheen">
-            <img className="ad-image" src="https://images-na.ssl-images-amazon.com/images/I/81o-fxiF1hL._UX679_.jpg" />
+          <a href="http://a.co/d/5POIgbT" target="_blank" title="Pusheen">
+            <img
+              className="ad-image"
+              src="https://images-na.ssl-images-amazon.com/images/I/81o-fxiF1hL._UX679_.jpg"/>
             <span>Buy a Pusheen Beanie!</span>
           </a>
         </li>
@@ -17,4 +19,4 @@ const Advertisements = () => {
   )
 }
 
-export default Advertisements; 
+export default Advertisements;
