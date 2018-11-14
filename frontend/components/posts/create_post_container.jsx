@@ -65,7 +65,6 @@ class CreatePostContainer extends React.Component {
 
 const mapStateToProps = ( { session, entities: { users } }, ownProps ) => {
   const pageId = ownProps.location.pathname === "/" ? session.id : Number(ownProps.match.params.userId) || 0;
-  console.log(pageId);
   return {
     post: {  author_id: session.id, body: "", page_id: pageId },
     currentUser: users[session.id],
