@@ -15,18 +15,20 @@ class Post < ApplicationRecord
   validates :body,  presence: true
 
   belongs_to :author,
-    foreign_key: :author_id,
-    class_name: :User
+  foreign_key: :author_id,
+  class_name: :User
 
   belongs_to :page,
-    foreign_key: :page_id,
-    class_name: :User
+  foreign_key: :page_id,
+  class_name: :User
 
   has_many :comments,
-    as: :commentable,
-    dependent: :delete_all
+  as: :commentable,
+  dependent: :delete_all
 
   has_many :likes,
-    as: :likeable,
-    dependent: :delete_all
+  as: :likeable,
+  dependent: :delete_all
+
+  has_many_attached :photos
 end
