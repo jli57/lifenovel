@@ -50,11 +50,12 @@ class PostIndexItem extends React.Component {
     const { post, postAuthor, like, pageOwner } = this.props;
     if ( !post  || !postAuthor || !pageOwner ) return null;
 
-    const editText = post.created_at !== post.updated_at ? "(edited)" : "";
     const postDate = moment(post.created_at);
     const currDate = moment();
+    const updateDate = moment(post.updated_at);
     const relativeDate = ` ${postDate.fromNow()} `;
-    const formattedDate = ` ${postDate.format("MMM DD, YY")}`
+    const formattedDate = ` ${postDate.format("MMM DD, YY")}`;
+    const editText = updateDate.diff(postDate, "seconds") > 0 ? "(edited)" : "";
     let displayDate = currDate.diff(postDate, "days") > 7 ? formattedDate : relativeDate;
     if ( currDate.diff(postDate, "hours") >= 24 ) displayDate = displayDate.concat( ` at ${postDate.format("h:mma")}` )
 
@@ -72,6 +73,20 @@ class PostIndexItem extends React.Component {
         );
       }
     }
+
+    const displayPostImages = ( photoUrls ) => (
+      ( photoUrls.length > 1 ) ? (
+        <ul>
+          { photoUrls.map( (url, i) => (
+              <li key={i} className={ i === 0 ? "firstImg" : "rest" }>
+                <img src={ url } />
+              </li>
+            ))}
+        </ul>
+      ) : (
+        photoUrls.length === 0 ? null : <img src={photoUrls[0]} />
+      )
+    );
     return (
       <li className="post">
         <div className="post-header">
@@ -98,7 +113,10 @@ class PostIndexItem extends React.Component {
         </div>
 
         <div className="post-body">
-          { post.body }
+          { post.body === "" ? null : post.body }
+        </div>
+        <div className="post-images">
+          { displayPostImages(post.photo_urls) }
         </div>
         <div className="post-stats">
           <LikesContainer likeableId={ post.id } likeableType="Post"/>

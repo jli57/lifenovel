@@ -3,7 +3,6 @@ import { connect } from 'react-redux';
 import PostForm from './post_form';
 import { createPost } from '../../actions/post_actions';
 import { withRouter } from 'react-router-dom';
-import { getRelType } from '../../reducers/selectors';
 import PostPhotoFormContainer from './post_photo_form_container';
 
 class CreatePostContainer extends React.Component {
@@ -54,7 +53,7 @@ class CreatePostContainer extends React.Component {
             submitAction={submitAction}
             placeholderText={ placeholderText }
           /> :
-          <PostPhotoFormContainer updatePostType={ this.updatePostType }/> }
+          <PostPhotoFormContainer updatePostType={ this.updatePostType } pageId={ this.props.post.page_id } /> }
       </div>
     );
 

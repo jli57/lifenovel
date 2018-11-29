@@ -1,10 +1,11 @@
 import { connect } from 'react-redux';
-import { updateUser } from '../../actions/user_actions'; 
+import { createPhotoPost } from '../../actions/post_actions';
 import { withRouter } from 'react-router-dom';
-import PhotoForm from '../profile/photo_form';
+import PostPhotoForm from './post_photo_form';
 
-const mapStateToProps = ({ session, entities: { users} }, { updatePostType }) => {
+const mapStateToProps = ({ session, entities: { users} }, { updatePostType, pageId } )  => {
   return {
+    post: {  author_id: session.id, body: "", page_id: pageId },
     currentUser: users[session.id],
     formType: "post",
     closeForm: updatePostType("text")
@@ -12,7 +13,7 @@ const mapStateToProps = ({ session, entities: { users} }, { updatePostType }) =>
 };
 
 const mapDispatchToProps = dispatch => ({
-  submitAction: (formData, userId) => dispatch( updateUser(formData, userId) ), 
+  submitAction: (formData) => dispatch(createPhotoPost(formData))
 });
 
-export default withRouter(connect( mapStateToProps, mapDispatchToProps )( PhotoForm ));
+export default withRouter(connect( mapStateToProps, mapDispatchToProps )( PostPhotoForm ));
