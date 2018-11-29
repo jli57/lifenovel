@@ -14,6 +14,7 @@ class PostIndexItem extends React.Component {
     this.handleClick = this.handleClick.bind(this);
     this.handleLike = this.handleLike.bind(this);
     this.handleComment = this.handleComment.bind(this);
+    this.handleShare = this.handleShare.bind(this);
   }
 
   componentDidMount() {
@@ -34,6 +35,8 @@ class PostIndexItem extends React.Component {
   }
 
   handleLike(e) {
+    e.preventDefault();
+
     const { currentUserId, post, like } = this.props;
 
     like ?
@@ -44,6 +47,11 @@ class PostIndexItem extends React.Component {
   handleComment(e) {
     e.preventDefault();
     document.getElementById(`create-comment-${this.props.post.id}`).focus();
+  }
+
+  handleShare(e) {
+    e.preventDefault();
+
   }
 
   render() {
@@ -133,8 +141,10 @@ class PostIndexItem extends React.Component {
             <div onClick={ this.handleComment }>
               <i className="far fa-comment-alt"></i><span>  Comment</span>
             </div>
-            <div>
-              <img className="share-icon" src={ share } /> <span>  Share</span>
+            <div onClick={ this.handleShare }>
+              <Link to="/wip">
+                <img className="share-icon" src={ share } /> <span>  Share</span>
+              </Link>
             </div>
           </nav>
         </div>

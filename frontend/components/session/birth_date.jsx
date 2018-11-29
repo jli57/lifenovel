@@ -88,7 +88,7 @@ class BirthDate extends React.Component {
             <option key={year} value={year}>{ year }</option>
           ))}
         </select>
-        <a href="#" title="Click for more information">
+        <a href="/wip" title="Click for more information">
           Why do I need to provide my birthday?
         </a>
         <i className={ "fas fa-exclamation-circle" +  iconClass }></i>

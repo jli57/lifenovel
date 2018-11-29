@@ -1,20 +1,20 @@
-import React from 'react'; 
+import React from 'react';
 import { connect } from 'react-redux';
 
 import { withRouter, Link } from 'react-router-dom';
 import About from './about';
 
-class AboutContainer extends React.Component { 
+class AboutContainer extends React.Component {
 
   componentDidMount() {
     if ( this.props.user === undefined ) {
-      fetchUsers([this.props.profileId]); 
+      fetchUsers([this.props.profileId]);
     }
   }
 
   componentWiilReceiveProps(nextProps) {
     if ( nextProps.props.user === undefined ) {
-      fetchUsers([nextProps.profileId]);  
+      fetchUsers([nextProps.profileId]);
     }
   }
 
@@ -28,7 +28,7 @@ class AboutContainer extends React.Component {
             </div>
             <h1>Intro</h1>
           </div>
-          <Link to="#">Edit</Link>
+          <Link to="/wip">Edit</Link>
         </div>
         <About user={ this.props.user } currentUser={this.props.currentUser} />
       </div>
@@ -40,9 +40,9 @@ class AboutContainer extends React.Component {
 const mapStateToProps = ({ entities: { users }, session }, ownProps) => {
   const profileId = Number(ownProps.match.params.userId) || 0;
   return {
-    user: users[profileId], 
+    user: users[profileId],
     currentUser: users[session.id],
-    profileId, 
+    profileId,
   };
 };
 

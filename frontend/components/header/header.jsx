@@ -3,9 +3,10 @@ import { Link, Route, Switch } from 'react-router-dom';
 import LoginFormContainer from '../session/login_form_container';
 import SearchBarContainer from '../search/search_bar_container';
 import logo from '../../../app/assets/images/logo_white.png';
-import HeaderModal from '../modal/header_modal'; 
-import NotificationsAlertContainer from '../notifications/notifications_alert_container'; 
-import FriendRequestsAlertContainer from '..//notifications/friend_requests_alert_container'; 
+import HeaderModal from '../modal/header_modal';
+import NotificationsAlertContainer from '../notifications/notifications_alert_container';
+import FriendRequestsAlertContainer from '../notifications/friend_requests_alert_container';
+import MessageNotificationAlertContainer from '../notifications/message_notifications_alert_container';
 
 const Header = ({ currentUser, logout, history, openModal }) => {
 
@@ -50,19 +51,22 @@ const Header = ({ currentUser, logout, history, openModal }) => {
               Home
             </Link>
 
-            <Link to="#" className="nav-link">Create</Link>
+            <Link to="/wip" className="nav-link">Create</Link>
 
             <div className="nav-icons flex">
                 <div>
                   <FriendRequestsAlertContainer />
                   <HeaderModal modalType="friendRequests" />
                 </div>
-                <i tabIndex="1" className="fab fa-facebook-messenger nav-icon"></i>
                 <div>
-                  <NotificationsAlertContainer />                  
+                  <MessageNotificationAlertContainer />
+                  <HeaderModal modalType="messages" />
+                </div>
+                <div>
+                  <NotificationsAlertContainer />
                   <HeaderModal modalType="notifications" />
                 </div>
-                
+
             </div>
 
             <div className="nav-icons flex">

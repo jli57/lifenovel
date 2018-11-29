@@ -24,7 +24,7 @@ class FriendIndex extends React.Component {
             </div>
             <h1>Friends</h1>
           </div>
-          <Link to="#">Find Friends</Link>
+          <Link to="/wip">Find Friends</Link>
         </div>
         <ul>
           { this.props.friends.map( friend => (

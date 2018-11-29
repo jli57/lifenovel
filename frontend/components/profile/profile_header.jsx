@@ -32,19 +32,19 @@ const ProfileHeader = ({profileUser, currentUser, openModal }) => {
       <nav className="profile-nav">
         <ul>
           <li>
-            <Link to="#">Timeline</Link>
+            <Link to="/wip">Timeline</Link>
           </li>
           <li>
-            <Link to="#">About</Link>
+            <Link to="/wip">About</Link>
           </li>
           <li>
-            <Link to="#">Friends</Link>
+            <Link to="/wip">Friends</Link>
           </li>
           <li>
-            <Link to="#">Photos</Link>
+            <Link to="/wip">Photos</Link>
           </li>
           <li>
-            <Link to="#">More</Link>
+            <Link to="/wip">More</Link>
           </li>
         </ul>
       </nav>

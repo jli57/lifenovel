@@ -3,12 +3,12 @@ import React from 'react';
 import Intro from './intro';
 import SignupFormContainer from '../session/signup_form_container';
 import FeedContainer from '../posts/feed_container';
-import menu_buttons from '../../../app/assets/images/menu_buttons.png'; 
+import menu_buttons from '../../../app/assets/images/menu_buttons.png';
 
-import BirthdayContainer from './birthday_container'; 
-import Advertisements from './advertisements'; 
+import BirthdayContainer from './birthday_container';
+import Advertisements from './advertisements';
 
-import { Link } from "react-router-dom"; 
+import { Link } from "react-router-dom";
 
 const HomePage = ({ currentUser }) => {
   const loggedOut = () => (
@@ -24,55 +24,55 @@ const HomePage = ({ currentUser }) => {
         <nav>
           <ul>
             <li>
-              <Link to="#" className="news-feed-link">
+              <Link to="/wip" className="news-feed-link">
                 <img src={ menu_buttons } />
                 <span>New Feed</span>
               </Link>
             </li>
             <li>
-              <Link to="#" className="messenger-link">
+              <Link to="/wip" className="messenger-link">
                   <img src={ menu_buttons } />
                   <span>Messenger</span>
               </Link>
             </li>
             <li>
-              <Link to="#" className="watch-link">
+              <Link to="/wip" className="watch-link">
                   <img src={ menu_buttons } />
                   <span>Watch</span>
               </Link>
             </li>
             <li>
-              <Link to="#" className="marketplace-link">
+              <Link to="/wip" className="marketplace-link">
                   <img src={ menu_buttons } />
                   <span>Marketplace</span>
               </Link>
             </li>
             <li>
-              <Link to="#" className="pages-link">
+              <Link to="/wip" className="pages-link">
                   <img src={ menu_buttons } />
                   <span>Pages</span>
               </Link>
             </li>
             <li>
-              <Link to="#" className="groups-link">
+              <Link to="/wip" className="groups-link">
                   <img src={ menu_buttons } />
                   <span>Groups</span>
               </Link>
             </li>
             <li>
-              <Link to="#" className="events-link">
+              <Link to="/wip" className="events-link">
                   <img src={ menu_buttons } />
                   <span>Events</span>
               </Link>
             </li>
             <li>
-              <Link to="#" className="fundraisers-link">
+              <Link to="/wip" className="fundraisers-link">
                   <img src={ menu_buttons } />
                   <span>Fundraisers</span>
               </Link>
             </li>
             <li>
-              <Link to="#" className="friends-lists-link">
+              <Link to="/wip" className="friends-lists-link">
                   <img src={ menu_buttons } />
                   <span>Friends Lists</span>
               </Link>
