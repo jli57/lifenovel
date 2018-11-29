@@ -1,33 +1,27 @@
-import React from 'react'; 
+import React from 'react';
 
 class PhotoForm extends React.Component {
 
   constructor(props) {
-    super(props); 
+    super(props);
     this.state = {
-      photoFile:  null , 
-      id: this.props.currentUser.id 
-    } 
-    this.handleSubmit = this.handleSubmit.bind(this);   
-    this.handleFile = this.handleFile.bind(this); 
+      photoFile:  null ,
+      id: this.props.currentUser.id
+    }
+    this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleFile = this.handleFile.bind(this);
   }
 
   handleSubmit(e) {
-    e.preventDefault(); 
+    e.preventDefault();
 
-    const formData = new FormData(); 
-
-    switch( this.props.formType ) {
-      case "profile":
-        formData.append('user[profile_photo]', this.state.photoFile); 
-        break; 
-      case "post": 
-        formData.append('post[photo]', this.state.photoFile); 
-        break; 
-      default: 
-    }
+    const formData = new FormData();
+    formData.append('user[profile_photo]', this.state.photoFile);
     this.props.submitAction(formData, this.state.id)
-      .then( () =>  this.props.closeForm() ); 
+      .then( () =>  {
+        console.log(formData);
+        this.props.closeForm();
+    } );
   }
 
   handleFile(e) {
@@ -42,7 +36,7 @@ class PhotoForm extends React.Component {
   }
 
   render() {
-    const preview = this.state.photoUrl ? <img className="preview" src={this.state.photoUrl} /> 
+    const preview = this.state.photoUrl ? <img className="preview" src={this.state.photoUrl} />
       : <div className="preview-box"><i className="fas fa-plus"></i>Choose Photo</div>;
 
     return (
@@ -53,12 +47,12 @@ class PhotoForm extends React.Component {
           { preview }
         </label>
         <div className="form-buttons">
-          <button onClick={ () => this.props.closeForm() }>Cancel</button> 
+          <button onClick={ () => this.props.closeForm() }>Cancel</button>
           <input type="submit" value="Save Photo" />
         </div>
       </form>
-    ); 
+    );
   }
 }
 
-export default PhotoForm; 
+export default PhotoForm;
