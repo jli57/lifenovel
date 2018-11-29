@@ -15,15 +15,15 @@ module.exports = {
       {
         test: /\.jsx?$/,
         exclude: /(node_modules)/,
-        use: {
+        use: [{
           loader: 'babel-loader',
           query: {
             presets: ['@babel/env', '@babel/react']
           }
-        },
+        }],
       },
       {
-        test: /\.(png|jp(e*)g|svg)$/,
+        test: /\.(png|jp(e*)g|svg|gif)$/,
         use: [{
             loader: 'url-loader',
             options: {
@@ -31,7 +31,7 @@ module.exports = {
                 name: '[path][hash]-[name].[ext]'
             }
         }]
-      }
+      },
     ]
   },
   devtool: 'source-map'
