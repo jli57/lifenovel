@@ -169,12 +169,33 @@
       align-items: flex-start;
     }
 
-    textarea {
-      height: 50px;
-      width: 100%;
-      font-size: 16px;
+    .textarea-container {
+      position: relative;
       padding: 5px;
+      width: calc(100% - 3em);
 
+      pre, textarea {
+        box-sizing: border-box;
+        font-size: 16px;
+        white-space: pre-wrap;
+        word-wrap: break-word;
+        min-height: 50px;
+        padding: 5px;
+        width: 100%;
+      }
+
+      pre {
+        visibility: hidden;
+      }
+
+      textarea {
+        overflow: hidden;
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 100%;
+        resize: none;
+      }
     }
 
     input[type="submit"] {

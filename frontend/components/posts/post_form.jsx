@@ -7,6 +7,7 @@ class PostForm extends React.Component {
     this.state = this.props.post;
     this.handleSubmit = this.handleSubmit.bind(this);
     this.checkSubmit = this.checkSubmit.bind(this);
+    this.handleKeyDown = this.handleKeyDown.bind(this);
   }
 
   componentWillReceiveProps(nextProps) {
@@ -34,6 +35,10 @@ class PostForm extends React.Component {
     }
   }
 
+  handleKeyDown(e) {
+    const span = document.getElementById("span");
+    span.textContent = e.target.value;
+  }
 
   update(prop) {
     return (e) => {
@@ -46,11 +51,16 @@ class PostForm extends React.Component {
       <form onSubmit={ this.handleSubmit }>
         <div>
           <img className="post-profile-icon" src={ this.props.currentUser.profile_photo } />
-          <textarea
-            onChange={ this.update("body")}
-            onKeyPress={ this.checkSubmit }
-            value={this.state.body}
-            placeholder={this.props.placeholderText}></textarea>
+          <div className="textarea-container">
+            <pre><span id="span"></span></pre>
+            <textarea
+              onChange={ this.update("body")}
+              onKeyPress={ this.checkSubmit }
+              onKeyDown={ this.handleKeyDown }
+              value={this.state.body}
+              placeholder={this.props.placeholderText}>
+            </textarea>
+          </div>
         </div>
         <input type="submit" value="Save"/>
       </form>
