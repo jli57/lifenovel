@@ -2,6 +2,7 @@ class Api::PostsController < ApplicationController
 
   def index
     @posts = Post.all
+      .with_attached_photos
       .includes(:comments, :likes)
       .where(page_id: params[:user_ids])
       .order(created_at: :desc)

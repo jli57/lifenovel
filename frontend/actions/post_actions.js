@@ -9,7 +9,7 @@ export const RECEIVE_POST_ERRORS = "RECEIVE_POST_ERRORS";
 const receivePosts = ({posts, comments, likes}) => ({
   type: RECEIVE_POSTS,
   posts,
-  comments, 
+  comments,
   likes
 });
 
@@ -38,6 +38,15 @@ export const fetchPosts = (options) => dispatch => (
 
 export const createPost = (post) => dispatch => (
   APIUtil.createPost(post)
+    .then(
+      (post) => dispatch(receivePost(post)),
+      (errors) => dispatch(receivePostErrors(errors.responseJSON))
+  )
+);
+
+
+export const createPhotoPost = (formData) => dispatch => (
+  APIUtil.createPhotoPost(formData)
     .then(
       (post) => dispatch(receivePost(post)),
       (errors) => dispatch(receivePostErrors(errors.responseJSON))

@@ -19,7 +19,7 @@ class Api::UsersController < ApplicationController
 
   def update
     @user = User.find_by_id(params[:id])
- 
+
     if @user.update(user_params)
       render :show
     else
@@ -31,7 +31,7 @@ class Api::UsersController < ApplicationController
     keyword = "%#{params[:search_text].downcase}%"
     @users = User.where("lower(first_name) LIKE ? OR lower(last_name) LIKE ?", keyword, keyword)
     render :index
-  end 
+  end
 
   private
 
@@ -45,7 +45,7 @@ class Api::UsersController < ApplicationController
       :gender,
       :year,
       :month,
-      :day, 
+      :day,
       :profile_photo )
   end
 

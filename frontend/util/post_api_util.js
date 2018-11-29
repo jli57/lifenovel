@@ -9,10 +9,20 @@ export const fetchPosts = ({user_ids, offset, limit}) => (
 export const createPost = (post) => (
   $.ajax({
     method: "POST",
-    url: `/api/posts`,
+    url: "/api/posts",
     data: { post }
   })
 )
+
+export const createPhotoPost = (formData) => {
+  return $.ajax({
+    method: "POST",
+    url: "/api/posts",
+    data: formData,
+    contentType: false,
+    processData: false
+  })
+};
 
 export const updatePost = (post) => (
   $.ajax({
