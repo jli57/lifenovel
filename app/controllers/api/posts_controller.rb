@@ -2,9 +2,9 @@ class Api::PostsController < ApplicationController
 
   def index
     @posts = Post.all
-      .with_attached_photos
       .includes(:comments, :likes)
       .where(page_id: params[:user_ids])
+      .with_attached_photos
       .order(created_at: :desc)
       .offset(params[:offset])
       .limit(params[:limit])

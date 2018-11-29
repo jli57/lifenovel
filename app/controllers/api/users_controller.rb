@@ -2,6 +2,7 @@ class Api::UsersController < ApplicationController
 
   def index
     @users = User.where(id: params[:userIds] )
+      .with_attached_profile_photo
   end
 
   def create
