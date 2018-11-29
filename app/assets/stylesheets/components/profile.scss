@@ -14,14 +14,14 @@
 }
 
 .cover-photo::before {
-  content: ""; 
-  background-image: image-url('pusheen_background'); 
+  content: "";
+  background-image: image-url('pusheen_background');
   opacity: .5;
   position: absolute;
-  top: 0; 
-  left: 0; 
-  bottom: 0; 
-  right: 0; 
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
 }
 
 .profile-nav {
@@ -65,9 +65,9 @@
     font-weight: 700;
     letter-spacing: 1.2px;
     color: #1c0800;
-    text-shadow: 2px 2px 2px #F7EEE7; 
-    // -webkit-text-stroke-color: black;  
-    // -webkit-text-stroke-width: 1px; 
+    text-shadow: 2px 2px 2px #F7EEE7;
+    // -webkit-text-stroke-color: black;
+    // -webkit-text-stroke-width: 1px;
     // --switch: calc((var(--light) - var(--threshold)) * -100%);
     // color: hsl(0, 0%, var(--switch));
     opacity: 1;
@@ -113,31 +113,31 @@
 }
 
 .edit-profile-photo {
-  display: none; 
+  display: none;
 }
 
 .profile-photo:hover {
   cursor: pointer;
-  .edit-profile-photo { 
-    position: absolute; 
-    right: 0; 
-    left: 0;  
+  .edit-profile-photo {
+    position: absolute;
+    right: 0;
+    left: 0;
     height: 30%;
-    bottom: 0; 
-    display: flex; 
-    align-items: center; 
+    bottom: 0;
+    display: flex;
+    align-items: center;
     justify-content: space-around;
-    background-color: black; 
+    background-color: black;
     opacity: .8;
     span {
-      width: 100px; 
+      width: 100px;
       color: $smoke-gray;
       text-align: left;
     }
-    i { 
+    i {
       padding-left: 5px;
-      transform: scale(1.7); 
-      color: $text-gray; 
+      transform: scale(1.7);
+      color: $text-gray;
       z-index: 5;
     }
   }
@@ -172,20 +172,20 @@
 }
 
 .photo-form {
-  background: white; 
-  border-radius: 3px; 
-  display: flex; 
-  flex-direction: column; 
-  justify-content: center; 
-  width: 500px; 
-  height: 400px;  
+  background: white;
+  border-radius: 3px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 500px;
+  height: 400px;
   box-sizing: border-box;
-  padding: 0 10px; 
+  padding: 0 10px;
 
   .form-buttons {
-    display: flex; 
-    justify-content: flex-end; 
-    
+    display: flex;
+    justify-content: flex-end;
+
     input[type="submit"], button {
       cursor: pointer;
       padding: 7px 20px;
@@ -197,53 +197,48 @@
       border-color: $light-facebook-blue;
       border-radius: 3px;
       align-self: flex-end;
-  
+
       &:hover {
         background-color: $facebook-blue;
         border-color: $facebook-blue;
       }
     }
   }
+
   input[type="file"] {
-    display: none; 
+    display: none;
   }
 
   .profile-photo-upload {
-    margin: 10px; 
+    margin: 10px;
     cursor: pointer;
-    min-height: 300px; 
-    border: 5px dashed $smoke-gray; 
-    font-size: 20px; 
-    text-align: center;  
-    display: flex; 
-    align-items: center; 
-    justify-content: center; 
+    height: 300px;
+    border: 5px dashed $smoke-gray;
+    font-size: 20px;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     color: $text-gray;
     i {
-      transform: scale(.8); 
+      transform: scale(.8);
       color: $text-gray;
     }
   }
 
   .preview {
-    margin: 10px; 
-    width: 300px; 
-    align-items: center; 
-    border: 1px solid $smoke-gray; 
+    margin: 10px;
+    width: 300px;
+    align-items: center;
+    border: 1px solid $smoke-gray;
   }
 
   .preview-box {
-    display: flex; 
-    justify-content: center; 
-    align-items: center; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
     i {
-      margin-right: 5px; 
+      margin-right: 5px;
     }
   }
 }
-
-.create-post .photo-form {
-  margin: auto;   
-  width: 100%; 
-}
-

@@ -289,3 +289,45 @@
     align-items: center;
   }
 }
+
+
+.create-post .photo-form {
+  margin: auto;
+  width: 100%;
+  height: auto;
+
+  .previews {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    align-items: center;
+    grid-gap: 5px;
+    margin: 10px;
+
+    .profile-photo-upload {
+      height: 100%;
+      margin: 0;
+      font-size: 12px;
+    }
+  }
+
+
+}
+
+.post-images {
+  ul {
+    display: grid;
+    grid-template-columns: repeat( 4, 1fr );
+    grid-gap: 5px;
+    // flex-direction: wrap;
+    align-items: center;
+    justify-content: center;
+
+    .firstImg {
+      grid-area: 1 / 1 / 1 / -1;
+    }
+
+    li, img {
+      width: 100%;
+    }
+  }
+}
