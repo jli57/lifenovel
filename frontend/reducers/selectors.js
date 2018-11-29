@@ -21,8 +21,8 @@ export const addAuthorToPosts = ( posts, users ) => (
 
 export const filterPostComments = ( comments, postId, parentId, n ) => (
   Object.values(comments)
-    .filter( comment => comment.commentable_id === postId && 
-      comment.commentable_type === "Post" && 
+    .filter( comment => comment.commentable_id === postId &&
+      comment.commentable_type === "Post" &&
       comment.parent_id === parentId )
     .sort( (a, b) => Date.parse(a.created_at) - Date.parse(b.created_at))
     .slice(0, n)
@@ -30,7 +30,7 @@ export const filterPostComments = ( comments, postId, parentId, n ) => (
 
 export const countPostComments = ( comments, postId ) => (
   Object.values(comments)
-    .filter( comment => 
+    .filter( comment =>
       comment.commentable_id === postId && comment.commentable_type === "Post" )
     .length
 );
@@ -81,32 +81,35 @@ export const filterRelationships = ( currentUserId, userRelationships, rel_type 
     .map( rel => rel.user1_id === currentUserId ? rel.user2_id : rel.user1_id )
 );
 
-export const filterFriends = ( users, friendIds ) => {
+export const filterFriends = ( users, friendIds, sortCallback ) => {
+
   return Object.values(users)
     .filter( user => friendIds.includes(user.id) )
-    .sort( (a, b) => `${a.first_name} ${a.last_name}` - `${b.first_name} ${b.last_name}` );
+    .sort( sortCallback ? sortCallback : (a, b) => `${a.first_name} ${a.last_name}` - `${b.first_name} ${b.last_name}` );
 };
+
+
 
 export const getPendingFriendRequests = ( currentUserId, userRelationships ) => (
   Object.values(userRelationships)
     .filter( rel => rel.user2_id === currentUserId && rel.rel_type === "pending" )
     .sort( (a, b) => Date.parse(b.created_at) - Date.parse(a.created_at) )
-); 
+);
 
 export const filterUsers = ( userIds, users ) => (
   userIds.map( id => users[id] )
-); 
+);
 
 export const filterLikes = ( likeableId, likeableType, likes ) => (
   Object.values(likes)
     .filter( like => like.likeable_id === likeableId && like.likeable_type === likeableType )
-); 
+);
 
 export const filterLikeByUser = ( currentUserId, likeableId, likeableType, likes ) => (
   Object.values(likes)
-    .filter( like => 
-      like.likeable_id === likeableId && 
+    .filter( like =>
+      like.likeable_id === likeableId &&
       like.likeable_type === likeableType &&
       like.user_id === currentUserId
     )
-); 
+);

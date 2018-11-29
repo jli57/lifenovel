@@ -1,12 +1,12 @@
-import React from 'react'; 
-import moment from 'moment'; 
-import { Link } from 'react-router-dom'; 
+import React from 'react';
+import moment from 'moment';
+import { Link } from 'react-router-dom';
 
 const Birthday = ({friends}) => {
-  if ( friends.length === 0 ) return null; 
+  if ( friends.length === 0 ) return null;
 
   return (
-    <div className="birthdays homepage-side-section"> 
+    <div className="birthdays homepage-side-section">
       <h1>Birthdays</h1>
       <ul>
         { friends.map( friend => (
@@ -14,13 +14,13 @@ const Birthday = ({friends}) => {
             <i className="fas fa-birthday-cake"></i>
             <span>
               <Link className="user-link" to={ `/${friend.id}` }>{ `${friend.first_name} ${friend.last_name}` }</Link>
-              : {`${moment(friend.birth_date).format("MMM D")}`} 
+              : {`${moment(friend.birth_date).format("MMM D")}`}
             </span>
           </li>
         )) }
       </ul>
     </div>
-  ); 
-}; 
+  );
+};
 
-export default Birthday; 
+export default Birthday;
