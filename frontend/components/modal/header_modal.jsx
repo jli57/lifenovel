@@ -1,9 +1,10 @@
 import React from 'react';
 import { closeModal } from '../../actions/modal_actions';
 import { connect } from 'react-redux';
-import NotificationsContainer from '../notifications/notifications_container'; 
-import SearchResultsContainer from '../search/search_results_container'; 
-import FriendRequestsContainer from '../notifications/friend_requests_container'; 
+import NotificationsContainer from '../notifications/notifications_container';
+import SearchResultsContainer from '../search/search_results_container';
+import FriendRequestsContainer from '../notifications/friend_requests_container';
+import MessageNotificationsContainer from '../notifications/message_notifications_container';
 
 const HeaderModal = ({ modal, modalArgs, closeModal, modalType}) => {
 
@@ -14,19 +15,22 @@ const HeaderModal = ({ modal, modalArgs, closeModal, modalType}) => {
   let component;
 
   switch ( modal ) {
-    case 'notifications': 
+    case 'notifications':
       component = <NotificationsContainer />
-      break; 
-    case 'friendRequests': 
+      break;
+    case 'friendRequests':
       component = <FriendRequestsContainer />
-      break; 
+      break;
+    case 'messages':
+      component = <MessageNotificationsContainer />
+      break;
     case 'search':
       component = <SearchResultsContainer />
-      break; 
+      break;
     default:
       return null;
   }
-  
+
   const handleClick = (e) => {
     e.stopPropagation();
     closeModal();
@@ -36,8 +40,8 @@ const HeaderModal = ({ modal, modalArgs, closeModal, modalType}) => {
     <div className="modal">
       <div className="transparent-modal-background" onClick={ handleClick }>
       </div>
-      <div 
-        className="relative-modal-child" 
+      <div
+        className="relative-modal-child"
         onClick={ e => e.stopPropagation() }>
         { component }
       </div>

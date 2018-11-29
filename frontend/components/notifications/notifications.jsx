@@ -1,15 +1,19 @@
-import React from 'react'; 
-import { Link } from 'react-router-dom'; 
-import moment from 'moment'; 
+import React from 'react';
+import { Link } from 'react-router-dom';
+import moment from 'moment';
 
 const Notifications = ({ notifications, users, notificationType, message }) => {
-  if ( notifications.length === 0 ) return null; 
   return (
     <div className="notifications">
       <h1>{notificationType}</h1>
+      { notifications.length === 0 ? (
+        <div className="none-message">
+          None :(
+        </div>
+      ) : (
       <ul>
         { notifications.map( event => {
-          const user = users[event.user1_id]; 
+          const user = users[event.user1_id];
             if ( user ) {
               return (
                 <li key={event.id} >
@@ -23,16 +27,17 @@ const Notifications = ({ notifications, users, notificationType, message }) => {
                     </div>
                     <div>{ moment(event.created_at).fromNow() }</div>
                   </Link>
-                </li> 
-              ); 
+                </li>
+              );
             }
-          }) }
-      </ul>
-      <div> 
-        <Link to="#">See All</Link>
-      </div> 
+          })
+        }
+      </ul> ) }
+      <div>
+        <Link to="/wip">See All</Link>
+      </div>
     </div>
   );
 };
 
-export default Notifications; 
+export default Notifications;

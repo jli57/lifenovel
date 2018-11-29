@@ -3,10 +3,9 @@ import { connect } from 'react-redux';
 import { fetchUsers } from '../../actions/user_actions';
 import Notifications from './notifications';
 
-class NotificationsContainer extends React.Component {
+class MessageNotificationsContainer extends React.Component {
 
   componentDidMount() {
-
   }
 
   componentWillReceiveProps(nextProps) {
@@ -30,8 +29,8 @@ const mapStateToProps = ({ entities: { users, userRelationships }, session }) =>
     currentUser: users[session.id],
     notifications,
     users,
-    notificationType: "Notifications",
-    message: ""
+    message: " has a new chat message",
+    notificationType: "Messages",
   }
 };
 
@@ -39,4 +38,4 @@ const mapDispatchToProps = dispatch => ({
   fetchUsers: (userIds) => dispatch( fetchUsers(userIds) ),
 });
 
-export default connect( mapStateToProps, mapDispatchToProps)( NotificationsContainer );
+export default connect( mapStateToProps, mapDispatchToProps)( MessageNotificationsContainer );
