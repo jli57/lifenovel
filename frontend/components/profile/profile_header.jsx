@@ -1,19 +1,18 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import FriendsMenuContainer from './friends_menu_container';
-import ProfilePhotoFormContainer from './profile_photo_form_container'; 
 
 const ProfileHeader = ({profileUser, currentUser, openModal }) => {
 
-  if ( profileUser === undefined || currentUser === undefined ) return null; 
+  if ( profileUser === undefined || currentUser === undefined ) return null;
 
   const editProfilePhoto = () => {
     return currentUser.id === profileUser.id ? (
       <div className="edit-profile-photo">
-        <i className="fas fa-camera"></i>  
+        <i className="fas fa-camera"></i>
         <span>Update Profile Picture</span>
-      </div> 
-    ) : null 
+      </div>
+    ) : null
   }
 
   const handleClick = (e) => {

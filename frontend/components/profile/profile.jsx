@@ -3,7 +3,6 @@ import FriendIndexContainer from '../friends/friend_index_container';
 import PostIndexContainer from '../posts/post_index_container';
 import AboutContainer from '../about/about_container';
 import ProfileHeaderContainer from './profile_header_container';
-import PageNotFound from '../main/page_not_found';
 import { BeatLoader } from 'react-spinners';
 
 class Profile extends React.Component {

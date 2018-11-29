@@ -18,10 +18,7 @@ class PhotoForm extends React.Component {
     const formData = new FormData();
     formData.append('user[profile_photo]', this.state.photoFile);
     this.props.submitAction(formData, this.state.id)
-      .then( () =>  {
-        console.log(formData);
-        this.props.closeForm();
-    } );
+      .then( () => this.props.closeForm() );
   }
 
   handleFile(e) {
