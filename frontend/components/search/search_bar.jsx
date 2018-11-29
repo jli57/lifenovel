@@ -22,14 +22,19 @@ class SearchBar extends React.Component {
     return (e) => {
       e.preventDefault();
       this.setState({[prop]: e.target.value},
-        () => {this.props.searchUsers(this.state.searchText)}
+        () => {
+          if ( this.state.searchText.trim() !== "" ) {
+            this.props.searchUsers(this.state.searchText);
+          } else {
+            this.props.closeModal();
+          }
+        }
       );
     }
   }
 
   handleOnFocus(e) {
     e.preventDefault();
-    // this.setState({showModal: !this.state.showModal})
     this.props.openModal( "search", {} );
   }
 
