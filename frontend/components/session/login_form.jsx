@@ -15,7 +15,7 @@ class LoginForm extends React.Component {
   }
 
   componentDidMount() {
-    this.props.receiveLogin(this.demoLogin); 
+    this.props.receiveLogin(this.demoLogin);
   }
 
   componentWillReceiveProps(nextProps) {
@@ -85,7 +85,7 @@ class LoginForm extends React.Component {
     );
 
     const forgot_account = (
-      <Link className="small-link" to="/">Forgot account?</Link>
+      <Link className="small-link" to="/wip">Forgot account?</Link>
     );
 
     const header_form = (

@@ -21,15 +21,13 @@ class PostForm extends React.Component {
       e.preventDefault();
     }
     const post = Object.assign({}, this.state);
-    this.setState({ body: ""},
-      () => {
-        this.props.submitAction(post);
-      }
-    );
+    this.props.submitAction(post).then( () => {
+      this.setState({ body: "" });
+    })
   }
 
   checkSubmit(e) {
-    if ( e.which === 13 && !e.shiftKey ) {
+    if ( e.which === 13 && !e.shiftKey && e.target.value.trim() !== "" ) {
       this.handleSubmit();
       return false;
     }
@@ -53,7 +51,7 @@ class PostForm extends React.Component {
           <img className="post-profile-icon" src={ this.props.currentUser.profile_photo } />
           <div className="textarea-container">
             <pre><span id="span"></span></pre>
-            <textarea
+            <textarea id="post-form-body"
               onChange={ this.update("body")}
               onKeyPress={ this.checkSubmit }
               onKeyDown={ this.handleKeyDown }
