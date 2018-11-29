@@ -7,19 +7,20 @@
   align-items: center;
   height: 570px;
 
+  > * {
+    margin: 10px 0;
+  }
+
   h1 {
     font-size: 24px;
-    margin: 15px;
   }
 
   h2 {
-    margin: 10px;
     font-size: 16px;
   }
 
   img {
-    width: 200px;
-    height: 200px;
+    width: 250px;
   }
 
   a {

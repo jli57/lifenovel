@@ -1,24 +1,24 @@
-@import 'base/colors.scss'; 
-@import 'base/fonts.scss'; 
+@import 'base/colors.scss';
+@import 'base/fonts.scss';
 
 .notifications {
-  top: 12px; 
-  right: -30px; 
-  width: 400px; 
-  color: black; 
+  top: 12px;
+  right: -30px;
+  width: 400px;
+  color: black;
   box-shadow: 2px 2px 5px #b2b2b2;
-  padding-top: 5px; 
+  padding-top: 5px;
 
   > * {
-    margin: 10px 0; 
+    margin: 10px 0;
   }
 
   h1 {
     padding: 0 15px;
-    font-weight: bold; 
+    font-weight: bold;
   }
   li:hover{
-    background-color: $faded-gray-hover; 
+    background-color: $faded-gray-hover;
   }
 
   div:last-of-type {
@@ -26,13 +26,13 @@
   }
 
   &:before {
-    content: ''; 
-    position: absolute; 
-    width: 0; 
-    height: 0; 
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 0;
     right: 5px;
     top: -5px;
-    border: 8px solid; 
+    border: 8px solid;
     transform: rotate(45deg);
     border-color: $white transparent transparent $white;
     z-index: 8;
@@ -40,79 +40,84 @@
 
 }
 
+.none-message {
+  color: $text-gray;
+  margin: 15px;
+}
+
 .notification-link {
-  display: flex; 
+  display: flex;
   justify-content: space-between;
   align-items: center;
-  color: $text-gray; 
-  
-  img { 
-    width: 35px; 
-    height: 35px; 
-    border-radius: 50%; 
-    margin: 5px; 
-    padding-left: 10px; 
+  color: $text-gray;
+
+  img {
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    margin: 5px;
+    padding-left: 10px;
   }
 
   div:last-of-type {
-    margin: 0 10px 0 0; 
+    margin: 0 10px 0 0;
   }
 
 }
 
 .notification-message {
-  display: flex; 
+  display: flex;
   align-items: center;
 
   div:first-of-type {
-    text-align: left; 
+    text-align: left;
 
     .name {
-      color: $facebook-blue; 
-      font-weight: 500; 
+      color: $facebook-blue;
+      font-weight: 500;
 
       &:hover {
-        text-decoration: underline; 
+        text-decoration: underline;
       }
     }
-    
+
   }
 }
 
-.alert { 
+.alert {
   position: absolute;
   right: 0;
-  top: -25%; 
+  top: -25%;
   vertical-align: middle;
   text-align: center;
-  padding: 2px; 
-  background: #ef4037; 
-  color: white; 
+  padding: 2px;
+  background: #ef4037;
+  color: white;
   font-size: 10px;
   font-family: $sans-serif;
   border-radius: 3px;
 }
 
 header {
-  
+
   .nav-icon {
     color: $navy-blue;
     transform: scale(1.75);
-    padding: 5px; 
+    padding: 5px;
     margin: 0 5px;
   }
-  
+
   .white {
-    color: white; 
+    color: white;
   }
 }
 
 .nav-icon-container {
-  cursor: pointer; 
+  cursor: pointer;
 }
 
 .nav-icon:focus {
-  color: white; 
+  color: white;
 }
 
 .fa-caret-down {
@@ -124,5 +129,5 @@ header .nav-icons {
 }
 
 .nav-icons > div {
-  position: relative; 
+  position: relative;
 }
