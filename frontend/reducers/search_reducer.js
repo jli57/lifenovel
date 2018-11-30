@@ -1,9 +1,9 @@
 import { combineReducers } from 'redux';
 
-import searchUsersReducer from './search_users_reducer'; 
+import searchUsersReducer from './search_users_reducer';
 
 const searchReducer = combineReducers({
-  users: searchUsersReducer, 
+  users: searchUsersReducer,
 });
 
 export default searchReducer;
