@@ -21,12 +21,13 @@ class SearchBar extends React.Component {
   update(prop) {
     return (e) => {
       e.preventDefault();
+      console.log(e.target.value);
       this.setState({[prop]: e.target.value},
         () => {
           if ( this.state.searchText.trim() !== "" ) {
             this.props.searchUsers(this.state.searchText);
           } else {
-            this.props.closeModal();
+            this.props.removeSearchUsers();
           }
         }
       );

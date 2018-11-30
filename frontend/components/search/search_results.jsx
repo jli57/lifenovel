@@ -1,14 +1,15 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import UserItem from './user_item';
+import EmptyList from '../notifications/empty_list';
 
 const SearchResults = ({ users, closeModal }) => {
-  if ( users.length === 0 ) return null;
   return (
     <div className="search-results" onClick={ () =>{ closeModal() }}>
+      { users.length === 0 ? ( <EmptyList /> ) : (
       <ul>
         { users.map( user => <UserItem key={user.id} user={user} />) }
-      </ul>
+      </ul> )}
       <div>
         <Link to="/wip">See All</Link>
       </div>

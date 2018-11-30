@@ -1,15 +1,14 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import moment from 'moment';
+import EmptyList from './empty_list';
 
 const Notifications = ({ notifications, users, notificationType, message }) => {
   return (
     <div className="notifications">
       <h1>{notificationType}</h1>
       { notifications.length === 0 ? (
-        <div className="none-message">
-          None :(
-        </div>
+        <EmptyList />
       ) : (
       <ul>
         { notifications.map( event => {
