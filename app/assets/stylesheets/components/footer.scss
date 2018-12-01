@@ -1,11 +1,8 @@
 @import 'base/fonts.scss';
 @import 'base/colors.scss';
 
-#footer-content {
-  width: 980px;
+.footer-content {
   margin: auto;
-  margin-top: 50px;
-  height: 150px;
   color: $facebook-blue;
 
   &:last-child {

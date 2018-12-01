@@ -5,7 +5,7 @@ import { FOOTER_LINKS } from '../../util/footer_util';
 const Footer = ({ currentUser, removeSessionErrors  }) => {
   const loggedOut = () => (
     <footer>
-      <div id="footer-content">
+      <div className="footer-content">
         <ul>
           <li>
             <NavLink to="/">English (US)</NavLink>
