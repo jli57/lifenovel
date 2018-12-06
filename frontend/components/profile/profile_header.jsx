@@ -23,7 +23,7 @@ const ProfileHeader = ({profileUser, currentUser, openModal }) => {
 
   return (
     <div className="profile-header">
-      <div className="cover-photo">
+      <div className="cover-photo">x
         <div className="profile-info">
           <h1>{ `${profileUser.first_name} ${profileUser.last_name}` }</h1>
         </div>

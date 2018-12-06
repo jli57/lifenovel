@@ -15,7 +15,7 @@ import WorkInProgress from './main/work_in_progress';
 const App = () => (
   <div id="app">
     <Route path="/" component={ HeaderContainer }/>
-    <main>
+    <main className="main">
       <Modal modalType="general" id={ 0 } />
       <div className="main-content">
         <Switch>

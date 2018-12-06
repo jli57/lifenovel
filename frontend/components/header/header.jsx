@@ -39,7 +39,7 @@ const Header = ({ currentUser, logout, history, openModal }) => {
           </Link>
           <SearchBarContainer />
         </div>
-        <div className="right-nav-bar flex">
+        <div className="right-nav-bar">
 
           <div className="nav-links">
 
