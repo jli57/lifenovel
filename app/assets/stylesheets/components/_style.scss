@@ -18,10 +18,13 @@ body {
   font-size: 12px;
 }
 
-main {
-  min-width: 980px;
-  padding: 20px 0;
+.main {
   background: $faded-blue;
+}
+
+.main-content {
+  margin: auto;
+  padding: 20px 0;
 }
 
 a {
@@ -42,11 +45,6 @@ ul {
 
 ::placeholder {
   color: $medium-gray;
-}
-
-.main-content {
-  width: 980px;
-  margin: auto;
 }
 
 .flex {

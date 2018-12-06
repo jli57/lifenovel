@@ -2,7 +2,6 @@
 @import 'base/colors.scss';
 
 .profile-header {
-  width: 865px;
   position: relative;
   margin: 0;
 }
@@ -29,6 +28,7 @@
   background-color: $white;
   font-size: 14px;
   font-weight: 600;
+  overflow: hidden;
 
   ul {
     padding-left: 220px;
@@ -50,9 +50,7 @@
 }
 
 .profile {
-  > * {
-    margin: 10px;
-  }
+  margin: auto;
 }
 
 .profile-info {
@@ -72,11 +70,6 @@
     // color: hsl(0, 0%, var(--switch));
     opacity: 1;
     z-index: 2;
-  }
-
-
-  > * {
-    margin: 5px 0;
   }
 }
 
@@ -98,18 +91,10 @@
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
-  width: 865px;
 
-  aside {
-    width: 350px;
+  aside, section {
     margin: 0;
   }
-
-  section {
-    width: 500px;
-    margin: 0;
-  }
-
 }
 
 .edit-profile-photo {
@@ -210,9 +195,9 @@
   }
 
   .profile-photo-upload {
+    height: 300px;
     margin: 10px;
     cursor: pointer;
-    height: 300px;
     border: 5px dashed $smoke-gray;
     font-size: 20px;
     text-align: center;
@@ -227,8 +212,8 @@
   }
 
   .preview {
-    margin: 10px;
     width: 300px;
+    margin: 10px;
     align-items: center;
     border: 1px solid $smoke-gray;
   }
@@ -242,3 +227,5 @@
     }
   }
 }
+
+

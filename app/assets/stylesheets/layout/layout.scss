@@ -1,0 +1,132 @@
+
+@media only screen and (min-width:865px) {
+  .main-content {
+    width: 980px;
+  }
+
+  .nav-bar, .user-nav-bar {
+    width: 1000px;
+    margin: auto;
+  }
+
+  .footer-content {
+    width: 980px;
+    height: 150px;
+    margin-top: 50px;
+  }
+
+  .profile {
+    width: 880px;
+  }
+
+  .profile-content {
+
+    section {
+      width: 59%;
+    }
+    aside {
+      width: 39%;
+    }
+  }
+
+  .login-form {
+    width: 600px;
+  }
+}
+
+@media only screen and (max-width:865px) {
+
+  .main-content, .footer-content {
+    width: 100%;
+  }
+
+  .homepage {
+    justify-content: center;
+
+    .intro {
+      display: none;
+    }
+  }
+
+  .user-homepage {
+    aside {
+      display: none;
+    }
+  }
+  .nav-bar, .user-navbar {
+    width: 100%;
+  }
+
+  .profile {
+    width: 100%;
+  }
+
+  .profile-content {
+    justify-content: center;
+    section {
+      width: 70%;
+    }
+
+    aside {
+      display: none;
+    }
+  }
+
+  .nav-bar, .user-nav-bar {
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .left-nav-bar {
+    display: none;
+  }
+
+}
+
+@media only screen and (max-width:800px) {
+
+  .user-homepage {
+    .side-section {
+      display: none;
+    }
+  }
+
+}
+
+
+@media only screen and (max-width:700px) {
+
+  .profile-content {
+    section {
+      width: 80%;
+    }
+  }
+}
+
+
+@media only screen and (max-width:650px) {
+
+  .left-nav-bar {
+    display: none;
+  }
+
+  .login-form {
+    margin: 5%;
+  }
+
+  .profile-actions {
+    display: none;
+  }
+
+  .profile-header {
+    width: 100%;
+  }
+
+  .profile-content {
+    section {
+      width: 95%;
+    }
+  }
+
+}
