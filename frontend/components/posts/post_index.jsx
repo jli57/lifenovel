@@ -26,14 +26,14 @@ class PostIndex extends React.Component {
         },
       } = this;
 
-      console.log("inner height", window.innerHeight);
-      console.log("scroll Top", document.documentElement.scrollTop);
-      console.log("total", window.innerHeight + document.documentElement.scrollTop);
-      console.log("off set", document.documentElement.offsetHeight );
+      // console.log("inner height", window.innerHeight);
+      // console.log("scroll Top", document.documentElement.scrollTop);
+      // console.log("total", window.innerHeight + document.documentElement.scrollTop);
+      // console.log("off set", document.documentElement.offsetHeight );
       if ( error || isLoading || !hasMore ) return;
 
       if (
-        window.innerHeight + document.documentElement.scrollTop
+        Math.ceil( window.innerHeight + document.documentElement.scrollTop )
           >= document.documentElement.offsetHeight
       ) {
         const options = {
