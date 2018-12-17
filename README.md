@@ -63,7 +63,7 @@ Lifenovel is made with rails in the backend and react/redux for the frontend. Th
   * Like/Unlike a comment
 * Search
   * Search a user
-  * <img src="images/search.gif" />
+  * <img src="images/search.gif"/>
 
 
 ## Technical Implementation
