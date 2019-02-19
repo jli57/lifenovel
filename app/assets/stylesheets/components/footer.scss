@@ -2,16 +2,17 @@
 @import 'base/colors.scss';
 
 .footer-content {
-  margin: auto;
-  color: $facebook-blue;
 
   &:last-child {
     padding-top: 5px;
     color: gray;
   }
+
 }
 
 footer {
+
+  background-color: $white;
 
   ul {
     display: flex;

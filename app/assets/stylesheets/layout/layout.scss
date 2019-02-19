@@ -10,9 +10,10 @@
   }
 
   .footer-content {
-    width: 980px;
-    height: 150px;
-    margin-top: 50px;
+    > * {
+      width: 980px;
+      margin: auto;
+    }
   }
 
   .profile {
@@ -36,8 +37,12 @@
 
 @media only screen and (max-width:865px) {
 
-  .main-content, .footer-content {
+  .main-content {
     width: 100%;
+  }
+
+  .footer-content > * {
+    margin: 0 20px;
   }
 
   .homepage {
