@@ -21,9 +21,11 @@ class PostForm extends React.Component {
       e.preventDefault();
     }
     const post = Object.assign({}, this.state);
-    this.props.submitAction(post).then( () => {
-      this.setState({ body: "" });
-    })
+    if ( this.state.body !== "" ) {
+      this.props.submitAction(post).then( () => {
+        this.setState({ body: "" });
+      })
+    }
   }
 
   checkSubmit(e) {
